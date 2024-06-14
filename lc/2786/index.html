@@ -81097,6 +81097,7 @@
 <p>因此，我们可以用一个长度为 $2$ 的数组 $f$ 来表示当前位置的奇偶性为 $0$ 和 $1$ 时的最大得分。初始时 $f$ 的值为 $-\infty$，然后我们再初始化 $f[nums[0] \&amp; 1] = nums[0]$，表示初始位置的得分。</p>
 <p>接下来，我们从位置 $1$ 开始遍历数组 $nums$，对于每个位置 $i$ 对应的值 $v$，我们更新 $f[v \&amp; 1]$ 的值为 $f[v \&amp; 1]$ 和 $f[v \&amp; 1 \oplus 1] - x$ 的较大值再加上 $v$，即 $f[v \&amp; 1] = \max(f[v \&amp; 1], f[v \&amp; 1 \oplus 1] - x) + v$。</p>
 <p>答案为 $f[0]$ 和 $f[1]$ 中的较大值。</p>
+<p>时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

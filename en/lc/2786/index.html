@@ -76497,6 +76497,7 @@ The total score is: 2 + 4 + 6 + 8 = 20.
 <p>Therefore, we can use an array $f$ of length $2$ to represent the maximum score when the current position's parity is $0$ and $1$. Initially, the values of $f$ are $-\infty$, and then we initialize $f[nums[0] \&amp; 1] = nums[0]$, indicating the score at the initial position.</p>
 <p>Next, we start traversing the array $nums$ from position $1$. For each position $i$ corresponding to the value $v$, we update the value of $f[v \&amp; 1]$ to be the larger value between $f[v \&amp; 1]$ and $f[v \&amp; 1 \oplus 1] - x$ plus $v$, i.e., $f[v \&amp; 1] = \max(f[v \&amp; 1], f[v \&amp; 1 \oplus 1] - x) + v$.</p>
 <p>The answer is the larger value between $f[0]$ and $f[1]$.</p>
+<p>The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
