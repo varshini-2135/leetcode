@@ -42953,7 +42953,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：左连接 + 求和
     </span>
   </a>
   
@@ -81123,8 +81123,9 @@ Chests 表：
 <h2 id="_2">解法</h2>
 <!-- solution:start -->
 
-<h3 id="_3">方法一</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
+<h3 id="_3">方法一：左连接 + 求和</h3>
+<p>我们可以将 <code>Boxes</code> 表和 <code>Chests</code> 表按照 <code>chest_id</code> 进行左连接，然后分别求出苹果和橘子的总个数。注意，如果某个箱子中没有小盒子，那么对应的 <code>chest_id</code> 为 <code>null</code>，此时我们需要认为该箱子中的小盒子中苹果和橘子的个数为 0。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label><label for="__tabbed_1_2">Python3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -81139,7 +81140,41 @@ Chests 表：
 <span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">IFNULL</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">orange_count</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">IFNULL</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">orange_count</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">orange_count</span>
 <span class="k">FROM</span>
 <span class="w">    </span><span class="n">Boxes</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">b</span>
-<span class="w">    </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Chests</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">chest_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">chest_id</span><span class="p">;</span>
+<span class="w">    </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Chests</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">chest_id</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="k">def</span> <span class="nf">count_apples_and_oranges</span><span class="p">(</span><span class="n">boxes</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">chests</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">merged_df</span> <span class="o">=</span> <span class="n">boxes</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+        <span class="n">chests</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;chest_id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;_box&quot;</span><span class="p">,</span> <span class="s2">&quot;_chest&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">apple_count</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">merged_df</span><span class="p">[</span><span class="s2">&quot;apple_count_box&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">merged_df</span><span class="p">[</span><span class="s2">&quot;apple_count_chest&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">orange_count</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">merged_df</span><span class="p">[</span><span class="s2">&quot;orange_count_box&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">merged_df</span><span class="p">[</span><span class="s2">&quot;orange_count_chest&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;apple_count&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">apple_count</span><span class="p">],</span> <span class="s2">&quot;orange_count&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">orange_count</span><span class="p">]})</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
