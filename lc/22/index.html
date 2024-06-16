@@ -7406,15 +7406,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      方法二
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -81097,7 +81088,7 @@
 <li>我们也可以选择添加一个右括号，递归执行 <code>dfs(l, r + 1, t + ")")</code>。</li>
 </ul>
 <p>时间复杂度 $O(2^{n\times 2} \times n)$，空间复杂度 $O(n)$。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">JavaScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">JavaScript</label><label for="__tabbed_1_8">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -81299,32 +81290,24 @@
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">left</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">res</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">clone</span><span class="p">());</span>
-<span class="w">            </span><span class="k">return</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="sc">&#39;(&#39;</span><span class="p">);</span>
-<span class="w">            </span><span class="bp">Self</span><span class="p">::</span><span class="n">dfs</span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<span class="w">            </span><span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="sc">&#39;)&#39;</span><span class="p">);</span>
-<span class="w">            </span><span class="bp">Self</span><span class="p">::</span><span class="n">dfs</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<span class="w">            </span><span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">generate_parenthesis</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
-<span class="w">        </span><span class="bp">Self</span><span class="p">::</span><span class="n">dfs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">new</span><span class="p">(),</span><span class="w"> </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-<span class="w">        </span><span class="n">res</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">fn</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">ans</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">ans</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<span class="w">                </span><span class="k">return</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">dfs</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="fm">format!</span><span class="p">(</span><span class="s">&quot;{}(&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">),</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="w">            </span><span class="n">dfs</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="fm">format!</span><span class="p">(</span><span class="s">&quot;{})&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">),</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">dfs</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">new</span><span class="p">(),</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ans</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -81371,15 +81354,6 @@
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
 </div>
-</div>
-</div>
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-<h3 id="_3">方法二</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Rust</label><label for="__tabbed_2_2">PHP</label></div>
-<div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -81404,88 +81378,28 @@
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">generate_parenthesis</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">dp</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="fm">vec!</span><span class="p">[];</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
-
-<span class="w">        </span><span class="c1">// Initialize the dp vector</span>
-<span class="w">        </span><span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">push</span><span class="p">(</span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">));</span>
-<span class="w">        </span><span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">push</span><span class="p">(</span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;()&quot;</span><span class="p">));</span>
-
-<span class="w">        </span><span class="c1">// Begin the actual dp process</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">2</span><span class="o">..=</span><span class="n">n</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="n">i</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">dp_c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dp</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
-<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">first_half</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">dp_c</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
-<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">second_half</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">dp_c</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
-
-<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">first_half</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="k">for</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">second_half</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                        </span><span class="kd">let</span><span class="w"> </span><span class="n">f_c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
-<span class="w">                        </span><span class="kd">let</span><span class="w"> </span><span class="n">cur_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f_c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;(&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">&amp;*</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">;</span>
-<span class="w">                        </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">push</span><span class="p">(</span><span class="n">cur_str</span><span class="p">);</span>
-<span class="w">                    </span><span class="p">}</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">].</span><span class="n">clone</span><span class="p">()</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">class Solution {</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">class Solution {</span>
 <span class="x">    /**</span>
-<span class="x">     * @param int $n</span>
-<span class="x">     * @return string[]</span>
+<span class="x">     * @param Integer $n</span>
+<span class="x">     * @return String[]</span>
 <span class="x">     */</span>
-
 <span class="x">    function generateParenthesis($n) {</span>
-<span class="x">        $result = [];</span>
-<span class="x">        $this-&gt;backtrack($result, &#39;&#39;, 0, 0, $n);</span>
-<span class="x">        return $result;</span>
-<span class="x">    }</span>
+<span class="x">        $ans = [];</span>
 
-<span class="x">    function backtrack(&amp;$result, $current, $open, $close, $max) {</span>
-<span class="x">        if (strlen($current) === $max * 2) {</span>
-<span class="x">            $result[] = $current;</span>
-<span class="x">            return;</span>
-<span class="x">        }</span>
-<span class="x">        if ($open &lt; $max) {</span>
-<span class="x">            $this-&gt;backtrack($result, $current . &#39;(&#39;, $open + 1, $close, $max);</span>
-<span class="x">        }</span>
-<span class="x">        if ($close &lt; $open) {</span>
-<span class="x">            $this-&gt;backtrack($result, $current . &#39;)&#39;, $open, $close + 1, $max);</span>
-<span class="x">        }</span>
+<span class="x">        $dfs = function ($l, $r, $t) use ($n, &amp;$ans, &amp;$dfs) {</span>
+<span class="x">            if ($l &gt; $n || $r &gt; $n || $l &lt; $r) {</span>
+<span class="x">                return;</span>
+<span class="x">            }</span>
+<span class="x">            if ($l == $n &amp;&amp; $r == $n) {</span>
+<span class="x">                $ans[] = $t;</span>
+<span class="x">                return;</span>
+<span class="x">            }</span>
+<span class="x">            $dfs($l + 1, $r, $t . &#39;(&#39;);</span>
+<span class="x">            $dfs($l, $r + 1, $t . &#39;)&#39;);</span>
+<span class="x">        };</span>
+
+<span class="x">        $dfs(0, 0, &#39;&#39;);</span>
+<span class="x">        return $ans;</span>
 <span class="x">    }</span>
 <span class="x">}</span>
 </code></pre></div></td></tr></table></div>
