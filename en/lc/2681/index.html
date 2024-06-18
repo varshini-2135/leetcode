@@ -63205,9 +63205,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-sorting-mathematics" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Sorting + Mathematics
     </span>
   </a>
   
@@ -76598,7 +76598,16 @@ The sum of powers of all groups is 8 + 1 + 64 + 4 + 32 + 16 + 16 = 141.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-sorting-mathematics">Solution 1: Sorting + Mathematics</h3>
+<p>We notice that the problem involves the maximum and minimum values of a subsequence, and the order of elements in the array does not affect the final result. Therefore, we can sort the array first.</p>
+<p>Next, we enumerate each element as the minimum value of the subsequence. Let's denote each element of the array as $a_1, a_2, \cdots, a_n$. The contribution of the subsequence with $a_i$ as the minimum value is:</p>
+<p>$$
+a_i \times (a_{i}^{2} + a_{i+1}^2 + 2 \times a_{i+2}^2 + 4 \times a_{i+3}^2 + \cdots + 2^{n-i-1} \times a_n^2)
+$$</p>
+<p>We notice that each $a_i$ will be multiplied by $a_i^2$, which we can directly add to the answer. For the remaining part, we can maintain it with a variable $p$, initially set to $0$.</p>
+<p>Then, we enumerate $a_i$ from right to left. Each time, we add $a_i \times p$ to the answer, and then set $p = p \times 2 + a_i^2$.</p>
+<p>After enumerating all $a_i$, return the answer.</p>
+<p>The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
