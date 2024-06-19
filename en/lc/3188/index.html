@@ -76682,9 +76682,9 @@ Each row contains the student ID, course ID, semester, and grade received.
 <!-- solution:start -->
 
 <h3 id="solution-1-joining-grouping-conditional-filtering">Solution 1: Joining + Grouping + Conditional Filtering</h3>
-<p>First, we calculate the average GPA of each student and store it in a temporary table <code>T</code>.</p>
-<p>Next, we join the <code>students</code> table with the <code>courses</code> table based on <code>major</code>, and then join with the <code>T</code> table based on <code>student_id</code>, followed by a left join with the <code>enrollments</code> table based on <code>student_id</code> and <code>course_id</code>.</p>
-<p>After that, we filter out students with an average GPA greater than or equal to 2.5, group by student ID, use the <code>HAVING</code> clause to filter students who meet the criteria, and finally sort by student ID.</p>
+<p>First, we filter out students with an average GPA greater than or equal to 2.5 and record them in table <code>T</code>.</p>
+<p>Next, we join the <code>T</code> table with the <code>students</code> table based on <code>student_id</code>, then join with the <code>courses</code> table based on <code>major</code>, and finally perform a left join with the <code>enrollments</code> table based on <code>student_id</code> and <code>course_id</code>.</p>
+<p>After that, we group by student ID, use the <code>HAVING</code> clause to filter out students who meet the conditions, and finally sort by student ID.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -76710,17 +76710,17 @@ Each row contains the student ID, course ID, semester, and grade received.
 <span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
 <span class="k">WITH</span>
 <span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">student_id</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">GPA</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">avg_gpa</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">student_id</span>
 <span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">enrollments</span>
 <span class="w">        </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="k">HAVING</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">GPA</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">5</span>
 <span class="w">    </span><span class="p">)</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="n">student_id</span>
 <span class="k">FROM</span>
-<span class="w">    </span><span class="n">students</span>
+<span class="w">    </span><span class="n">T</span>
+<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">student_id</span><span class="p">)</span>
 <span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">courses</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">major</span><span class="p">)</span>
-<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">student_id</span><span class="p">)</span>
 <span class="w">    </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">enrollments</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">student_id</span><span class="p">,</span><span class="w"> </span><span class="n">course_id</span><span class="p">)</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">avg_gpa</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">5</span>
 <span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span>
 <span class="k">HAVING</span>
 <span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">mandatory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;yes&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">grade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">mandatory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;yes&#39;</span><span class="p">)</span>

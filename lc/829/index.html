@@ -73927,7 +73927,7 @@
         
   
   <span class="md-ellipsis">
-    3188. Find Top Scoring Students II 🔒
+    3188. 查找得分最高的学生 II 🔒
   </span>
   
 
@@ -81195,12 +81195,18 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：数学推导</h3>
-<p>连续正整数构成一个等差数列($d=1$)。我们假设等差数列的第一项为 $a$，项数为 $k$，则 $n=(a+a+k-1)<em>k/2$，即 $n</em>2=(a<em>2+k-1)</em>k$ ①。</p>
-<p>由于是连续正整数， $a&gt;=1$，所以 ① 可以化为 $n<em>2&gt;=(k+1)</em>k$，即 $k<em>(k+1)&lt;=n</em>2$ ②。</p>
-<p>因此，$k$ 的范围需要满足 $k&gt;=1$ 并且 $k<em>(k+1)&lt;=n</em>2$。另外，我们从 ① 式可以发现，$k$ 必须能整除 $n*2$。</p>
-<p>综上，我们枚举 $k$，累加满足条件的 $k$ 的个数即可。</p>
-<p>时间复杂度 $O(\sqrt{n})$。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
+<p>连续正整数构成一个公差 $d = 1$ 的等差数列。我们假设等差数列的第一项为 $a$，项数为 $k$，那么 $n = (a + a + k - 1) \times k / 2$，即 $n \times 2 = (a \times 2 + k - 1) \times k$。这里我们可以得出 $k$ 一定能整除 $n \times 2$，并且 $(n \times 2) / k - k + 1$ 一定是偶数。</p>
+<p>由于 $a \geq 1$，所以 $n \times 2 = (a \times 2 + k - 1) \times k \geq k \times (k + 1)$。</p>
+<p>综上，我们可以得出：</p>
+<ol>
+<li>$k$ 一定能整除 $n \times 2$；</li>
+<li>$k \times (k + 1) \leq n \times 2$；</li>
+<li>$(n \times 2) / k - k + 1$ 一定是偶数。</li>
+</ol>
+<p>我们从 $k = 1$ 开始枚举，当 $k \times (k + 1) &gt; n \times 2$ 时，我们可以结束枚举。在枚举的过程中，我们判断 $k$ 是否能整除 $n \times 2$，并且 $(n \times 2) / k - k + 1$ 是否是偶数，如果是则满足条件，答案加一。</p>
+<p>枚举结束后，返回答案即可。</p>
+<p>时间复杂度 $O(\sqrt{n})$，其中 $n$ 为给定的正整数。空间复杂度 $O(1)$。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -81297,6 +81303,28 @@
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ans</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">consecutiveNumbersSum</span><span class="p">(</span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">n</span><span class="w"> </span><span class="o">&lt;&lt;=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="nx">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">k</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">k</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="o">++</span><span class="nx">ans</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ans</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
