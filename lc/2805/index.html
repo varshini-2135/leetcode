@@ -15686,7 +15686,7 @@
         
   
   <span class="md-ellipsis">
-    419. 甲板上的战舰
+    419. 棋盘上的战舰
   </span>
   
 
@@ -81261,18 +81261,24 @@ setTimeout(() =&gt; {
 <span class="normal">23</span>
 <span class="normal">24</span>
 <span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">intervalMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="o">&lt;</span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">NodeJS</span><span class="p">.</span><span class="nx">Timeout</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">intervalMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="o">&lt;</span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">NodeJS</span><span class="p">.</span><span class="nx">Timeout</span><span class="o">&gt;</span><span class="p">();</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">customInterval</span><span class="p">(</span><span class="nx">fn</span><span class="o">:</span><span class="w"> </span><span class="kt">Function</span><span class="p">,</span><span class="w"> </span><span class="nx">delay</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">period</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">recursiveTimeout</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">intervalMap</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span>
 <span class="w">            </span><span class="nx">id</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="nx">fn</span><span class="p">();</span>
-<span class="w">                </span><span class="nx">count</span><span class="o">++</span><span class="p">;</span>
-<span class="w">                </span><span class="nx">recursiveTimeout</span><span class="p">();</span>
-<span class="w">            </span><span class="p">},</span><span class="w"> </span><span class="nx">delay</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">period</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">count</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">setTimeout</span><span class="p">(</span>
+<span class="w">                </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">fn</span><span class="p">();</span>
+<span class="w">                    </span><span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">                    </span><span class="nx">recursiveTimeout</span><span class="p">();</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nx">delay</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">period</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">count</span><span class="p">,</span>
+<span class="w">            </span><span class="p">),</span>
 <span class="w">        </span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
