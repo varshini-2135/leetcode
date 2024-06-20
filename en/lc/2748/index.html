@@ -6819,6 +6819,8 @@
       
         
       
+        
+      
     
     
       
@@ -64614,9 +64616,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-counting" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Counting
     </span>
   </a>
   
@@ -73897,6 +73899,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3189/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3189. Minimum Moves to Get a Peaceful Board 🔒
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -76620,7 +76643,11 @@ Thus, we return 2.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-counting">Solution 1: Counting</h3>
+<p>We can use an array $\text{cnt}$ of length $10$ to record the count of the first digit of each number.</p>
+<p>Iterate through the array $\text{nums}$. For each number $x$, we enumerate each digit $y$ from $0$ to $9$. If $\text{cnt}[y]$ is not $0$ and $\text{gcd}(x \mod 10, y) = 1$, then the answer is incremented by $\text{cnt}[y]$. Then, we increment the count of the first digit of $x$ by $1$.</p>
+<p>After the iteration, return the answer.</p>
+<p>The time complexity is $O(n \times (k + \log M))$, and the space complexity is $O(k + \log M)$. Here, $n$ is the length of the array $\text{nums}$, while $k$ and $M$ respectively represent the number of distinct numbers and the maximum value in the array $\text{nums}$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

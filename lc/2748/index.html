@@ -6859,6 +6859,8 @@
       
         
       
+        
+      
     
     
       
@@ -64656,7 +64658,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：计数
     </span>
   </a>
   
@@ -73937,6 +73939,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3189/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3189. Minimum Moves to Get a Peaceful Board 🔒
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -81221,7 +81244,11 @@ i = 0 和 j = 2 ：nums[0] 的第一个数字是 1 ，nums[2] 的最后一个数
 <h2 id="_2">解法</h2>
 <!-- solution:start -->
 
-<h3 id="_3">方法一</h3>
+<h3 id="_3">方法一：计数</h3>
+<p>我们可以用一个长度为 $10$ 的数组 $\text{cnt}$ 来记录每个数字的第一个数字出现的次数。</p>
+<p>遍历数组 $\text{nums}$，对于每个数字 $x$，我们枚举 $0$ 到 $9$ 的每个数字 $y$，如果 $\text{cnt}[y]$ 不为 $0$ 且 $\text{gcd}(x b\mod 10, y) = 1$，则答案加上 $\text{cnt}[y]$。然后，我们将 $x$ 的第一个数字出现的次数加 $1$。</p>
+<p>遍历结束后，返回答案即可。</p>
+<p>时间复杂度 $O(n \times (k + \log M))$，空间复杂度 $O(k + \log M)$。其中 $n$ 为数组 $\text{nums}$ 的长度，而 $k$ 和 $M$ 分别表示数组 $\text{nums}$ 中的数字的种类以及最大值。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
