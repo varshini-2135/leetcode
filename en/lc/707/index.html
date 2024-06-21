@@ -77401,11 +77401,7 @@ myLinkedList.get(1);              // return 3
 <span class="normal">86</span>
 <span class="normal">87</span>
 <span class="normal">88</span>
-<span class="normal">89</span>
-<span class="normal">90</span>
-<span class="normal">91</span>
-<span class="normal">92</span>
-<span class="normal">93</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#[derive(Default)]</span>
+<span class="normal">89</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#[derive(Default)]</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">MyLinkedList</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">head</span><span class="p">:</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">&gt;&gt;</span><span class="p">,</span>
 <span class="p">}</span>
@@ -77439,12 +77435,10 @@ myLinkedList.get(1);              // return 3
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">add_at_head</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span>
-<span class="w">            </span><span class="nb">Box</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="n">ListNode</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">val</span><span class="p">,</span>
-<span class="w">                </span><span class="n">next</span><span class="p">:</span><span class="w"> </span><span class="nc">self</span><span class="p">.</span><span class="n">head</span><span class="p">.</span><span class="n">take</span><span class="p">(),</span>
-<span class="w">            </span><span class="p">})</span>
-<span class="w">        </span><span class="p">);</span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="nb">Box</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="n">ListNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">val</span><span class="p">,</span>
+<span class="w">            </span><span class="n">next</span><span class="p">:</span><span class="w"> </span><span class="nc">self</span><span class="p">.</span><span class="n">head</span><span class="p">.</span><span class="n">take</span><span class="p">(),</span>
+<span class="w">        </span><span class="p">}));</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">add_at_tail</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -77473,12 +77467,10 @@ myLinkedList.get(1);              // return 3
 <span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">next</span><span class="p">.</span><span class="n">as_mut</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span>
 <span class="w">            </span><span class="n">index</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="n">cur</span><span class="p">.</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span>
-<span class="w">            </span><span class="nb">Box</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="n">ListNode</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">val</span><span class="p">,</span>
-<span class="w">                </span><span class="n">next</span><span class="p">:</span><span class="w"> </span><span class="nc">cur</span><span class="p">.</span><span class="n">next</span><span class="p">.</span><span class="n">take</span><span class="p">(),</span>
-<span class="w">            </span><span class="p">})</span>
-<span class="w">        </span><span class="p">);</span>
+<span class="w">        </span><span class="n">cur</span><span class="p">.</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="nb">Box</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="n">ListNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">val</span><span class="p">,</span>
+<span class="w">            </span><span class="n">next</span><span class="p">:</span><span class="w"> </span><span class="nc">cur</span><span class="p">.</span><span class="n">next</span><span class="p">.</span><span class="n">take</span><span class="p">(),</span>
+<span class="w">        </span><span class="p">}));</span>
 <span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dummy</span><span class="p">.</span><span class="n">next</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 

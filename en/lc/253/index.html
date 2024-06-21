@@ -76773,7 +76773,7 @@
 <span class="normal">32</span>
 <span class="normal">33</span>
 <span class="normal">34</span>
-<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::{</span><span class="w"> </span><span class="n">collections</span><span class="p">::</span><span class="n">BinaryHeap</span><span class="p">,</span><span class="w"> </span><span class="n">cmp</span><span class="p">::</span><span class="n">Reverse</span><span class="w"> </span><span class="p">};</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::{</span><span class="n">cmp</span><span class="p">::</span><span class="n">Reverse</span><span class="p">,</span><span class="w"> </span><span class="n">collections</span><span class="p">::</span><span class="n">BinaryHeap</span><span class="p">};</span>
 
 <span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="cp">#[allow(dead_code)]</span>
@@ -76784,7 +76784,7 @@
 <span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intervals</span><span class="p">.</span><span class="n">len</span><span class="p">();</span>
 
 <span class="w">        </span><span class="c1">// Let&#39;s first sort the intervals vector</span>
-<span class="w">        </span><span class="n">intervals</span><span class="p">.</span><span class="n">sort_by</span><span class="p">(</span><span class="o">|</span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">rhs</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lhs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">cmp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="p">});</span>
+<span class="w">        </span><span class="n">intervals</span><span class="p">.</span><span class="n">sort_by</span><span class="p">(</span><span class="o">|</span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">rhs</span><span class="o">|</span><span class="w"> </span><span class="n">lhs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">cmp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
 
 <span class="w">        </span><span class="c1">// Push the first end time to the heap</span>
 <span class="w">        </span><span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">Reverse</span><span class="p">(</span><span class="n">intervals</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]));</span>

@@ -77369,12 +77369,7 @@ magicDictionary.search(&quot;leetcoded&quot;); // return False
 <span class="normal">71</span>
 <span class="normal">72</span>
 <span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">collections</span><span class="p">::</span><span class="n">HashMap</span><span class="p">;</span>
+<span class="normal">74</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">collections</span><span class="p">::</span><span class="n">HashMap</span><span class="p">;</span>
 
 <span class="cp">#[derive(Clone)]</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">Trie</span><span class="w"> </span><span class="p">{</span>
@@ -77414,12 +77409,7 @@ magicDictionary.search(&quot;leetcoded&quot;); // return False
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">diff</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">child</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">enumerate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">child</span><span class="p">.</span><span class="n">is_some</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="k">if</span>
-<span class="w">                        </span><span class="n">child</span>
-<span class="w">                            </span><span class="p">.</span><span class="n">as_ref</span><span class="p">()</span>
-<span class="w">                            </span><span class="p">.</span><span class="n">unwrap</span><span class="p">()</span>
-<span class="w">                            </span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="o">&amp;</span><span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">                    </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="n">child</span><span class="p">.</span><span class="n">as_ref</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="n">search</span><span class="p">(</span><span class="o">&amp;</span><span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <span class="w">                    </span><span class="p">}</span>
 <span class="w">                </span><span class="p">}</span>

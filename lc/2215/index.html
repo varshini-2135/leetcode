@@ -81428,7 +81428,7 @@ nums2 中的每个整数都在 nums1 中出现，因此，answer[1] = [] 。
 <span class="w">                </span><span class="p">.</span><span class="n">filter_map</span><span class="p">(</span><span class="o">|&amp;</span><span class="n">v</span><span class="o">|</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">nums1</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="o">&amp;</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">None</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
 <span class="w">                </span><span class="p">.</span><span class="n">collect</span><span class="p">::</span><span class="o">&lt;</span><span class="n">HashSet</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="p">()</span>
 <span class="w">                </span><span class="p">.</span><span class="n">into_iter</span><span class="p">()</span>
-<span class="w">                </span><span class="p">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="n">collect</span><span class="p">(),</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>

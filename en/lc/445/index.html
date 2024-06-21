@@ -77055,7 +77055,7 @@
 
 <span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">add_two_numbers</span><span class="p">(</span>
 <span class="w">        </span><span class="k">mut</span><span class="w"> </span><span class="n">l1</span><span class="p">:</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">&gt;&gt;</span><span class="p">,</span>
-<span class="w">        </span><span class="k">mut</span><span class="w"> </span><span class="n">l2</span><span class="p">:</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">&gt;&gt;</span>
+<span class="w">        </span><span class="k">mut</span><span class="w"> </span><span class="n">l2</span><span class="p">:</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">&gt;&gt;</span><span class="p">,</span>
 <span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">l1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">Self</span><span class="p">::</span><span class="n">reverse</span><span class="p">(</span><span class="n">l1</span><span class="p">);</span>
 <span class="w">        </span><span class="n">l2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">Self</span><span class="p">::</span><span class="n">reverse</span><span class="p">(</span><span class="n">l2</span><span class="p">);</span>
@@ -77140,9 +77140,7 @@
 <span class="normal">48</span>
 <span class="normal">49</span>
 <span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Definition for singly-linked list.</span>
+<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Definition for singly-linked list.</span>
 <span class="c1">// #[derive(PartialEq, Eq, Clone, Debug)]</span>
 <span class="c1">// pub struct ListNode {</span>
 <span class="c1">//   pub val: i32,</span>
@@ -77170,7 +77168,7 @@
 
 <span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">add_two_numbers</span><span class="p">(</span>
 <span class="w">        </span><span class="n">l1</span><span class="p">:</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">&gt;&gt;</span><span class="p">,</span>
-<span class="w">        </span><span class="n">l2</span><span class="p">:</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">&gt;&gt;</span>
+<span class="w">        </span><span class="n">l2</span><span class="p">:</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">&gt;&gt;</span><span class="p">,</span>
 <span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">Self</span><span class="p">::</span><span class="n">create_stack</span><span class="p">(</span><span class="n">l1</span><span class="p">);</span>
 <span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">Self</span><span class="p">::</span><span class="n">create_stack</span><span class="p">(</span><span class="n">l2</span><span class="p">);</span>
@@ -77184,12 +77182,10 @@
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="n">carry</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
 <span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="n">dummy</span><span class="p">.</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span>
-<span class="w">                </span><span class="nb">Box</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="n">ListNode</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">val</span><span class="p">:</span><span class="w"> </span><span class="nc">carry</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
-<span class="w">                    </span><span class="n">next</span><span class="p">:</span><span class="w"> </span><span class="nc">dummy</span><span class="p">.</span><span class="n">next</span><span class="p">.</span><span class="n">take</span><span class="p">(),</span>
-<span class="w">                </span><span class="p">})</span>
-<span class="w">            </span><span class="p">);</span>
+<span class="w">            </span><span class="n">dummy</span><span class="p">.</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="nb">Box</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="n">ListNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">val</span><span class="p">:</span><span class="w"> </span><span class="nc">carry</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">                </span><span class="n">next</span><span class="p">:</span><span class="w"> </span><span class="nc">dummy</span><span class="p">.</span><span class="n">next</span><span class="p">.</span><span class="n">take</span><span class="p">(),</span>
+<span class="w">            </span><span class="p">}));</span>
 <span class="w">            </span><span class="n">carry</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="n">dummy</span><span class="p">.</span><span class="n">next</span><span class="p">.</span><span class="n">take</span><span class="p">()</span>
