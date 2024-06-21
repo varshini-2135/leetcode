@@ -76827,11 +76827,7 @@ wordsFrequency.get(&quot;pen&quot;); //returns 1
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">collections</span><span class="p">::</span><span class="n">HashMap</span><span class="p">;</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">collections</span><span class="p">::</span><span class="n">HashMap</span><span class="p">;</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">WordsFrequency</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">cnt</span><span class="p">:</span><span class="w"> </span><span class="nc">HashMap</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span>
 <span class="p">}</span>
@@ -76852,11 +76848,7 @@ wordsFrequency.get(&quot;pen&quot;); //returns 1
 <span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">word</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">cnt</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">word</span><span class="p">).</span><span class="n">unwrap_or</span><span class="p">(</span><span class="o">&amp;</span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="p">}</span><span class="sd">/**</span>
-<span class="sd"> * Your WordsFrequency object will be instantiated and called as such:</span>
-<span class="sd"> * let obj = WordsFrequency::new(book);</span>
-<span class="sd"> * let ret_1: i32 = obj.get(word);</span>
-<span class="sd"> */</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">

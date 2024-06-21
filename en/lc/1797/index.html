@@ -77023,13 +77023,7 @@ authenticationManager.countUnexpiredTokens(15); // The token with tokenId &quot;
 <span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">collections</span><span class="p">::</span><span class="n">HashMap</span><span class="p">;</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">collections</span><span class="p">::</span><span class="n">HashMap</span><span class="p">;</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">AuthenticationManager</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">time_to_live</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span>
 <span class="w">    </span><span class="n">map</span><span class="p">:</span><span class="w"> </span><span class="nc">HashMap</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span>
@@ -77064,13 +77058,7 @@ authenticationManager.countUnexpiredTokens(15); // The token with tokenId &quot;
 <span class="w">            </span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="o">|&amp;</span><span class="n">time</span><span class="o">|</span><span class="w"> </span><span class="o">*</span><span class="n">time</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">current_time</span><span class="p">)</span>
 <span class="w">            </span><span class="p">.</span><span class="n">count</span><span class="p">()</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="p">}</span><span class="sd">/**</span>
-<span class="sd"> * Your AuthenticationManager object will be instantiated and called as such:</span>
-<span class="sd"> * let obj = AuthenticationManager::new(timeToLive);</span>
-<span class="sd"> * obj.generate(tokenId, currentTime);</span>
-<span class="sd"> * obj.renew(tokenId, currentTime);</span>
-<span class="sd"> * let ret_3: i32 = obj.count_unexpired_tokens(currentTime);</span>
-<span class="sd"> */</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
