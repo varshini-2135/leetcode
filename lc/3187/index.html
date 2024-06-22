@@ -81260,7 +81260,7 @@
 
 <h3 id="_3">方法一：树状数组</h3>
 <p>根据题目描述，对于 $0 &lt; i &lt; n - 1$，如果满足 $nums[i - 1] &lt; nums[i]$ 且 $nums[i] &gt; nums[i + 1]$，我们可以将 $nums[i]$ 视为 $1$，否则视为 $0$。这样，对于操作 $1$，即查询子数组 $nums[l..r]$ 中的峰值元素个数，相当于查询区间 $[l + 1, r - 1]$ 中 $1$ 的个数。我们可以使用树状数组来维护区间 $[1, n - 1]$ 中 $1$ 的个数。</p>
-<p>而对于操作 $1$，即把 $nums[idx]$ 更新为 $val$，只会影响到 $idx - 1$、$idx$、$idx + 1$ 这三个位置的值，因此我们只需要更新这三个位置即可。具体地，我们可以先把这三个位置的峰值元素去掉，然后更新 $nums[idx]$ 的值，最后再把这三个位置的峰值元素加回来。</p>
+<p>而对于操作 $1$，即把 $nums[idx]$ 更新为 $val$，只会影响到 $idx - 1$, $idx$, $idx + 1$ 这三个位置的值，因此我们只需要更新这三个位置即可。具体地，我们可以先把这三个位置的峰值元素去掉，然后更新 $nums[idx]$ 的值，最后再把这三个位置的峰值元素加回来。</p>
 <p>时间复杂度 $O((n + q) \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $q$ 分别是数组 <code>nums</code> 的长度和查询数组 <code>queries</code> 的长度。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
