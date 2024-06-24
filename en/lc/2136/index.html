@@ -51780,9 +51780,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-greedy-sorting" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Greedy + Sorting
     </span>
   </a>
   
@@ -76831,7 +76831,9 @@ Thus, on day 2, all the seeds are blooming.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-greedy-sorting">Solution 1: Greedy + Sorting</h3>
+<p>According to the problem description, we know that only one seed can be planted per day. Therefore, regardless of the planting order, the sum of the planting times for all seeds is always equal to $\sum_{i=0}^{n-1} plantTime[i]$. To make all seeds bloom as soon as possible, we should prioritize planting the seeds with the longest growth time. Hence, we can sort all seeds by their growth time in descending order and then plant them in sequence.</p>
+<p>The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of seeds.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
