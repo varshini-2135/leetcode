@@ -51885,9 +51885,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-binary-search" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Binary Search
     </span>
   </a>
   
@@ -76823,7 +76823,11 @@ We can run the two computers simultaneously for at most 2 minutes, so we return 
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-binary-search">Solution 1: Binary Search</h3>
+<p>We notice that if we can run $n$ computers simultaneously for $t$ minutes, then we can also run $n$ computers simultaneously for $t' \le t$ minutes, which shows monotonicity. Therefore, we can use the binary search method to find the maximum $t$.</p>
+<p>We define the left boundary of the binary search as $l=0$ and the right boundary as $r=\sum_{i=0}^{n-1} batteries[i]$. During each binary search iteration, we use a variable $mid$ to represent the current middle value, i.e., $mid = (l + r + 1) &gt;&gt; 1$. We check if there exists a scheme that allows $n$ computers to run simultaneously for $mid$ minutes. If such a scheme exists, then we update $l$ to $mid$; otherwise, we update $r$ to $mid - 1$. Finally, we return $l$ as the answer.</p>
+<p>The problem is transformed into how to determine if there exists a scheme that allows $n$ computers to run simultaneously for $mid$ minutes. If a battery can run for more minutes than $mid$, since the computers run simultaneously for $mid$ minutes and a battery can only power one computer at a time, we can only use this battery for $mid$ minutes. If a battery can run for minutes less than or equal to $mid$, we can use all the power of this battery. Therefore, we calculate the total minutes $s$ that all batteries can power, and if $s \ge n \times mid$, then we can make $n$ computers run simultaneously for $mid$ minutes.</p>
+<p>The time complexity is $O(n \times \log M)$, where $M$ is the total power of all batteries, and the space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

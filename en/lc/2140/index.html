@@ -51864,18 +51864,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-memoization-search" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Memoization Search
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
+  <a href="#solution-2-dynamic-programming" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2
+      Solution 2: Dynamic Programming
     </span>
   </a>
   
@@ -76829,7 +76829,15 @@ Total points earned: 2 + 5 = 7. There is no other way to earn 7 or more points.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-memoization-search">Solution 1: Memoization Search</h3>
+<p>We design a function $dfs(i)$, which represents the maximum score that can be obtained starting from the $i$-th problem. Therefore, the answer is $dfs(0)$.</p>
+<p>The calculation method of the function $dfs(i)$ is as follows:</p>
+<ul>
+<li>If $i \geq n$, it means that all problems have been solved, return $0$;</li>
+<li>Otherwise, let the score of the $i$-th problem be $p$, and the number of problems to skip be $b$, then $dfs(i) = \max(p + dfs(i + b + 1), dfs(i + 1))$.</li>
+</ul>
+<p>To avoid repeated calculations, we can use the method of memoization search, using an array $f$ to record the values of all already computed $dfs(i)$.</p>
+<p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of problems.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -77016,7 +77024,14 @@ Total points earned: 2 + 5 = 7. There is no other way to earn 7 or more points.
 
 <!-- solution:start -->
 
-<h3 id="solution-2">Solution 2</h3>
+<h3 id="solution-2-dynamic-programming">Solution 2: Dynamic Programming</h3>
+<p>We define $f[i]$ as the maximum score that can be obtained starting from the $i$-th problem. Therefore, the answer is $f[0]$.</p>
+<p>Considering $f[i]$, let the score of the $i$-th problem be $p$, and the number of problems to skip be $b$. If we solve the $i$-th problem, then we need to solve the problem after skipping $b$ problems, thus $f[i] = p + f[i + b + 1]$. If we skip the $i$-th problem, then we start solving from the $(i + 1)$-th problem, thus $f[i] = f[i + 1]$. We take the maximum value of the two. The state transition equation is as follows:</p>
+<p>$$
+f[i] = \max(p + f[i + b + 1], f[i + 1])
+$$</p>
+<p>We calculate the values of $f$ from back to front, and finally return $f[0]$.</p>
+<p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of problems.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

@@ -51948,9 +51948,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-greedy-algorithm" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Greedy Algorithm
     </span>
   </a>
   
@@ -76826,7 +76826,9 @@ Hence, the minimum cost to buy all candies is 5 + 5 = 10.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-greedy-algorithm">Solution 1: Greedy Algorithm</h3>
+<p>We can first sort the candies by price in descending order, then for every three candies, we take two. This ensures that the candies we get for free are the most expensive, thereby minimizing the total cost.</p>
+<p>The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of candies.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
