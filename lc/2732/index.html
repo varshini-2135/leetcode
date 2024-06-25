@@ -64338,7 +64338,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：分情况讨论
     </span>
   </a>
   
@@ -81437,7 +81437,17 @@
 <h2 id="_2">解法</h2>
 <!-- solution:start -->
 
-<h3 id="_3">方法一</h3>
+<h3 id="_3">方法一：分情况讨论</h3>
+<p>我们可以从小到大考虑答案选择的行数 $k$。</p>
+<ul>
+<li>如果 $k = 1$，每一列的和最大为 $0$，那么必须满足有一行的所有元素都是 $0$，否则无法满足条件。</li>
+<li>如果 $k = 2$，每一列的和最大为 $1$，那么必须存在有两行，且这两行的元素按位或之后的结果是 $0$，否则无法满足条件。</li>
+<li>如果 $k = 3$，每一列的和最大也是 $1$。如果 $k = 2$ 不满足条件，那么 $k = 3$ 也一定不满足条件，所以我们不需要考虑所有 $k \gt 2$ 且 $k$ 为奇数的情况。</li>
+<li>如果 $k = 4$，每一列的和最大为 $2$，此时一定是 $k = 2$ 不满足条件，也就是说，任意选取两行，都存在至少一个列的和为 $2$。我们在 $4$ 行中任意选取 $2$ 行，一共有 $C_4^2 = 6$ 种选法，那么存在至少 $6$ 个 $2$ 的列。由于列数 $n \le 5$，所以一定存在至少一列的和大于 $2$，所以 $k = 4$ 也不满足条件。</li>
+<li>对于 $k \gt 4$ 且 $k$ 为偶数的情况，我们可以得出同样的结论，即 $k$ 一定不满足条件。</li>
+</ul>
+<p>综上所述，我们只需要考虑 $k = 1$ 和 $k = 2$ 的情况即可。即判断是否有一行全为 $0$，或者是否存在两行按位或之后的结果为 $0$。</p>
+<p>时间复杂度 $O(m \times n + 4^n)$，空间复杂度 $O(2^n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

@@ -52347,9 +52347,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-priority-queue-max-and-min-heap-prefix-and-suffix-sum-enumeration-of-split-points" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Priority Queue (Max and Min Heap) + Prefix and Suffix Sum + Enumeration of Split Points
     </span>
   </a>
   
@@ -76826,7 +76826,11 @@ It can be shown that it is not possible to obtain a difference smaller than 1.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-priority-queue-max-and-min-heap-prefix-and-suffix-sum-enumeration-of-split-points">Solution 1: Priority Queue (Max and Min Heap) + Prefix and Suffix Sum + Enumeration of Split Points</h3>
+<p>The problem is essentially equivalent to finding a split point in $nums$, dividing the array into two parts. In the first part, select the smallest $n$ elements, and in the second part, select the largest $n$ elements, so that the difference between the sums of the two parts is minimized.</p>
+<p>We can use a max heap to maintain the smallest $n$ elements in the prefix, and a min heap to maintain the largest $n$ elements in the suffix. We define $pre[i]$ as the sum of the smallest $n$ elements among the first $i$ elements of the array $nums$, and $suf[i]$ as the sum of the largest $n$ elements from the $i$-th element to the last element of the array. During the process of maintaining the max and min heaps, update the values of $pre[i]$ and $suf[i]$.</p>
+<p>Finally, we enumerate the split points in the range of $i \in [n, 2n]$, calculate the value of $pre[i] - suf[i + 1]$, and take the minimum value.</p>
+<p>The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
