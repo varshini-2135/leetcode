@@ -50301,9 +50301,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-dfs" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: DFS
     </span>
   </a>
   
@@ -76967,9 +76967,78 @@ The nodes visited are 0, 1, and 3, giving a maximal path quality of 1 + 2 + 4 = 
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">TypeScript</label></div>
+<h3 id="solution-1-dfs">Solution 1: DFS</h3>
+<p>We observe the data range of the problem and find that the number of edges in each valid path starting from $0$ does not exceed $\frac{\text{maxTime}}{\min(time_j)} = \frac{100}{10} = 10$, and each node has at most four edges. Therefore, we can directly use naive DFS to brute-force search all valid paths.</p>
+<p>First, we store the edges of the graph in the adjacency list $g$. Then, we design a function $\text{dfs}(u, \text{cost}, \text{value})$, where $u$ represents the current node number, and $\text{cost}$ and $\text{value}$ respectively represent the cost time and value of the current path. Additionally, we use an array $\text{vis}$ of length $n$ to record whether each node has been visited. Initially, we mark node $0$ as visited.</p>
+<p>The logic of the function $\text{dfs}(u, \text{cost}, \text{value})$ is as follows:</p>
+<ul>
+<li>If the current node number $u$ equals $0$, it means we have returned to the starting point, so we update the answer to $\max(\text{ans}, \text{value})$;</li>
+<li>For each neighbor node $v$ of the current node $u$, if the current path's cost time plus the time $t$ of the edge $(u, v)$ does not exceed $\text{maxTime}$, then we can choose to continue visiting node $v$;<ul>
+<li>If node $v$ has already been visited, we directly recursively call $\text{dfs}(v, \text{cost} + t, \text{value})$;</li>
+<li>If node $v$ has not been visited, we mark node $v$ as visited, then recursively call $\text{dfs}(v, \text{cost} + t, \text{value} + \text{values}[v])$, and finally restore the visit status of node $v$.</li>
+</ul>
+</li>
+</ul>
+<p>In the main function, we call $\text{dfs}(0, 0, \text{values}[0])$ and return the answer $\text{ans}$.</p>
+<p>The time complexity is $O(n + m + 4^{\frac{\text{maxTime}}{\min(time_j)}})$, and the space complexity is $O(n + m + \frac{\text{maxTime}}{\min(time_j)})$. Here, $n$ and $m$ respectively represent the number of nodes and edges.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">maximalPathQuality</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">edges</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">maxTime</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">u</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">cost</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">u</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">nonlocal</span> <span class="n">ans</span>
+                <span class="n">ans</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">cost</span> <span class="o">+</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">maxTime</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">vis</span><span class="p">[</span><span class="n">v</span><span class="p">]:</span>
+                        <span class="n">dfs</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">cost</span> <span class="o">+</span> <span class="n">t</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">vis</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="n">dfs</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">cost</span> <span class="o">+</span> <span class="n">t</span><span class="p">,</span> <span class="n">value</span> <span class="o">+</span> <span class="n">values</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+                        <span class="n">vis</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+            <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+            <span class="n">g</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">u</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+        <span class="n">vis</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+        <span class="n">vis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">ans</span>
+</code></pre></div></td></tr></table></div>
+</div>
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -77005,39 +77074,247 @@ The nodes visited are 0, 1, and 3, giving a maximal path quality of 1 + 2 + 4 = 
 <span class="normal">32</span>
 <span class="normal">33</span>
 <span class="normal">34</span>
-<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">maximalPathQuality</span><span class="p">(</span><span class="nx">values</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">edges</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[][],</span><span class="w"> </span><span class="nx">maxTime</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">values</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">g</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="nb">Array</span><span class="o">&lt;</span><span class="nb">Array</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">({</span><span class="w"> </span><span class="nx">length</span><span class="o">:</span><span class="w"> </span><span class="kt">n</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">());</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">edge</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">edges</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">u</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">edge</span><span class="p">;</span>
-<span class="w">        </span><span class="nx">g</span><span class="p">[</span><span class="nx">u</span><span class="p">].</span><span class="nx">push</span><span class="p">([</span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="p">]);</span>
-<span class="w">        </span><span class="nx">g</span><span class="p">[</span><span class="nx">v</span><span class="p">].</span><span class="nx">push</span><span class="p">([</span><span class="nx">u</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="p">]);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">visited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;[]</span><span class="w"> </span><span class="n">g</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="o">[]</span><span class="w"> </span><span class="n">vis</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">values</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxTime</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">u</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">time</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// 索引0为终点</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">u</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">ans</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">maximalPathQuality</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">edges</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxTime</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">values</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">        </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">[</span><span class="n">n</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Arrays</span><span class="p">.</span><span class="na">setAll</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">());</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">edges</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">;</span>
+<span class="w">            </span><span class="n">g</span><span class="o">[</span><span class="n">u</span><span class="o">]</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">});</span>
+<span class="w">            </span><span class="n">g</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">});</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">dist</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">g</span><span class="p">[</span><span class="nx">u</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">time</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">dist</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">visited</span><span class="p">[</span><span class="nx">v</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="nx">visited</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
-<span class="w">                    </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">time</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">dist</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">values</span><span class="p">[</span><span class="nx">v</span><span class="p">]);</span>
-<span class="w">                    </span><span class="nx">visited</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// 回溯</span>
+<span class="w">        </span><span class="n">vis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">vis</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">values</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">maxTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maxTime</span><span class="p">;</span>
+<span class="w">        </span><span class="n">dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cost</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">g</span><span class="o">[</span><span class="n">u</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">maxTime</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vis</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">dfs</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">cost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
 <span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">time</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">dist</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">);</span>
+<span class="w">                    </span><span class="n">vis</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">dfs</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">cost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">values</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="p">);</span>
+<span class="w">                    </span><span class="n">vis</span><span class="o">[</span><span class="n">v</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 <span class="w">                </span><span class="p">}</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="c1">// 索引0为起点</span>
-<span class="w">    </span><span class="nx">visited</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
-<span class="w">    </span><span class="nx">dfs</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">maxTime</span><span class="p">,</span><span class="w"> </span><span class="nx">values</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span>
-
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">maximalPathQuality</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span><span class="w"> </span><span class="n">edges</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxTime</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">values</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">g</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">edges</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="w">            </span><span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<span class="w">            </span><span class="n">g</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">vis</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+<span class="w">        </span><span class="n">memset</span><span class="p">(</span><span class="n">vis</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">vis</span><span class="p">));</span>
+<span class="w">        </span><span class="n">vis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">dfs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dfs</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cost</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">maxTime</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vis</span><span class="p">[</span><span class="n">v</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">dfs</span><span class="p">(</span><span class="n">dfs</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">cost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+<span class="w">                    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">vis</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">                        </span><span class="n">dfs</span><span class="p">(</span><span class="n">dfs</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">cost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">values</span><span class="p">[</span><span class="n">v</span><span class="p">]);</span>
+<span class="w">                        </span><span class="n">vis</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">        </span><span class="n">dfs</span><span class="p">(</span><span class="n">dfs</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">maximalPathQuality</span><span class="p">(</span><span class="nx">values</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="p">[][]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">maxTime</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nx">ans</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">values</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">g</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([][][</span><span class="mi">2</span><span class="p">]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">u</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="nx">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="nx">e</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="w">        </span><span class="nx">g</span><span class="p">[</span><span class="nx">u</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">g</span><span class="p">[</span><span class="nx">u</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="p">})</span>
+<span class="w">        </span><span class="nx">g</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">g</span><span class="p">[</span><span class="nx">v</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="nx">u</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nx">vis</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">bool</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">vis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">dfs</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">u</span><span class="p">,</span><span class="w"> </span><span class="nx">cost</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">dfs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">u</span><span class="p">,</span><span class="w"> </span><span class="nx">cost</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">u</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="nx">ans</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">g</span><span class="p">[</span><span class="nx">u</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="nx">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nx">cost</span><span class="o">+</span><span class="nx">t</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">maxTime</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="nx">vis</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">cost</span><span class="o">+</span><span class="nx">t</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">vis</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                    </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">cost</span><span class="o">+</span><span class="nx">t</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">+</span><span class="nx">values</span><span class="p">[</span><span class="nx">v</span><span class="p">])</span>
+<span class="w">                    </span><span class="nx">vis</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nx">dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nx">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="w">    </span><span class="k">return</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">maximalPathQuality</span><span class="p">(</span><span class="nx">values</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">edges</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[][],</span><span class="w"> </span><span class="nx">maxTime</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">values</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">g</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="p">][][]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">({</span><span class="w"> </span><span class="nx">length</span><span class="o">:</span><span class="w"> </span><span class="kt">n</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">[]);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">u</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">edges</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">g</span><span class="p">[</span><span class="nx">u</span><span class="p">].</span><span class="nx">push</span><span class="p">([</span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="p">]);</span>
+<span class="w">        </span><span class="nx">g</span><span class="p">[</span><span class="nx">v</span><span class="p">].</span><span class="nx">push</span><span class="p">([</span><span class="nx">u</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">vis</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">vis</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dfs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">u</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">cost</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">u</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">ans</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">t</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">g</span><span class="p">[</span><span class="nx">u</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">cost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">t</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">maxTime</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">vis</span><span class="p">[</span><span class="nx">v</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">cost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">t</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">vis</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">                    </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">cost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">t</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">values</span><span class="p">[</span><span class="nx">v</span><span class="p">]);</span>
+<span class="w">                    </span><span class="nx">vis</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="nx">dfs</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">values</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ans</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
