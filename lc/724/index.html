@@ -81789,10 +81789,10 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：前缀和</h3>
-<p>我们定义变量 $left$ 表示数组 <code>nums</code> 中下标 $i$ 左侧元素之和，变量 $right$ 表示数组 <code>nums</code> 中下标 $i$ 右侧元素之和。初始时 $left = 0$, $right = \sum_{i = 0}^{n - 1} nums[i]$。</p>
-<p>遍历数组 <code>nums</code>，对于当前遍历到的数字 $x$，我们更新 $right = right - x$，此时如果 $left=right$，说明当前下标 $i$ 就是中间位置，直接返回即可。否则，我们更新 $left = left + x$，继续遍历下一个数字。</p>
+<p>我们定义变量 $left$ 表示数组 $\textit{nums}$ 中下标 $i$ 左侧元素之和，变量 $right$ 表示数组 $\textit{nums}$ 中下标 $i$ 右侧元素之和。初始时 $left = 0$, $right = \sum_{i = 0}^{n - 1} nums[i]$。</p>
+<p>遍历数组 $\textit{nums}$，对于当前遍历到的数字 $x$，我们更新 $right = right - x$，此时如果 $left=right$，说明当前下标 $i$ 就是中间位置，直接返回即可。否则，我们更新 $left = left + x$，继续遍历下一个数字。</p>
 <p>遍历结束，如果没有找到中间位置，返回 $-1$。</p>
-<p>时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 <code>nums</code> 的长度。</p>
+<p>时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。</p>
 <p>相似题目：</p>
 <ul>
 <li><a href="https://github.com/doocs/leetcode/blob/main/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README.md">1991. 找到数组的中间位置</a></li>
