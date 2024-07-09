@@ -81809,7 +81809,7 @@
 <h3 id="_3">方法一：贪心 + 优先队列</h3>
 <p>我们可以贪心地在未腐烂的苹果中优先选择最容易腐烂的苹果，这样可以使得吃到的苹果尽可能多。</p>
 <p>因此，我们可以用优先队列（小根堆）存储苹果的腐烂时间以及对应苹果的数量，每次从优先队列中取出腐烂时间最小的苹果，然后将其数量减一，若减一后苹果的数量不为零，则将其重新放入优先队列中。若苹果已经腐烂，则从优先队列中弹出。</p>
-<p>时间复杂度 $O(n\times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 <code>apples</code> 或 <code>days</code> 的长度。</p>
+<p>时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 <code>apples</code> 或 <code>days</code> 的长度。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
