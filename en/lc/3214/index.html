@@ -74473,9 +74473,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1-grouping-statistics-window-function" class="md-nav__link">
+  <a href="#solution-1-grouping-statistics-left-join" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1: Grouping Statistics + Window Function
+      Solution 1: Grouping Statistics + Left Join
     </span>
   </a>
   
@@ -77256,8 +77256,8 @@ Each row of this table contains the transaction ID, product ID, the spend amount
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1-grouping-statistics-window-function">Solution 1: Grouping Statistics + Window Function</h3>
-<p>We can first group by year and product ID to calculate the total cost of each product every year, recorded in table <code>T</code>. Then, use the window function <code>LAG</code> to calculate the total cost of the previous year, recorded in table <code>S</code>. Finally, calculate the annual growth rate based on the formula.</p>
+<h3 id="solution-1-grouping-statistics-left-join">Solution 1: Grouping Statistics + Left Join</h3>
+<p>We can first group by <code>product_id</code> and <code>year(transaction_date)</code> to perform the statistics, then use a left join to associate the statistics of the current year with those of the previous year, and finally calculate the year-on-year growth rate.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -77278,32 +77278,24 @@ Each row of this table contains the transaction ID, product ID, the spend amount
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
 <span class="k">WITH</span>
 <span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="k">YEAR</span><span class="p">(</span><span class="n">transaction_date</span><span class="p">)</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="n">product_id</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">spend</span><span class="p">)</span><span class="w"> </span><span class="n">tot_spend</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">product_id</span><span class="p">,</span><span class="w"> </span><span class="k">YEAR</span><span class="p">(</span><span class="n">transaction_date</span><span class="p">)</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">spend</span><span class="p">)</span><span class="w"> </span><span class="n">curr_year_spend</span>
 <span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">user_transactions</span>
 <span class="w">        </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
 <span class="w">    </span><span class="p">),</span>
 <span class="w">    </span><span class="n">S</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="k">SELECT</span>
-<span class="w">            </span><span class="k">year</span><span class="p">,</span>
-<span class="w">            </span><span class="n">product_id</span><span class="p">,</span>
-<span class="w">            </span><span class="n">tot_spend</span><span class="w"> </span><span class="n">curr_year_spend</span><span class="p">,</span>
-<span class="w">            </span><span class="n">LAG</span><span class="p">(</span><span class="n">tot_spend</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span>
-<span class="w">                </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">product_id</span>
-<span class="w">                </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">year</span>
-<span class="w">            </span><span class="p">)</span><span class="w"> </span><span class="n">prev_year_spend</span>
-<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">T</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">product_id</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">curr_year_spend</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">curr_year_spend</span><span class="w"> </span><span class="n">prev_year_spend</span>
+<span class="w">        </span><span class="k">FROM</span>
+<span class="w">            </span><span class="n">T</span><span class="w"> </span><span class="n">t1</span>
+<span class="w">            </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">product_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">product_id</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="k">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="k">year</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">    </span><span class="p">)</span>
 <span class="k">SELECT</span>
 <span class="w">    </span><span class="o">*</span><span class="p">,</span>
 <span class="w">    </span><span class="n">ROUND</span><span class="p">((</span><span class="n">curr_year_spend</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">prev_year_spend</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">prev_year_spend</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">yoy_rate</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">S</span><span class="p">;</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">S</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
