@@ -7468,6 +7468,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法二：递归
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -82119,6 +82128,61 @@
 </div>
 </div>
 </div>
+<!-- solution:start -->
+
+<h3 id="_3">方法二：递归</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">TypeScript</label><label for="__tabbed_2_2">JavaScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">generateParenthesis</span><span class="p">(</span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;()&#39;</span><span class="p">];</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">...</span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">(</span>
+<span class="w">            </span><span class="nx">generateParenthesis</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">).</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">                </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;()&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">i</span><span class="p">)),</span>
+<span class="w">            </span><span class="p">),</span>
+<span class="w">        </span><span class="p">),</span>
+<span class="w">    </span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">generateParenthesis</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;()&#39;</span><span class="p">];</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">...</span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">(</span>
+<span class="w">            </span><span class="nx">generateParenthesis</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">).</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">                </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;()&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">i</span><span class="p">)),</span>
+<span class="w">            </span><span class="p">),</span>
+<span class="w">        </span><span class="p">),</span>
+<span class="w">    </span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
 <!-- solution:end -->
 
 <!-- problem:end -->
@@ -82150,6 +82214,11 @@
     
     <nav>
       
+        <a href="https://github.com/rain84" class="md-author" title="@rain84">
+          
+          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
+        </a>
+      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
@@ -82165,16 +82234,11 @@
           <img src="https://avatars.githubusercontent.com/u/91381303?v=4&size=72" alt="xzhseh">
         </a>
       
-        <a href="https://github.com/acbin" class="md-author" title="@acbin">
-          
-          <img src="https://avatars.githubusercontent.com/u/44314231?v=4&size=72" alt="acbin">
-        </a>
-      
       
       
         
           <a href="https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0022.Generate%20Parentheses/README.md" class="md-author md-author--more">
-            +2
+            +3
           </a>
         
       
