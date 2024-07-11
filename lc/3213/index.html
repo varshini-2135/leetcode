@@ -81857,7 +81857,7 @@
 <p>$$
 f[i] = \min(f[i], f[i - j] + \textit{cost}[k])
 $$</p>
-<p>其中 $textit{cost}[k]$ 表示长度为 $j$ 的单词且哈希值与 $\textit{target}[i - j + 1, i]$ 相同的单词的最小代价。</p>
+<p>其中 $\textit{cost}[k]$ 表示长度为 $j$ 的单词且哈希值与 $\textit{target}[i - j + 1, i]$ 相同的单词的最小代价。</p>
 <p>时间复杂度 $O(n \times \sqrt{L})$，空间复杂度 $O(n)$。其中 $n$ 是 $\textit{target}$ 的长度，而 $L$ 是数组 $\textit{words}$ 中所有单词的长度之和。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
