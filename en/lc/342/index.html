@@ -14154,9 +14154,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-bit-manipulation" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Bit Manipulation
     </span>
   </a>
   
@@ -77352,7 +77352,10 @@
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-bit-manipulation">Solution 1: Bit Manipulation</h3>
+<p>If a number is a power of 4, then it must be greater than $0$. Suppose this number is $4^x$, which is $2^{2x}$. Therefore, its binary representation has only one $1$, and this $1$ appears at an even position.</p>
+<p>First, we check if the number is greater than $0$. Then, we verify if the number is $2^{2x}$ by checking if the bitwise AND of $n$ and $n-1$ is $0$. Finally, we check if the $1$ appears at an even position by verifying if the bitwise AND of $n$ and $\textit{0xAAAAAAAA}$ is $0$. If all three conditions are met, then the number is a power of 4.</p>
+<p>The time complexity is $O(1)$, and the space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">JavaScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

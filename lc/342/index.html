@@ -14196,7 +14196,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：位运算
     </span>
   </a>
   
@@ -81965,7 +81965,10 @@
 <h2 id="_2">解法</h2>
 <!-- solution:start -->
 
-<h3 id="_3">方法一</h3>
+<h3 id="_3">方法一：位运算</h3>
+<p>如果一个数是 4 的幂次方，那么这个数必须是大于 $0$ 的。不妨假设这个数是 $4^x$，即 $2^{2x}$，那么这个数的二进制表示中有且仅有一个 $1$，且这个 $1$ 出现在偶数位上。</p>
+<p>因此，我们首先判断这个数是否大于 $0$，然后判断这个数是否是 $2^{2x}$，即 $n$ 与 $n-1$ 的按位与结果是否为 $0$，最后判断这个数的 $1$ 是否出现在偶数位上，即 $n$ 与 $\textit{0xAAAAAAAA}$ 的按位与结果是否为 $0$。如果这三个条件都满足，那么这个数就是 4 的幂次方。</p>
+<p>时间复杂度 $O(1)$，空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">JavaScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
