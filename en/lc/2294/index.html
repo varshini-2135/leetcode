@@ -55146,9 +55146,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-greedy-sorting" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Greedy + Sorting
     </span>
   </a>
   
@@ -77379,7 +77379,9 @@ Since three subsequences were created, we return 3. It can be shown that 3 is th
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-greedy-sorting">Solution 1: Greedy + Sorting</h3>
+<p>The problem requires dividing into subsequences, not subarrays, so the elements in a subsequence can be non-continuous. We can sort the array $\textit{nums}$. Assuming the first element of the current subsequence is $a$, the difference between the maximum and minimum values in the subsequence will not exceed $k$. Therefore, we can iterate through the array $\textit{nums}$. If the difference between the current element $b$ and $a$ is greater than $k$, then update $a$ to $b$ and increase the number of subsequences by 1. After the iteration, we can obtain the minimum number of subsequences, noting that the initial number of subsequences is $1$.</p>
+<p>The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
