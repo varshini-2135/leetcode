@@ -50985,9 +50985,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-fast-and-slow-pointers" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Fast and Slow Pointers
     </span>
   </a>
   
@@ -77575,7 +77575,10 @@ Node 0 with value 2 is the only node remaining after removing node 1.</pre>
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-fast-and-slow-pointers">Solution 1: Fast and Slow Pointers</h3>
+<p>The fast and slow pointer technique is a common method used to solve problems related to linked lists. We can maintain two pointers, a slow pointer $\textit{slow}$ and a fast pointer $\textit{fast}$. Initially, $\textit{slow}$ points to a dummy node, whose $\textit{next}$ pointer points to the head node $\textit{head}$ of the list, while $\textit{fast}$ points to the head node $\textit{head}$.</p>
+<p>Then, we move the slow pointer one position backward and the fast pointer two positions backward each time, until the fast pointer reaches the end of the list. At this point, the node next to the node pointed by the slow pointer is the middle node of the list. We can remove the middle node by setting the $\textit{next}$ pointer of the node pointed by the slow pointer to point to the next next node.</p>
+<p>The time complexity is $O(n)$, where $n$ is the length of the list. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -77760,8 +77763,7 @@ Node 0 with value 2 is the only node remaining after removing node 1.</pre>
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Definition for singly-linked list.</span>
 <span class="cm"> * class ListNode {</span>
 <span class="cm"> *     val: number</span>
@@ -77774,15 +77776,14 @@ Node 0 with value 2 is the only node remaining after removing node 1.</pre>
 <span class="cm"> */</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">deleteMiddle</span><span class="p">(</span><span class="nx">head</span><span class="o">:</span><span class="w"> </span><span class="kt">ListNode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">ListNode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">head</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">head</span><span class="p">.</span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">head</span><span class="p">.</span><span class="nx">next</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">slow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">head</span><span class="p">;</span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">fast</span><span class="p">.</span><span class="nx">next</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">fast</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dummy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ListNode</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">head</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">slow</span><span class="p">,</span><span class="w"> </span><span class="nx">fast</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">dummy</span><span class="p">,</span><span class="w"> </span><span class="nx">head</span><span class="p">];</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">fast</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">fast</span><span class="p">.</span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">slow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">slow</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
 <span class="w">        </span><span class="nx">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fast</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="nx">slow</span><span class="p">.</span><span class="nx">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">slow</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">head</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">dummy</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
