@@ -77612,15 +77612,15 @@ The first has a non-leaf node sum 36, and the second has non-leaf node sum 32.
 <p>In summary, we can get:</p>
 <p>$$
 dfs(i, j) = \begin{cases}
-0, &amp; \text{if } i = j \
-\min_{i \leq k &lt; j} {dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} {arr[t]} \max_{k &lt; t \leq j} {arr[t]}}, &amp; \text{if } i &lt; j
+0, &amp; \textit{if } i = j \
+\min_{i \leq k &lt; j} {dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} {arr[t]} \max_{k &lt; t \leq j} {arr[t]}}, &amp; \textit{if } i &lt; j
 \end{cases}
 $$</p>
 <p>In the above recursive process, we can use the method of memoization search to avoid repeated calculations. Additionally, we can use an array $g$ to record the maximum value of all leaf nodes in the index range $[i, j]$ of the array $arr$. This allows us to optimize the calculation process of $dfs(i, j)$:</p>
 <p>$$
 dfs(i, j) = \begin{cases}
-0, &amp; \text{if } i = j \
-\min_{i \leq k &lt; j} {dfs(i, k) + dfs(k + 1, j) + g[i][k] \cdot g[k + 1][j]}, &amp; \text{if } i &lt; j
+0, &amp; \textit{if } i = j \
+\min_{i \leq k &lt; j} {dfs(i, k) + dfs(k + 1, j) + g[i][k] \cdot g[k + 1][j]}, &amp; \textit{if } i &lt; j
 \end{cases}
 $$</p>
 <p>Finally, we return $dfs(0, n - 1)$.</p>
@@ -77908,8 +77908,8 @@ $$</p>
 <p>Define $f[i][j]$ to represent the minimum possible sum of all non-leaf node values in the index range $[i, j]$ of the array $arr$, and $g[i][j]$ to represent the maximum value of all leaf nodes in the index range $[i, j]$ of the array $arr$. Then, the state transition equation is:</p>
 <p>$$
 f[i][j] = \begin{cases}
-0, &amp; \text{if } i = j \
-\min_{i \leq k &lt; j} {f[i][k] + f[k + 1][j] + g[i][k] \cdot g[k + 1][j]}, &amp; \text{if } i &lt; j
+0, &amp; \textit{if } i = j \
+\min_{i \leq k &lt; j} {f[i][k] + f[k + 1][j] + g[i][k] \cdot g[k + 1][j]}, &amp; \textit{if } i &lt; j
 \end{cases}
 $$</p>
 <p>Finally, we return $f[0][n - 1]$.</p>

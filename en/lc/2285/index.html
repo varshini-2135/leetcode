@@ -77590,7 +77590,7 @@ It can be shown that we cannot obtain a greater total importance than 20.
 <!-- solution:start -->
 
 <h3 id="solution-1-greedy-sorting">Solution 1: Greedy + Sorting</h3>
-<p>We consider the contribution of each city to the total importance of all roads, recorded in the array $\text{deg}$. Then, we sort $\text{deg}$ by contribution from smallest to largest and allocate $[1, 2, ..., n]$ to the cities in order.</p>
+<p>We consider the contribution of each city to the total importance of all roads, recorded in the array $\textit{deg}$. Then, we sort $\textit{deg}$ by contribution from smallest to largest and allocate $[1, 2, ..., n]$ to the cities in order.</p>
 <p>The time complexity is $O(n \log n)$, and the space complexity is $O(n)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">

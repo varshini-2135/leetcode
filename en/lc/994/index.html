@@ -77580,7 +77580,7 @@
 <!-- solution:start -->
 
 <h3 id="solution-1-bfs">Solution 1: BFS</h3>
-<p>First, we traverse the entire grid once, count the number of fresh oranges, denoted as $\text{cnt}$, and add the coordinates of all rotten oranges to the queue $q$.</p>
+<p>First, we traverse the entire grid once, count the number of fresh oranges, denoted as $\textit{cnt}$, and add the coordinates of all rotten oranges to the queue $q$.</p>
 <p>Next, we perform a breadth-first search. In each round of the search, we let all the rotten oranges in the queue rot the fresh oranges in four directions, until the queue is empty or the number of fresh oranges is $0$.</p>
 <p>Finally, if the number of fresh oranges is $0$, we return the current round number, otherwise, we return $-1$.</p>
 <p>The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.</p>

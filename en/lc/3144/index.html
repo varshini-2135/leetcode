@@ -77579,11 +77579,11 @@
 <!-- solution:start -->
 
 <h3 id="solution-1-memoization-search-hash-table">Solution 1: Memoization Search + Hash Table</h3>
-<p>We design a function $\text{dfs}(i)$, which represents the minimum number of substrings starting from the string $s[i]$. So the answer is $\text{dfs}(0)$.</p>
-<p>The calculation process of the function $\text{dfs}(i)$ is as follows:</p>
+<p>We design a function $\textit{dfs}(i)$, which represents the minimum number of substrings starting from the string $s[i]$. So the answer is $\textit{dfs}(0)$.</p>
+<p>The calculation process of the function $\textit{dfs}(i)$ is as follows:</p>
 <p>If $i \geq n$, it means that all characters have been processed, return $0$.</p>
-<p>Otherwise, we maintain a hash table $\text{cnt}$, which represents the number of occurrences of each character in the current substring. In addition, we also maintain a hash table $\text{freq}$, which represents the frequency of the number of occurrences of each character.</p>
-<p>Then we enumerate $j$ from $i$ to $n-1$, which represents the end position of the current substring. For each $j$, we update $\text{cnt}$ and $\text{freq}$, then check whether the size of $\text{freq}$ is $1$. If so, we can start splitting from $j+1$, at this time the answer is $1 + \text{dfs}(j+1)$. We take the minimum value of the answer among all $j$ as the return value of the function.</p>
+<p>Otherwise, we maintain a hash table $\textit{cnt}$, which represents the number of occurrences of each character in the current substring. In addition, we also maintain a hash table $\textit{freq}$, which represents the frequency of the number of occurrences of each character.</p>
+<p>Then we enumerate $j$ from $i$ to $n-1$, which represents the end position of the current substring. For each $j$, we update $\textit{cnt}$ and $\textit{freq}$, then check whether the size of $\textit{freq}$ is $1$. If so, we can start splitting from $j+1$, at this time the answer is $1 + \textit{dfs}(j+1)$. We take the minimum value of the answer among all $j$ as the return value of the function.</p>
 <p>To avoid repeated calculations, we use memoization search.</p>
 <p>The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>

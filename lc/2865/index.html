@@ -82418,8 +82418,8 @@
 <p>$$
 f[i]=
 \begin{cases}
-f[i-1]+heights[i],&amp;\text{if } heights[i]\geq heights[i-1]\
-heights[i]\times(i-j)+f[j],&amp;\text{if } heights[i]&lt;heights[i-1]
+f[i-1]+heights[i],&amp;\textit{if } heights[i]\geq heights[i-1]\
+heights[i]\times(i-j)+f[j],&amp;\textit{if } heights[i]&lt;heights[i-1]
 \end{cases}
 $$</p>
 <p>其中 $j$ 是最后一座塔左边第一个高度小于等于 $heights[i]$ 的塔的下标。我们可以使用单调栈来维护这个下标。</p>

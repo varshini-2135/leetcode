@@ -82203,10 +82203,10 @@
 <p>函数 $dfs(i, j, k)$ 的计算过程如下：</p>
 <ul>
 <li>如果 $i \lt 0$ 或 $j \lt 0$，返回 $0$。</li>
-<li>如果 $i = 0$，那么当 $k = 1$ 且 $j \leq \text{limit}$ 时返回 $1$，否则返回 $0$。</li>
-<li>如果 $j = 0$，那么当 $k = 0$ 且 $i \leq \text{limit}$ 时返回 $1$，否则返回 $0$。</li>
-<li>如果 $k = 0$，我们考虑前一个数字是 $0$ 的情况 $dfs(i - 1, j, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i - 1, j, 1)$，如果前一个数是 $0$，那么有可能使得子数组中有超过 $\text{limit}$ 个 $0$，即不允许出现倒数第 $\text{limit} + 1$ 个数是 $1$ 的情况，所以我们要减去这种情况，即 $dfs(i - \text{limit} - 1, j, 1)$。</li>
-<li>如果 $k = 1$，我们考虑前一个数字是 $0$ 的情况 $dfs(i, j - 1, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i, j - 1, 1)$，如果前一个数是 $1$，那么有可能使得子数组中有超过 $\text{limit}$ 个 $1$，即不允许出现倒数第 $\text{limit} + 1$ 个数是 $0$ 的情况，所以我们要减去这种情况，即 $dfs(i, j - \text{limit} - 1, 0)$。</li>
+<li>如果 $i = 0$，那么当 $k = 1$ 且 $j \leq \textit{limit}$ 时返回 $1$，否则返回 $0$。</li>
+<li>如果 $j = 0$，那么当 $k = 0$ 且 $i \leq \textit{limit}$ 时返回 $1$，否则返回 $0$。</li>
+<li>如果 $k = 0$，我们考虑前一个数字是 $0$ 的情况 $dfs(i - 1, j, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i - 1, j, 1)$，如果前一个数是 $0$，那么有可能使得子数组中有超过 $\textit{limit}$ 个 $0$，即不允许出现倒数第 $\textit{limit} + 1$ 个数是 $1$ 的情况，所以我们要减去这种情况，即 $dfs(i - \textit{limit} - 1, j, 1)$。</li>
+<li>如果 $k = 1$，我们考虑前一个数字是 $0$ 的情况 $dfs(i, j - 1, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i, j - 1, 1)$，如果前一个数是 $1$，那么有可能使得子数组中有超过 $\textit{limit}$ 个 $1$，即不允许出现倒数第 $\textit{limit} + 1$ 个数是 $0$ 的情况，所以我们要减去这种情况，即 $dfs(i, j - \textit{limit} - 1, 0)$。</li>
 </ul>
 <p>为了避免重复计算，我们使用记忆化搜索的方法。</p>
 <p>时间复杂度 $O(zero \times one)$，空间复杂度 $O(zero \times one)$。</p>
@@ -82497,11 +82497,11 @@
 <h3 id="_4">方法二：动态规划</h3>
 <p>我们也可以将方法一的记忆化搜索转换为动态规划。</p>
 <p>我们定义 $f[i][j][k]$ 表示使用 $i$ 个 $0$ 和 $j$ 个 $1$ 且最后一个数字是 $k$ 的稳定二进制数组的个数。那么答案就是 $f[zero][one][0] + f[zero][one][1]$。</p>
-<p>初始时，我们有 $f[i][0][0] = 1$，其中 $1 \leq i \leq \min(\text{limit}, \text{zero})$；有 $f[0][j][1] = 1$，其中 $1 \leq j \leq \min(\text{limit}, \text{one})$。</p>
+<p>初始时，我们有 $f[i][0][0] = 1$，其中 $1 \leq i \leq \min(\textit{limit}, \textit{zero})$；有 $f[0][j][1] = 1$，其中 $1 \leq j \leq \min(\textit{limit}, \textit{one})$。</p>
 <p>状态转移方程如下：</p>
 <ul>
-<li>$f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \text{limit} - 1][j][1]$。</li>
-<li>$f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \text{limit} - 1][0]$。</li>
+<li>$f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \textit{limit} - 1][j][1]$。</li>
+<li>$f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \textit{limit} - 1][0]$。</li>
 </ul>
 <p>时间复杂度 $O(zero \times one)$，空间复杂度 $O(zero \times one)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label></div>

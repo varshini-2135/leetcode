@@ -77597,7 +77597,7 @@ It is impossible to make all elements equal to 1.</p>
 <h3 id="solution-1-sequential-traversal-simulation">Solution 1: Sequential Traversal + Simulation</h3>
 <p>We notice that the first position in the array that is $0$ must undergo a flip operation, otherwise, it cannot be turned into $1$. Therefore, we can sequentially traverse the array, and each time we encounter $0$, we flip the next two elements and accumulate one operation count.</p>
 <p>After the traversal, we return the answer.</p>
-<p>The time complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$. The space complexity is $O(1)$.</p>
+<p>The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

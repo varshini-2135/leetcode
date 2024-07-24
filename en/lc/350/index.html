@@ -77581,9 +77581,9 @@
 <!-- solution:start -->
 
 <h3 id="solution-1-hash-table">Solution 1: Hash Table</h3>
-<p>We can use a hash table $\text{cnt}$ to count the occurrences of each element in the array $\text{nums1}$. Then, we iterate through the array $\text{nums2}$. If an element $x$ is in $\text{cnt}$ and the occurrence of $x$ is greater than $0$, we add $x$ to the answer and then decrement the occurrence of $x$ by one.</p>
+<p>We can use a hash table $\textit{cnt}$ to count the occurrences of each element in the array $\textit{nums1}$. Then, we iterate through the array $\textit{nums2}$. If an element $x$ is in $\textit{cnt}$ and the occurrence of $x$ is greater than $0$, we add $x$ to the answer and then decrement the occurrence of $x$ by one.</p>
 <p>After the iteration is finished, we return the answer array.</p>
-<p>The time complexity is $O(m + n)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the lengths of the arrays $\text{nums1}$ and $\text{nums2}$, respectively.</p>
+<p>The time complexity is $O(m + n)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:9"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">JavaScript</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

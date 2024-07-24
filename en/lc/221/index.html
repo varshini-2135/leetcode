@@ -77573,8 +77573,8 @@
 <p>$$
 dp[i + 1][j + 1] =
 \begin{cases}
-0 &amp; \text{if } matrix[i][j] = '0' \
-\min(dp[i][j], dp[i][j + 1], dp[i + 1][j]) + 1 &amp; \text{if } matrix[i][j] = '1'
+0 &amp; \textit{if } matrix[i][j] = '0' \
+\min(dp[i][j], dp[i][j + 1], dp[i + 1][j]) + 1 &amp; \textit{if } matrix[i][j] = '1'
 \end{cases}
 $$</p>
 <p>The time complexity is $O(m\times n)$, and the space complexity is $O(m\times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.</p>

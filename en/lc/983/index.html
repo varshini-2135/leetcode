@@ -77590,11 +77590,11 @@ In total, you spent $17 and covered all the days of your travel.
 <!-- solution:start -->
 
 <h3 id="solution-1-memoization-search-binary-search">Solution 1: Memoization Search + Binary Search</h3>
-<p>We define a function $\text{dfs(i)}$, which represents the minimum cost required from the $i$-th trip to the last trip. Thus, the answer is $\text{dfs(0)}$.</p>
-<p>The execution process of the function $\text{dfs(i)}$ is as follows:</p>
+<p>We define a function $\textit{dfs(i)}$, which represents the minimum cost required from the $i$-th trip to the last trip. Thus, the answer is $\textit{dfs(0)}$.</p>
+<p>The execution process of the function $\textit{dfs(i)}$ is as follows:</p>
 <ul>
 <li>If $i \geq n$, it means all trips have ended, return $0$;</li>
-<li>Otherwise, we need to consider three types of purchases: buying a 1-day pass, buying a 7-day pass, and buying a 30-day pass. We calculate the cost for these three purchasing methods separately and use binary search to find the index $j$ of the next trip, then recursively call $\text{dfs(j)}$, and finally return the minimum cost among these three purchasing methods.</li>
+<li>Otherwise, we need to consider three types of purchases: buying a 1-day pass, buying a 7-day pass, and buying a 30-day pass. We calculate the cost for these three purchasing methods separately and use binary search to find the index $j$ of the next trip, then recursively call $\textit{dfs(j)}$, and finally return the minimum cost among these three purchasing methods.</li>
 </ul>
 <p>To avoid repeated calculations, we use memoization search to save the results that have already been calculated.</p>
 <p>The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ represents the number of trips.</p>
@@ -77863,8 +77863,8 @@ In total, you spent $17 and covered all the days of your travel.
 <!-- solution:start -->
 
 <h3 id="solution-2-dynamic-programming">Solution 2: Dynamic Programming</h3>
-<p>Let's denote the last day in the $\text{days}$ array as $m$. We can define an array $f$ of length $m + 1$, where $f[i]$ represents the minimum cost from day $1$ to day $i$.</p>
-<p>We can calculate the value of $f[i]$ in increasing order of the dates in the $\text{days}$ array, starting from day $1$. If day $i$ is a travel day, we can consider three purchasing options: buying a 1-day pass, buying a 7-day pass, and buying a 30-day pass. We calculate the cost for these three purchasing methods separately and take the minimum cost among these three as the value of $f[i]$. If day $i$ is not a travel day, then $f[i] = f[i - 1]$.</p>
+<p>Let's denote the last day in the $\textit{days}$ array as $m$. We can define an array $f$ of length $m + 1$, where $f[i]$ represents the minimum cost from day $1$ to day $i$.</p>
+<p>We can calculate the value of $f[i]$ in increasing order of the dates in the $\textit{days}$ array, starting from day $1$. If day $i$ is a travel day, we can consider three purchasing options: buying a 1-day pass, buying a 7-day pass, and buying a 30-day pass. We calculate the cost for these three purchasing methods separately and take the minimum cost among these three as the value of $f[i]$. If day $i$ is not a travel day, then $f[i] = f[i - 1]$.</p>
 <p>The final answer is $f[m]$.</p>
 <p>The time complexity is $O(m)$, and the space complexity is $O(m)$. Here, $m$ represents the last day of travel.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>

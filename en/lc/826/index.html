@@ -77785,7 +77785,7 @@
 <!-- solution:start -->
 
 <h3 id="solution-2-dynamic-programming">Solution 2: Dynamic Programming</h3>
-<p>Let's denote $m = \max(\text{difficulty})$ and define an array $f$ of length $m + 1$, where $f[i]$ represents the maximum profit among jobs with difficulty less than or equal to $i$, initially $f[i] = 0$.</p>
+<p>Let's denote $m = \max(\textit{difficulty})$ and define an array $f$ of length $m + 1$, where $f[i]$ represents the maximum profit among jobs with difficulty less than or equal to $i$, initially $f[i] = 0$.</p>
 <p>Then, we iterate over the jobs, and for each job $(d, p)$, if $d \leq m$, we update $f[d] = \max(f[d], p)$.</p>
 <p>Next, we iterate from $1$ to $m$, and for each $i$, we update $f[i] = \max(f[i], f[i - 1])$.</p>
 <p>Finally, we iterate over the workers, and for each worker $w$, we add $f[w]$ to the answer.</p>
@@ -77991,14 +77991,14 @@
     
     <nav>
       
-        <a href="https://github.com/rain84" class="md-author" title="@rain84">
-          
-          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
-        </a>
-      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
+        </a>
+      
+        <a href="https://github.com/rain84" class="md-author" title="@rain84">
+          
+          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
         </a>
       
       

@@ -82461,9 +82461,9 @@
 <h3 id="_4">方法二：从左下角或右上角搜索</h3>
 <p>这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 <code>matrix[i][j]</code>与 <code>target</code> 的大小关系：</p>
 <ul>
-<li>若 $\text{matrix}[i][j] = \text{target}$，说明找到了目标值，直接返回 <code>true</code>。</li>
-<li>若 $\text{matrix}[i][j] &gt; \text{target}$，说明这一列从当前位置开始往上的所有元素均大于 <code>target</code>，应该让 $i$ 指针往上移动，即 $i \leftarrow i - 1$。</li>
-<li>若 $\text{matrix}[i][j] &lt; \text{target}$，说明这一行从当前位置开始往右的所有元素均小于 <code>target</code>，应该让 $j$ 指针往右移动，即 $j \leftarrow j + 1$。</li>
+<li>若 $\textit{matrix}[i][j] = \textit{target}$，说明找到了目标值，直接返回 <code>true</code>。</li>
+<li>若 $\textit{matrix}[i][j] &gt; \textit{target}$，说明这一列从当前位置开始往上的所有元素均大于 <code>target</code>，应该让 $i$ 指针往上移动，即 $i \leftarrow i - 1$。</li>
+<li>若 $\textit{matrix}[i][j] &lt; \textit{target}$，说明这一行从当前位置开始往右的所有元素均小于 <code>target</code>，应该让 $j$ 指针往右移动，即 $j \leftarrow j + 1$。</li>
 </ul>
 <p>若搜索结束依然找不到 <code>target</code>，返回 <code>false</code>。</p>
 <p>时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别为矩阵的行数和列数。空间复杂度 $O(1)$。</p>

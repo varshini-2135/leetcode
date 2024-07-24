@@ -82192,7 +82192,7 @@
 <p>我们可以使用动态规划的方法解决这个问题。定义状态 $f[x][y]$ 表示最后一项对 $k$ 取模为 $x$，倒数第二项对 $k$ 取模为 $y$ 的最长有效子序列的长度。初始时 $f[x][y] = 0$。</p>
 <p>遍历数组 $nums$，对于每一个数 $x$，我们得到 $x = x \bmod k$。然后我们可以枚举序列连续两个数对 $j$ 取模结果相同，其中 $j \in [0, k)$。那么 $x$ 的前一个数对 $k$ 取模结果为 $y = (j - x + k) \bmod k$。此时 $f[x][y] = f[y][x] + 1$。</p>
 <p>答案为所有 $f[x][y]$ 中的最大值。</p>
-<p>时间复杂度 $O(n \times k)$，空间复杂度 $O(k^2)$。其中 $n$ 为数组 $\text{nums}$ 的长度，而 $k=2$。</p>
+<p>时间复杂度 $O(n \times k)$，空间复杂度 $O(k^2)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $k=2$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

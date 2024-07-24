@@ -77702,7 +77702,7 @@ It can be shown with 5 or less moves that it is impossible for the array to have
 <!-- source:start -->
 
 <h3 id="solution-2-counting-greedy">Solution 2: Counting + Greedy</h3>
-<p>According to the problem description, the maximum value of the result array $m = \max(\text{nums}) + \text{len}(\text{nums})$. We can use a counting array $\textit{cnt}$ to record the occurrence count of each element.</p>
+<p>According to the problem description, the maximum value of the result array $m = \max(\textit{nums}) + \textit{len}(\textit{nums})$. We can use a counting array $\textit{cnt}$ to record the occurrence count of each element.</p>
 <p>Then, we iterate from $0$ to $m - 1$. For each element $i$, if its occurrence count $\textit{cnt}[i]$ is greater than $1$, then we add $\textit{cnt}[i] - 1$ elements to $i + 1$, and accumulate the operation count into the result.</p>
 <p>After completing the iteration, we return the result.</p>
 <p>The time complexity is $O(m)$, and the space complexity is $O(m)$. Here, $m$ is the length of the array $\textit{nums}$ plus the maximum value in the array.</p>

@@ -82182,7 +82182,7 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：数学</h3>
-<p>对于每个数据中心，我们假设可以升级 $\text{x}$ 台服务器，那么 $\text{x} \times \text{upgrade[i]} \leq \text{count[i]} \times \text{sell[i]} + \text{money[i]}$。即 $\text{x} \leq \frac{\text{count[i]} \times \text{sell[i]} + \text{money[i]}}{\text{upgrade[i]} + \text{sell[i]}}$。又因为 $\text{x} \leq \text{count[i]}$，所以我们取两者的最小值即可。</p>
+<p>对于每个数据中心，我们假设可以升级 $\textit{x}$ 台服务器，那么 $\textit{x} \times \textit{upgrade[i]} \leq \textit{count[i]} \times \textit{sell[i]} + \textit{money[i]}$。即 $\textit{x} \leq \frac{\textit{count[i]} \times \textit{sell[i]} + \textit{money[i]}}{\textit{upgrade[i]} + \textit{sell[i]}}$。又因为 $\textit{x} \leq \textit{count[i]}$，所以我们取两者的最小值即可。</p>
 <p>时间复杂度 $O(n)$，其中 $n$ 为数组的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">

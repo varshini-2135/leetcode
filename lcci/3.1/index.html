@@ -82136,12 +82136,12 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：数组模拟</h3>
-<p>我们使用一个变量 $cap$ 来表示每个栈的大小，使用一个长度为 $3 \times \text{cap} + 3$ 的数组 $stk$ 来模拟三个栈，数组的前 $3 \times \text{cap}$ 个元素用来存储栈的元素，数组的后三个元素用来存储每个栈的元素个数。</p>
+<p>我们使用一个变量 $cap$ 来表示每个栈的大小，使用一个长度为 $3 \times \textit{cap} + 3$ 的数组 $stk$ 来模拟三个栈，数组的前 $3 \times \textit{cap}$ 个元素用来存储栈的元素，数组的后三个元素用来存储每个栈的元素个数。</p>
 <p>对于 <code>push</code> 操作，我们首先判断栈是否已满，如果未满，则将元素压入栈中，并更新栈的元素个数。</p>
 <p>对于 <code>pop</code> 操作，我们首先判断栈是否为空，如果不为空，则更新栈的元素个数，并返回栈顶元素。</p>
 <p>对于 <code>peek</code> 操作，我们首先判断栈是否为空，如果不为空，则返回栈顶元素。</p>
-<p>对于 <code>isEmpty</code> 操作，我们直接判断栈是否为空即可。对于栈 $i$，我们只需要判断 $stk[\text{cap} \times 3 + i]$ 是否为 $0$ 即可。</p>
-<p>时间复杂度上，每个操作的时间复杂度均为 $O(1)$。空间复杂度为 $O(\text{cap})$，其中 $\text{cap}$ 为栈的大小。</p>
+<p>对于 <code>isEmpty</code> 操作，我们直接判断栈是否为空即可。对于栈 $i$，我们只需要判断 $stk[\textit{cap} \times 3 + i]$ 是否为 $0$ 即可。</p>
+<p>时间复杂度上，每个操作的时间复杂度均为 $O(1)$。空间复杂度为 $O(\textit{cap})$，其中 $\textit{cap}$ 为栈的大小。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Swift</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

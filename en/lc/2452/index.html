@@ -77567,8 +77567,8 @@ Applying any two edits to &quot;yes&quot; cannot make it equal to &quot;not&quot
 <!-- solution:start -->
 
 <h3 id="solution-1-brute-force-enumeration">Solution 1: Brute Force Enumeration</h3>
-<p>We directly traverse each word $s$ in the array $\text{queries}$, and then traverse each word $t$ in the array $\text{dictionary}$. If there exists a word $t$ whose edit distance from $s$ is less than $3$, we add $s$ to the answer array and then exit the inner loop. If there is no such word $t$, we continue to traverse the next word $s$.</p>
-<p>The time complexity is $O(m \times n \times l)$, where $m$ and $n$ are the lengths of the arrays $\text{queries}$ and $\text{dictionary}$ respectively, and $l$ is the length of the word.</p>
+<p>We directly traverse each word $s$ in the array $\textit{queries}$, and then traverse each word $t$ in the array $\textit{dictionary}$. If there exists a word $t$ whose edit distance from $s$ is less than $3$, we add $s$ to the answer array and then exit the inner loop. If there is no such word $t$, we continue to traverse the next word $s$.</p>
+<p>The time complexity is $O(m \times n \times l)$, where $m$ and $n$ are the lengths of the arrays $\textit{queries}$ and $\textit{dictionary}$ respectively, and $l$ is the length of the word.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

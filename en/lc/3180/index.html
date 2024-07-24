@@ -77591,11 +77591,11 @@
 
 <h3 id="solution-1-sorting-memoization-binary-search">Solution 1: Sorting + Memoization + Binary Search</h3>
 <p>We can sort the <code>rewardValues</code> array and then use memoization to solve for the maximum total reward.</p>
-<p>We define a function $\text{dfs}(x)$, representing the maximum total reward that can be obtained when the current total reward is $x$. Thus, the answer is $\text{dfs}(0)$.</p>
-<p>The execution process of the function $\text{dfs}(x)$ is as follows:</p>
+<p>We define a function $\textit{dfs}(x)$, representing the maximum total reward that can be obtained when the current total reward is $x$. Thus, the answer is $\textit{dfs}(0)$.</p>
+<p>The execution process of the function $\textit{dfs}(x)$ is as follows:</p>
 <ol>
 <li>Perform a binary search in the <code>rewardValues</code> array for the index $i$ of the first element greater than $x$;</li>
-<li>Iterate over the elements in the <code>rewardValues</code> array starting from index $i$, and for each element $v$, calculate the maximum value of $v + \text{dfs}(x + v)$.</li>
+<li>Iterate over the elements in the <code>rewardValues</code> array starting from index $i$, and for each element $v$, calculate the maximum value of $v + \textit{dfs}(x + v)$.</li>
 <li>Return the result.</li>
 </ol>
 <p>To avoid repeated calculations, we use a memoization array <code>f</code> to record the results that have already been computed.</p>
@@ -77831,12 +77831,12 @@
 <!-- solution:start -->
 
 <h3 id="solution-2-dynamic-programming">Solution 2: Dynamic Programming</h3>
-<p>We define $f[i][j]$ as whether it is possible to obtain a total reward of $j$ using the first $i$ reward values. Initially, $f[0][0] = \text{True}$, and all other values are $\text{False}$.</p>
+<p>We define $f[i][j]$ as whether it is possible to obtain a total reward of $j$ using the first $i$ reward values. Initially, $f[0][0] = \textit{True}$, and all other values are $\textit{False}$.</p>
 <p>We consider the $i$-th reward value $v$. If we do not choose it, then $f[i][j] = f[i - 1][j]$. If we choose it, then $f[i][j] = f[i - 1][j - v]$, where $0 \leq j - v &lt; v$. Thus, the state transition equation is:</p>
 <p>$$
 f[i][j] = f[i - 1][j] \vee f[i - 1][j - v]
 $$</p>
-<p>The final answer is $\max{j \mid f[n][j] = \text{True}}$.</p>
+<p>The final answer is $\max{j \mid f[n][j] = \textit{True}}$.</p>
 <p>Since $f[i][j]$ only depends on $f[i - 1][j]$ and $f[i - 1][j - v]$, we can optimize away the first dimension and use only a one-dimensional array for state transitions.</p>
 <p>The time complexity is $O(n \times M)$, and the space complexity is $O(M)$. Where $n$ is the length of the <code>rewardValues</code> array, and $M$ is twice the maximum value in the <code>rewardValues</code> array.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>

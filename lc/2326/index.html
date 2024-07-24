@@ -82176,9 +82176,9 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：模拟</h3>
-<p>我们定义一个二维数组 $\text{ans}$，用来存放链表中的元素，初始时全部填充为 $-1$。定义三个变量 $i, j, k$，分别表示当前的行、列和方向。定义一个数组 $\text{dirs}$，表示四个方向的偏移量。</p>
-<p>然后我们开始遍历链表，每次遍历一个节点，就将当前节点的值填充到 $\text{ans}[i][j]$ 中，然后更新链表的指针，如果链表为空，说明所有的元素都已经填充完毕，退出循环。</p>
-<p>否则，我们需要找到下一个元素的位置，我们可以通过当前位置 $(i, j)$ 和当前方向 $k$ 来计算下一个位置 $(x, y)$，如果 $(x, y)$ 在矩阵的范围内，并且 $\text{ans}[x][y]$ 为 $-1$，说明 $(x, y)$ 还没有被填充过，我们就将 $(x, y)$ 作为下一个位置，否则我们需要更换方向。</p>
+<p>我们定义一个二维数组 $\textit{ans}$，用来存放链表中的元素，初始时全部填充为 $-1$。定义三个变量 $i, j, k$，分别表示当前的行、列和方向。定义一个数组 $\textit{dirs}$，表示四个方向的偏移量。</p>
+<p>然后我们开始遍历链表，每次遍历一个节点，就将当前节点的值填充到 $\textit{ans}[i][j]$ 中，然后更新链表的指针，如果链表为空，说明所有的元素都已经填充完毕，退出循环。</p>
+<p>否则，我们需要找到下一个元素的位置，我们可以通过当前位置 $(i, j)$ 和当前方向 $k$ 来计算下一个位置 $(x, y)$，如果 $(x, y)$ 在矩阵的范围内，并且 $\textit{ans}[x][y]$ 为 $-1$，说明 $(x, y)$ 还没有被填充过，我们就将 $(x, y)$ 作为下一个位置，否则我们需要更换方向。</p>
 <p>遍历完链表之后，我们就得到了一个螺旋矩阵，返回即可。</p>
 <p>时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别表示矩阵的行数和列数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>

@@ -77588,7 +77588,7 @@ You can skip the first and third rest to arrive in ((7/2 + <u>0</u>) + (3/2 + 0)
 <p>We define $f[i][j]$ as the shortest time considering the first $i$ roads and exactly skipping $j$ rest times. Initially, $f[0][0]=0$, and the rest $f[i][j]=\infty$.</p>
 <p>Since we can choose to skip or not skip the rest time of the $i$-th road, we can list the state transition equation:</p>
 <p>$$
-f[i][j]=\min\left{\begin{aligned} \lceil f[i-1][j]+\frac{d_i}{s}\rceil &amp; \text{Do not skip the rest time of the $i$-th road} \ f[i-1][j-1]+\frac{d_i}{s} &amp; \text{Skip the rest time of the $i$-th road} \end{aligned}\right.
+f[i][j]=\min\left{\begin{aligned} \lceil f[i-1][j]+\frac{d_i}{s}\rceil &amp; \textit{Do not skip the rest time of the $i$-th road} \ f[i-1][j-1]+\frac{d_i}{s} &amp; \textit{Skip the rest time of the $i$-th road} \end{aligned}\right.
 $$</p>
 <p>Where $\lceil x\rceil$ represents rounding $x$ up. It should be noted that since we need to ensure that exactly $j$ rest times are skipped, we must have $j\le i$; moreover, if $j=0$, no rest time can be skipped.</p>
 <p>Due to the possible precision error brought by floating-point operations and rounding up, we introduce a constant $eps = 10^{-8}$ to represent a very small positive real number. We subtract $eps$ before rounding the floating-point number, and finally, when comparing $f[n][j]$ and $hoursBefore$, we need to add $eps$.</p>

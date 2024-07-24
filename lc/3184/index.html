@@ -82175,10 +82175,10 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：计数</h3>
-<p>我们可以用一个哈希表或者一个长度为 $24$ 的数组 $\text{cnt}$ 来记录每个小时数模 $24$ 的出现次数。</p>
-<p>遍历数组 $\text{hours}$，对于每个小时数 $x$，我们可以得出与 $x$ 相加为 $24$ 的倍数，且模 $24$ 之后的数为 $(24 - x \bmod 24) \bmod 24$。累加这个数在哈希表或者数组中的出现次数即可。然后我们将 $x$ 的模 $24$ 的出现次数加一。</p>
-<p>遍历完数组 $\text{hours}$ 后，我们就可以得到满足题意的下标对数目。</p>
-<p>时间复杂度 $O(n)$，其中 $n$ 为数组 $\text{hours}$ 的长度。空间复杂度 $O(C)$，其中 $C=24$。</p>
+<p>我们可以用一个哈希表或者一个长度为 $24$ 的数组 $\textit{cnt}$ 来记录每个小时数模 $24$ 的出现次数。</p>
+<p>遍历数组 $\textit{hours}$，对于每个小时数 $x$，我们可以得出与 $x$ 相加为 $24$ 的倍数，且模 $24$ 之后的数为 $(24 - x \bmod 24) \bmod 24$。累加这个数在哈希表或者数组中的出现次数即可。然后我们将 $x$ 的模 $24$ 的出现次数加一。</p>
+<p>遍历完数组 $\textit{hours}$ 后，我们就可以得到满足题意的下标对数目。</p>
+<p>时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{hours}$ 的长度。空间复杂度 $O(C)$，其中 $C=24$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

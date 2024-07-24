@@ -77590,11 +77590,11 @@ Steps needed = 1 + 1 + 2 + 2 + 3 + 3 + 4 + 4 + 5 + 5 + 6 + 6 + 7 = 49.
 <!-- solution:start -->
 
 <h3 id="solution-1-simulation">Solution 1: Simulation</h3>
-<p>We can simulate the process of watering the plants. We use a variable $\text{water}$ to represent the current amount of water in the watering can, initially $\text{water} = \text{capacity}$.</p>
+<p>We can simulate the process of watering the plants. We use a variable $\textit{water}$ to represent the current amount of water in the watering can, initially $\textit{water} = \textit{capacity}$.</p>
 <p>We traverse the plants. For each plant:</p>
 <ul>
-<li>If the current amount of water in the watering can is enough to water this plant, we move forward one step, water this plant, and update $\text{water} = \text{water} - \text{plants}[i]$.</li>
-<li>Otherwise, we need to return to the river to refill the watering can, walk back to the current position, and then move forward one step. The number of steps we need is $i \times 2 + 1$. Then we water this plant and update $\text{water} = \text{capacity} - \text{plants}[i]$.</li>
+<li>If the current amount of water in the watering can is enough to water this plant, we move forward one step, water this plant, and update $\textit{water} = \textit{water} - \textit{plants}[i]$.</li>
+<li>Otherwise, we need to return to the river to refill the watering can, walk back to the current position, and then move forward one step. The number of steps we need is $i \times 2 + 1$. Then we water this plant and update $\textit{water} = \textit{capacity} - \textit{plants}[i]$.</li>
 </ul>
 <p>Finally, return the total number of steps.</p>
 <p>The time complexity is $O(n)$, where $n$ is the number of plants. The space complexity is $O(1)$.</p>

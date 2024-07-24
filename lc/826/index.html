@@ -82385,7 +82385,7 @@
 <!-- solution:start -->
 
 <h3 id="_4">方法二：动态规划</h3>
-<p>我们不妨记 $m = \max(\text{difficulty})$，定义一个长度为 $m + 1$ 的数组 $f$，其中 $f[i]$ 表示难度小于等于 $i$ 的工作中收益的最大值，初始时 $f[i] = 0$。</p>
+<p>我们不妨记 $m = \max(\textit{difficulty})$，定义一个长度为 $m + 1$ 的数组 $f$，其中 $f[i]$ 表示难度小于等于 $i$ 的工作中收益的最大值，初始时 $f[i] = 0$。</p>
 <p>然后我们遍历工作，对于每个工作 $(d, p)$，我们更新 $f[d] = \max(f[d], p)$。</p>
 <p>接下来，我们从 $1$ 到 $m$ 遍历，对于每个 $i$，我们更新 $f[i] = \max(f[i], f[i - 1])$。</p>
 <p>最后，我们遍历工人，对于每个工人 $w$，我们将 $f[\min(w, m)]$ 加到答案中。</p>
@@ -82591,14 +82591,14 @@
     
     <nav>
       
-        <a href="https://github.com/rain84" class="md-author" title="@rain84">
-          
-          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
-        </a>
-      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
+        </a>
+      
+        <a href="https://github.com/rain84" class="md-author" title="@rain84">
+          
+          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
         </a>
       
       

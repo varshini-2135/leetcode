@@ -82195,10 +82195,10 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：双哈希表</h3>
-<p>我们使用一个哈希表 $\text{g}$ 记录每个球的颜色，使用一个哈希表 $\text{cnt}$ 记录每种颜色的球的个数。</p>
-<p>接下来，遍历数组 $\text{queries}$，对于每个查询 $(x, y)$，我们将颜色 $y$ 的球的个数加 $1$，然后判断球 $x$ 是否已经染色，如果已经染色，我们将球 $x$ 的颜色的球的个数减 $1$，如果减到 $0$，我们将其从哈希表 $\text{cnt}$ 中移除。接下来，我们将球 $x$ 的颜色更新为 $y$，并将当前哈希表 $\text{cnt}$ 的大小加入答案数组。</p>
+<p>我们使用一个哈希表 $\textit{g}$ 记录每个球的颜色，使用一个哈希表 $\textit{cnt}$ 记录每种颜色的球的个数。</p>
+<p>接下来，遍历数组 $\textit{queries}$，对于每个查询 $(x, y)$，我们将颜色 $y$ 的球的个数加 $1$，然后判断球 $x$ 是否已经染色，如果已经染色，我们将球 $x$ 的颜色的球的个数减 $1$，如果减到 $0$，我们将其从哈希表 $\textit{cnt}$ 中移除。接下来，我们将球 $x$ 的颜色更新为 $y$，并将当前哈希表 $\textit{cnt}$ 的大小加入答案数组。</p>
 <p>遍历结束后，返回答案数组即可。</p>
-<p>时间复杂度 $O(m)$，空间复杂度 $O(m)$，其中 $m$ 为数组 $\text{queries}$ 的长度。</p>
+<p>时间复杂度 $O(m)$，空间复杂度 $O(m)$，其中 $m$ 为数组 $\textit{queries}$ 的长度。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

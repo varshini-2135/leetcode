@@ -77853,8 +77853,8 @@ Flip nums[5],nums[6],nums[7]: nums becomes [1,1,1,1,1,1,1,1]
 <!-- solution:start -->
 
 <h3 id="solution-2-sliding-window">Solution 2: Sliding Window</h3>
-<p>We can use a variable $\text{flipped}$ to indicate whether the current position has been flipped. If $\text{flipped} = 1$, it means the current position has already been flipped; otherwise, it means the current position has not been flipped. For positions that have been flipped, we can set their value to $-1$, allowing us to distinguish which positions have been flipped.</p>
-<p>Next, we traverse the array from left to right. For each position $i$, if $i \geq k$ and the element at position $i-k$ is $-1$, then the flip state of the current position should be the opposite of the flip state of the previous position. That is, $\text{flipped} = \text{flipped} \oplus 1$. If the element at the current position is the same as the current flip state, then we need to flip the current position. At this point, we check if $i+k$ exceeds the length of the array. If it does, then it is impossible to achieve the goal, and we return $-1$. Otherwise, we invert the current flip state, increase the answer by $1$, and set the element at the current position to $-1$.</p>
+<p>We can use a variable $\textit{flipped}$ to indicate whether the current position has been flipped. If $\textit{flipped} = 1$, it means the current position has already been flipped; otherwise, it means the current position has not been flipped. For positions that have been flipped, we can set their value to $-1$, allowing us to distinguish which positions have been flipped.</p>
+<p>Next, we traverse the array from left to right. For each position $i$, if $i \geq k$ and the element at position $i-k$ is $-1$, then the flip state of the current position should be the opposite of the flip state of the previous position. That is, $\textit{flipped} = \textit{flipped} \oplus 1$. If the element at the current position is the same as the current flip state, then we need to flip the current position. At this point, we check if $i+k$ exceeds the length of the array. If it does, then it is impossible to achieve the goal, and we return $-1$. Otherwise, we invert the current flip state, increase the answer by $1$, and set the element at the current position to $-1$.</p>
 <p>By processing all elements in the array in this manner, we can return the answer upon completion.</p>
 <p>The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">Rust</label></div>
@@ -78128,14 +78128,14 @@ Flip nums[5],nums[6],nums[7]: nums becomes [1,1,1,1,1,1,1,1]
     
     <nav>
       
-        <a href="https://github.com/rain84" class="md-author" title="@rain84">
-          
-          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
-        </a>
-      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
+        </a>
+      
+        <a href="https://github.com/rain84" class="md-author" title="@rain84">
+          
+          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
         </a>
       
       

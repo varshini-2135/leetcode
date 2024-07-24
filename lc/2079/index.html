@@ -82191,11 +82191,11 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：模拟</h3>
-<p>我们可以模拟给植物浇水的过程，用一个变量 $\text{water}$ 表示当前水罐中的水量，初始时 $\text{water} = \text{capacity}$。</p>
+<p>我们可以模拟给植物浇水的过程，用一个变量 $\textit{water}$ 表示当前水罐中的水量，初始时 $\textit{water} = \textit{capacity}$。</p>
 <p>我们遍历植物，对于每一株植物：</p>
 <ul>
-<li>如果当前水罐中的水量足够浇灌这株植物，我们就向前移动一步，浇灌这株植物，同时更新 $\text{water} = \text{water} - \text{plants}[i]$。</li>
-<li>否则我们就需要返回河边重新装满水罐，再次走到当前位置，然后向前移动一步，此时我们需要的步数为 $i \times 2 + 1$，然后我们浇灌这株植物，更新 $\text{water} = \text{capacity} - \text{plants}[i]$。</li>
+<li>如果当前水罐中的水量足够浇灌这株植物，我们就向前移动一步，浇灌这株植物，同时更新 $\textit{water} = \textit{water} - \textit{plants}[i]$。</li>
+<li>否则我们就需要返回河边重新装满水罐，再次走到当前位置，然后向前移动一步，此时我们需要的步数为 $i \times 2 + 1$，然后我们浇灌这株植物，更新 $\textit{water} = \textit{capacity} - \textit{plants}[i]$。</li>
 </ul>
 <p>最后返回总的步数即可。</p>
 <p>时间复杂度 $O(n)$，其中 $n$ 为植物的数量。空间复杂度 $O(1)$。</p>

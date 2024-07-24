@@ -77588,7 +77588,7 @@
 <!-- solution:start -->
 
 <h3 id="solution-1-hash-table-priority-queue-min-heap">Solution 1: Hash Table + Priority Queue (Min Heap)</h3>
-<p>We can use a hash table $\text{cnt}$ to count the occurrence of each element, and then use a min heap (priority queue) to store the top $k$ frequent elements.</p>
+<p>We can use a hash table $\textit{cnt}$ to count the occurrence of each element, and then use a min heap (priority queue) to store the top $k$ frequent elements.</p>
 <p>First, we traverse the array once to count the occurrence of each element. Then, we iterate through the hash table, storing each element and its count into the min heap. If the size of the min heap exceeds $k$, we pop the top element of the heap to ensure the heap size is always $k$.</p>
 <p>Finally, we pop the elements from the min heap one by one and place them into the result array.</p>
 <p>The time complexity is $O(n \log k)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array.</p>
@@ -77847,14 +77847,14 @@
     
     <nav>
       
-        <a href="https://github.com/rain84" class="md-author" title="@rain84">
-          
-          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
-        </a>
-      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
+        </a>
+      
+        <a href="https://github.com/rain84" class="md-author" title="@rain84">
+          
+          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
         </a>
       
         <a href="https://github.com/YangFong" class="md-author" title="@YangFong">

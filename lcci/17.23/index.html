@@ -82140,15 +82140,15 @@
 <p>我们可以预处理出每个位置 $(i, j)$ 向下和向右的连续 $0$ （黑色像素）的个数，记为 $down[i][j]$ 和 $right[i][j]$。递推公式如下：</p>
 <p>$$
 down[i][j] = \begin{cases}
-down[i + 1][j] + 1, &amp; matrix[i][j] = 0 \text{ 且 } i + 1 &lt; n \
-1, &amp; matrix[i][j] = 0 \text{ 且 } i + 1 = n \
+down[i + 1][j] + 1, &amp; matrix[i][j] = 0 \textit{ 且 } i + 1 &lt; n \
+1, &amp; matrix[i][j] = 0 \textit{ 且 } i + 1 = n \
 0, &amp; matrix[i][j] = 1
 \end{cases}
 $$</p>
 <p>$$
 right[i][j] = \begin{cases}
-right[i][j + 1] + 1, &amp; matrix[i][j] = 0 \text{ 且 } j + 1 &lt; n \
-1, &amp; matrix[i][j] = 0 \text{ 且 } j + 1 = n \
+right[i][j + 1] + 1, &amp; matrix[i][j] = 0 \textit{ 且 } j + 1 &lt; n \
+1, &amp; matrix[i][j] = 0 \textit{ 且 } j + 1 = n \
 0, &amp; matrix[i][j] = 1
 \end{cases}
 $$</p>

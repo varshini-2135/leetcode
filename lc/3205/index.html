@@ -82210,10 +82210,10 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：记忆化搜索</h3>
-<p>我们设计一个函数 $\text{dfs}(i)$，表示从下标 $i$ 出发，能够获得的最大分数。那么答案就是 $\text{dfs}(0)$。</p>
-<p>函数 $\text{dfs}(i)$ 的执行过程如下：</p>
-<p>我们枚举下一个跳跃的位置 $j$，那么从下标 $i$ 出发，能够获得的分数就是 $(j - i) \times \text{nums}[j]$，加上从下标 $j$ 出发，能够获得的最大分数，总分数就是 $(j - i) \times \text{nums}[j] + \text{dfs}(j)$。我们枚举所有的 $j$，取分数的最大值即可。</p>
-<p>为了避免重复计算，我们使用记忆化搜索的方法，将已经计算过的 $\text{dfs}(i)$ 的值保存起来，下次直接返回即可。</p>
+<p>我们设计一个函数 $\textit{dfs}(i)$，表示从下标 $i$ 出发，能够获得的最大分数。那么答案就是 $\textit{dfs}(0)$。</p>
+<p>函数 $\textit{dfs}(i)$ 的执行过程如下：</p>
+<p>我们枚举下一个跳跃的位置 $j$，那么从下标 $i$ 出发，能够获得的分数就是 $(j - i) \times \textit{nums}[j]$，加上从下标 $j$ 出发，能够获得的最大分数，总分数就是 $(j - i) \times \textit{nums}[j] + \textit{dfs}(j)$。我们枚举所有的 $j$，取分数的最大值即可。</p>
+<p>为了避免重复计算，我们使用记忆化搜索的方法，将已经计算过的 $\textit{dfs}(i)$ 的值保存起来，下次直接返回即可。</p>
 <p>时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
@@ -82394,7 +82394,7 @@
 <p>定义 $f[j]$ 表示从下标 $0$ 出发，到下标 $j$ 结束，能够获得的最大分数。那么答案就是 $f[n - 1]$。</p>
 <p>状态转移方程为：</p>
 <p>$$
-f[j] = \max_{0 \leq i &lt; j} { f[i] + (j - i) \times \text{nums}[j] }
+f[j] = \max_{0 \leq i &lt; j} { f[i] + (j - i) \times \textit{nums}[j] }
 $$</p>
 <p>时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
@@ -82523,9 +82523,9 @@ $$</p>
 
 <h3 id="_5">方法三：单调栈</h3>
 <p>我们观察发现，对于当前位置 $i$，我们应该跳到下一个值最大的位置 $j$，这样才能获得最大的分数。</p>
-<p>因此，我们遍历数组 $\text{nums}$，维护一个从栈底到栈顶单调递减的栈 $\text{stk}$。对于当前遍历到的位置 $i$，如果栈顶元素对应的值小于等于 $\text{nums}[i]$，我们就不断地弹出栈顶元素，直到栈为空或者栈顶元素对应的值大于 $\text{nums}[i]$，然后将 $i$ 入栈。</p>
-<p>然后，我们初始化答案 $\text{ans}$ 和当前位置 $i = 0$，遍历栈中的元素，每次取出栈顶元素 $j$，更新答案 $\text{ans} += \text{nums}[j] \times (j - i)$，然后更新 $i = j$。</p>
-<p>最后返回答案 $\text{ans}$。</p>
+<p>因此，我们遍历数组 $\textit{nums}$，维护一个从栈底到栈顶单调递减的栈 $\textit{stk}$。对于当前遍历到的位置 $i$，如果栈顶元素对应的值小于等于 $\textit{nums}[i]$，我们就不断地弹出栈顶元素，直到栈为空或者栈顶元素对应的值大于 $\textit{nums}[i]$，然后将 $i$ 入栈。</p>
+<p>然后，我们初始化答案 $\textit{ans}$ 和当前位置 $i = 0$，遍历栈中的元素，每次取出栈顶元素 $j$，更新答案 $\textit{ans} += \textit{nums}[j] \times (j - i)$，然后更新 $i = j$。</p>
+<p>最后返回答案 $\textit{ans}$。</p>
 <p>时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python3</label><label for="__tabbed_3_2">Java</label><label for="__tabbed_3_3">C++</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">TypeScript</label></div>
 <div class="tabbed-content">

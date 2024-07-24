@@ -82525,7 +82525,7 @@
 <h3 id="bfs">方法二：BFS</h3>
 <p>我们也可以使用 BFS，判断是否存在从 <code>source</code> 到 <code>destination</code> 的路径。</p>
 <p>具体地，我们定义一个队列 $q$，初始时将 <code>source</code> 加入队列。另外，我们用一个集合 <code>vis</code> 记录已经访问过的顶点，避免重复访问。</p>
-<p>接下来，我们不断从队列中取出顶点 $i$，如果 $i = \text{destination}$，则说明存在从 <code>source</code> 到 <code>destination</code> 的路径，返回 <code>true</code>。否则，我们遍历 $i$ 的所有邻接顶点 $j$，如果 $j$ 没有被访问过，我们将 $j$ 加入队列 $q$，并且标记 $j$ 为已访问。</p>
+<p>接下来，我们不断从队列中取出顶点 $i$，如果 $i = \textit{destination}$，则说明存在从 <code>source</code> 到 <code>destination</code> 的路径，返回 <code>true</code>。否则，我们遍历 $i$ 的所有邻接顶点 $j$，如果 $j$ 没有被访问过，我们将 $j$ 加入队列 $q$，并且标记 $j$ 为已访问。</p>
 <p>最后，如果队列为空，说明不存在从 <code>source</code> 到 <code>destination</code> 的路径，返回 <code>false</code>。</p>
 <p>时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点数和边数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">Rust</label></div>

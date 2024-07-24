@@ -82689,12 +82689,12 @@
 <p>定义 $f[i][j]$ 表示字符串 $s_1$ 的前 $i$ 个字符和字符串 $s_2$ 的前 $j$ 个字符是否能交错组成字符串 $s_3$ 的前 $i + j$ 个字符。在进行状态转移时，我们可以考虑当前字符是由 $s_1$ 的最后一个字符还是 $s_2$ 的最后一个字符得到的，因此有状态转移方程：</p>
 <p>$$
 f[i][j] = \begin{cases}
-f[i - 1][j] &amp; \text{if } s_1[i - 1] = s_3[i + j - 1] \
-\text{or } f[i][j - 1] &amp; \text{if } s_2[j - 1] = s_3[i + j - 1] \
-\text{false} &amp; \text{otherwise}
+f[i - 1][j] &amp; \textit{if } s_1[i - 1] = s_3[i + j - 1] \
+\textit{or } f[i][j - 1] &amp; \textit{if } s_2[j - 1] = s_3[i + j - 1] \
+\textit{false} &amp; \textit{otherwise}
 \end{cases}
 $$</p>
-<p>其中 $f[0][0] = \text{true}$ 表示空串是两个空串的交错字符串。</p>
+<p>其中 $f[0][0] = \textit{true}$ 表示空串是两个空串的交错字符串。</p>
 <p>答案即为 $f[m][n]$。</p>
 <p>时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是字符串 $s_1$ 和 $s_2$ 的长度。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">C#</label></div>

@@ -77567,9 +77567,9 @@
 <p>$$
 f[i][j]=
 \begin{cases}
-1, &amp; \text{if } i=j \
-f[i][j-1], &amp; \text{if } s[i]=s[j] \
-\min_{i \leq k &lt; j} {f[i][k]+f[k+1][j]}, &amp; \text{otherwise}
+1, &amp; \textit{if } i=j \
+f[i][j-1], &amp; \textit{if } s[i]=s[j] \
+\min_{i \leq k &lt; j} {f[i][k]+f[k+1][j]}, &amp; \textit{otherwise}
 \end{cases}
 $$</p>
 <p>We can enumerate $i$ from large to small and $j$ from small to large, so that we can ensure that $f[i][j-1]$, $f[i][k]$ and $f[k+1][j]$ have been calculated when we calculate $f[i][j]$.</p>

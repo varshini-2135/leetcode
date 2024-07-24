@@ -77589,7 +77589,7 @@
 <p>We can solve this problem using dynamic programming. Define the state $f[x][y]$ as the length of the longest valid subsequence where the last element modulo $k$ equals $x$, and the second to last element modulo $k$ equals $y$. Initially, $f[x][y] = 0$.</p>
 <p>Iterate through the array $nums$, and for each number $x$, we get $x = x \bmod k$. Then, we can enumerate the sequences where two consecutive numbers modulo $j$ yield the same result, where $j \in [0, k)$. Thus, the previous number modulo $k$ would be $y = (j - x + k) \bmod k$. At this point, $f[x][y] = f[y][x] + 1$.</p>
 <p>The answer is the maximum value among all $f[x][y]$.</p>
-<p>The time complexity is $O(n \times k)$, and the space complexity is $O(k^2)$. Here, $n$ is the length of the array $\text{nums}$, and $k=2$.</p>
+<p>The time complexity is $O(n \times k)$, and the space complexity is $O(k^2)$. Here, $n$ is the length of the array $\textit{nums}$, and $k=2$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

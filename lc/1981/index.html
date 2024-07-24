@@ -82197,7 +82197,7 @@
 <h3 id="_3">方法一：动态规划（分组背包）</h3>
 <p>设 $f[i][j]$ 表示前 $i$ 行是否能选出元素和为 $j$，则有状态转移方程：</p>
 <p>$$
-f[i][j] = \begin{cases} 1 &amp; \text{如果存在 } x \in row[i] \text{ 使得 } f[i - 1][j - x] = 1 \ 0 &amp; \text{否则} \end{cases}
+f[i][j] = \begin{cases} 1 &amp; \textit{如果存在 } x \in row[i] \textit{ 使得 } f[i - 1][j - x] = 1 \ 0 &amp; \textit{否则} \end{cases}
 $$</p>
 <p>其中 $row[i]$ 表示第 $i$ 行的元素集合。</p>
 <p>由于 $f[i][j]$ 只与 $f[i - 1][j]$ 有关，因此我们可以使用滚动数组优化空间复杂度。</p>

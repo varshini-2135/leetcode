@@ -82519,7 +82519,7 @@
 <!-- solution:start -->
 
 <h3 id="_4">方法二：双指针</h3>
-<p>我们可以维护两个指针 $l$ 和 $r$，初始时 $l = r = 0$；维护一个变量 $\text{cost}$，表示下标区间 $[l,..r]$ 之间的 ASCII 码值的差的绝对值之和。在每一步中，我们将 $r$ 向右移动一位，然后更新 $\text{cost} = \text{cost} + |s[r] - t[r]|$。如果 $\text{cost} \gt \text{maxCost}$，那么我们就循环将 $l$ 向右移动一位，并且减少 $\text{cost}$ 的值，直到 $\text{cost} \leq \text{maxCost}$。然后我们更新答案，即 $\text{ans} = \max(\text{ans}, r - l + 1)$。</p>
+<p>我们可以维护两个指针 $l$ 和 $r$，初始时 $l = r = 0$；维护一个变量 $\textit{cost}$，表示下标区间 $[l,..r]$ 之间的 ASCII 码值的差的绝对值之和。在每一步中，我们将 $r$ 向右移动一位，然后更新 $\textit{cost} = \textit{cost} + |s[r] - t[r]|$。如果 $\textit{cost} \gt \textit{maxCost}$，那么我们就循环将 $l$ 向右移动一位，并且减少 $\textit{cost}$ 的值，直到 $\textit{cost} \leq \textit{maxCost}$。然后我们更新答案，即 $\textit{ans} = \max(\textit{ans}, r - l + 1)$。</p>
 <p>最后返回答案即可。</p>
 <p>时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
@@ -82690,7 +82690,7 @@
 
 <h3 id="_5">方法三：双指针的另一种写法</h3>
 <p>在方法二中，双指针维护的区间可能变短，也可能变长，由于题目只需要求出最大长度，我们可以维护一个单调变长的区间。</p>
-<p>具体地，我们用两个指针 $l$ 和 $r$ 指向区间的左右端点，初始时 $l = r = 0$。在每一步中，我们将 $r$ 向右移动一位，然后更新 $\text{cost} = \text{cost} + |s[r] - t[r]|$。如果 $\text{cost} \gt \text{maxCost}$，那么我们就将 $l$ 向右移动一位，并且减少 $\text{cost}$ 的值。</p>
+<p>具体地，我们用两个指针 $l$ 和 $r$ 指向区间的左右端点，初始时 $l = r = 0$。在每一步中，我们将 $r$ 向右移动一位，然后更新 $\textit{cost} = \textit{cost} + |s[r] - t[r]|$。如果 $\textit{cost} \gt \textit{maxCost}$，那么我们就将 $l$ 向右移动一位，并且减少 $\textit{cost}$ 的值。</p>
 <p>最后返回 $n - l$ 即可。</p>
 <p>时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python3</label><label for="__tabbed_3_2">Java</label><label for="__tabbed_3_3">C++</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">TypeScript</label></div>
@@ -82878,14 +82878,14 @@
     
     <nav>
       
-        <a href="https://github.com/rain84" class="md-author" title="@rain84">
-          
-          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
-        </a>
-      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
+        </a>
+      
+        <a href="https://github.com/rain84" class="md-author" title="@rain84">
+          
+          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
         </a>
       
       

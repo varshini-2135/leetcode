@@ -82299,7 +82299,7 @@
 
 <h3 id="_4">方法二：动态规划</h3>
 <p>我们定义一个长度为 $n+1$ 的答案数组 $ans$，初始时 $ans[0]=0$。</p>
-<p>对于 $1 \leq i \leq n$，我们有 $ans[i] = ans[i \text{ and } (i-1)] + 1$。其中 $i \text{ and } (i-1)$ 表示将 $i$ 的二进制表示中的最低位 $1$ 变成 $0$ 之后的数，显然 $i \text{ and } (i-1) &lt; i$，且 $ans[i \text{ and } (i-1)]$ 已经被计算出来了，我们就能以 $O(1)$ 的时间得到 $ans[i]$。</p>
+<p>对于 $1 \leq i \leq n$，我们有 $ans[i] = ans[i \textit{ and } (i-1)] + 1$。其中 $i \textit{ and } (i-1)$ 表示将 $i$ 的二进制表示中的最低位 $1$ 变成 $0$ 之后的数，显然 $i \textit{ and } (i-1) &lt; i$，且 $ans[i \textit{ and } (i-1)]$ 已经被计算出来了，我们就能以 $O(1)$ 的时间得到 $ans[i]$。</p>
 <p>时间复杂度 $O(n)$，空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
 <div class="tabbed-content">

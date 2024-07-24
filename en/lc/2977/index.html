@@ -77629,7 +77629,7 @@ If you select substring source[3..7] as the first operation to change &quot;abcd
 dfs(i) = \begin{cases}
 0, &amp; i \geq |source| \
 dfs(i + 1), &amp; source[i] = target[i] \
-\min_{i \leq j &lt; |source|} { dfs(j + 1) + g[x][y] }, &amp; \text{otherwise}
+\min_{i \leq j &lt; |source|} { dfs(j + 1) + g[x][y] }, &amp; \textit{otherwise}
 \end{cases}
 $$</p>
 <p>Where $x$ and $y$ are the integer identifiers of $source[i..j]$ and $target[i..j]$ in the trie, respectively.</p>

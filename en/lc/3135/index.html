@@ -77633,8 +77633,8 @@
 <p>We can use dynamic programming to find the length $mx$ of the longest common substring of <code>initial</code> and <code>target</code>. We define a two-dimensional array $f$, where $f[i][j]$ represents the length of the longest common substring ending with <code>initial[i - 1]</code> and <code>target[j - 1]</code>. Then, we can get the state transition equation:</p>
 <p>$$
 f[i][j] = \begin{cases}
-f[i - 1][j - 1] + 1, &amp; \text{if } \text{initial}[i - 1] = \text{target}[j - 1], \
-0, &amp; \text{otherwise}.
+f[i - 1][j - 1] + 1, &amp; \textit{if } \textit{initial}[i - 1] = \textit{target}[j - 1], \
+0, &amp; \textit{otherwise}.
 \end{cases}
 $$</p>
 <p>Then $mx = \max f[i][j]$, and the final answer is $m + n - 2 \times mx$.</p>

@@ -82205,9 +82205,9 @@
 <p>我们注意到，矩阵中格子的值只有 $10$ 种可能，题目需要我们求出每一列数字相同，且相邻列数字不同的最小操作次数。那么我们只需要考虑将数字修改为 $0$ 到 $9$ 的情况即可。</p>
 <p>我们定义状态 $f[i][j]$ 表示前 $[0,..i]$ 列数字，且第 $i$ 列数字为 $j$ 的最小操作次数。那么我们可以得到状态转移方程：</p>
 <p>$$
-f[i][j] = \min_{k \neq j} f[i-1][k] + m - \text{cnt}[j]
+f[i][j] = \min_{k \neq j} f[i-1][k] + m - \textit{cnt}[j]
 $$</p>
-<p>其中 $\text{cnt}[j]$ 表示第 $i$ 列数字为 $j$ 的个数。</p>
+<p>其中 $\textit{cnt}[j]$ 表示第 $i$ 列数字为 $j$ 的个数。</p>
 <p>最后我们只需要求出 $f[n-1][j]$ 的最小值即可。</p>
 <p>时间复杂度 $O(n \times (m + C^2))$，空间复杂度 $O(n \times C)$。其中 $m$ 和 $n$ 分别表示矩阵的行数和列数；而 $C$ 表示数字的种类数，这里 $C = 10$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>

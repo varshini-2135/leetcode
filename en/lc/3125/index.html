@@ -77582,7 +77582,7 @@ The bitwise <code>AND</code> of <code>[3, 4, 5, 6, 7]</code> is 0.</p>
 <!-- solution:start -->
 
 <h3 id="solution-1-bit-manipulation">Solution 1: Bit Manipulation</h3>
-<p>We can find the highest bit of $1$ in the binary representation of $n$. The maximum $x$ must be less than $n$ and this bit is $0$, and all other lower bits are $1$, i.e., $x = 2^{\text{number of the highest bit}} - 1$. This is because $x \text{ and } (x + 1) = 0$ must hold.</p>
+<p>We can find the highest bit of $1$ in the binary representation of $n$. The maximum $x$ must be less than $n$ and this bit is $0$, and all other lower bits are $1$, i.e., $x = 2^{\textit{number of the highest bit}} - 1$. This is because $x \textit{ and } (x + 1) = 0$ must hold.</p>
 <p>The time complexity is $O(\log n)$, and the space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">

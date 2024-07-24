@@ -77565,8 +77565,8 @@ It can be proven, that 3 is the minimum number of operations that we need to per
 <!-- solution:start -->
 
 <h3 id="solution-1-enumeration">Solution 1: Enumeration</h3>
-<p>If we operate $k$ times, then the problem essentially becomes: determining whether $\text{num1} - k \times \text{num2}$ can be split into the sum of $k$ $2^i$s.</p>
-<p>Let's assume $x = \text{num1} - k \times \text{num2}$. Next, we discuss in categories:</p>
+<p>If we operate $k$ times, then the problem essentially becomes: determining whether $\textit{num1} - k \times \textit{num2}$ can be split into the sum of $k$ $2^i$s.</p>
+<p>Let's assume $x = \textit{num1} - k \times \textit{num2}$. Next, we discuss in categories:</p>
 <ul>
 <li>If $x &lt; 0$, then $x$ cannot be split into the sum of $k$ $2^i$s, because $2^i &gt; 0$, which obviously has no solution;</li>
 <li>If the number of $1$s in the binary representation of $x$ is greater than $k$, there is also no solution in this case;</li>
@@ -77574,7 +77574,7 @@ It can be proven, that 3 is the minimum number of operations that we need to per
 </ul>
 <p>Therefore, we start enumerating $k$ from $1$. Once we find a $k$ that meets the condition, we can directly return the answer.</p>
 <p>The time complexity is $O(\log x)$, and the space complexity is $O(1)$.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -77683,6 +77683,32 @@ It can be proven, that 3 is the minimum number of operations that we need to per
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">makeTheIntegerZero</span><span class="p">(</span><span class="nx">num1</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">num2</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="nx">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">num1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">num2</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mf">2</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/0/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>

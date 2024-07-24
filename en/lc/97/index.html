@@ -78091,12 +78091,12 @@ Since s3 can be obtained by interleaving s1 and s2, we return true.
 <p>We define $f[i][j]$ to represent whether the first $i$ characters of string $s_1$ and the first $j$ characters of string $s_2$ can interleave to form the first $i + j$ characters of string $s_3$. When transitioning states, we can consider whether the current character is obtained from the last character of $s_1$ or the last character of $s_2$. Therefore, we have the state transition equation:</p>
 <p>$$
 f[i][j] = \begin{cases}
-f[i - 1][j] &amp; \text{if } s_1[i - 1] = s_3[i + j - 1] \
-\text{or } f[i][j - 1] &amp; \text{if } s_2[j - 1] = s_3[i + j - 1] \
-\text{false} &amp; \text{otherwise}
+f[i - 1][j] &amp; \textit{if } s_1[i - 1] = s_3[i + j - 1] \
+\textit{or } f[i][j - 1] &amp; \textit{if } s_2[j - 1] = s_3[i + j - 1] \
+\textit{false} &amp; \textit{otherwise}
 \end{cases}
 $$</p>
-<p>where $f[0][0] = \text{true}$ indicates that an empty string is an interleaving string of two empty strings.</p>
+<p>where $f[0][0] = \textit{true}$ indicates that an empty string is an interleaving string of two empty strings.</p>
 <p>The answer is $f[m][n]$.</p>
 <p>The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of strings $s_1$ and $s_2$ respectively.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">C#</label></div>

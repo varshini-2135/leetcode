@@ -77916,7 +77916,7 @@ That costs 3, so the maximum length is 3.
 <!-- solution:start -->
 
 <h3 id="solution-2-two-pointers">Solution 2: Two Pointers</h3>
-<p>We can maintain two pointers $l$ and $r$, initially $l = r = 0$; maintain a variable $\text{cost}$, which represents the sum of the absolute values of the ASCII code differences in the index interval $[l,..r]$. In each step, we move $r$ to the right by one position, then update $\text{cost} = \text{cost} + |s[r] - t[r]|$. If $\text{cost} \gt \text{maxCost}$, then we loop to move $l$ to the right by one position, and decrease the value of $\text{cost}$, until $\text{cost} \leq \text{maxCost}$. Then we update the answer, that is, $\text{ans} = \max(\text{ans}, r - l + 1)$.</p>
+<p>We can maintain two pointers $l$ and $r$, initially $l = r = 0$; maintain a variable $\textit{cost}$, which represents the sum of the absolute values of the ASCII code differences in the index interval $[l,..r]$. In each step, we move $r$ to the right by one position, then update $\textit{cost} = \textit{cost} + |s[r] - t[r]|$. If $\textit{cost} \gt \textit{maxCost}$, then we loop to move $l$ to the right by one position, and decrease the value of $\textit{cost}$, until $\textit{cost} \leq \textit{maxCost}$. Then we update the answer, that is, $\textit{ans} = \max(\textit{ans}, r - l + 1)$.</p>
 <p>Finally, return the answer.</p>
 <p>The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
@@ -78087,7 +78087,7 @@ That costs 3, so the maximum length is 3.
 
 <h3 id="solution-3-another-way-of-using-two-pointers">Solution 3: Another Way of Using Two Pointers</h3>
 <p>In Solution 2, the interval maintained by the two pointers may become shorter or longer. Since the problem only requires the maximum length, we can maintain a monotonically increasing interval.</p>
-<p>Specifically, we use two pointers $l$ and $r$ to point to the left and right endpoints of the interval, initially $l = r = 0$. In each step, we move $r$ to the right by one position, then update $\text{cost} = \text{cost} + |s[r] - t[r]|$. If $\text{cost} \gt \text{maxCost}$, then we move $l$ to the right by one position, and decrease the value of $\text{cost}$.</p>
+<p>Specifically, we use two pointers $l$ and $r$ to point to the left and right endpoints of the interval, initially $l = r = 0$. In each step, we move $r$ to the right by one position, then update $\textit{cost} = \textit{cost} + |s[r] - t[r]|$. If $\textit{cost} \gt \textit{maxCost}$, then we move $l$ to the right by one position, and decrease the value of $\textit{cost}$.</p>
 <p>Finally, return $n - l$.</p>
 <p>The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of the string $s$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python3</label><label for="__tabbed_3_2">Java</label><label for="__tabbed_3_3">C++</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">TypeScript</label></div>
@@ -78275,14 +78275,14 @@ That costs 3, so the maximum length is 3.
     
     <nav>
       
-        <a href="https://github.com/rain84" class="md-author" title="@rain84">
-          
-          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
-        </a>
-      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
+        </a>
+      
+        <a href="https://github.com/rain84" class="md-author" title="@rain84">
+          
+          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
         </a>
       
       

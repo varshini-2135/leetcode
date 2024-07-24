@@ -77589,7 +77589,7 @@ The absolute difference is 1.
 <h3 id="solution-1-dynamic-programming-grouped-knapsack">Solution 1: Dynamic Programming (Grouped Knapsack)</h3>
 <p>Let $f[i][j]$ represent whether it is possible to select elements from the first $i$ rows with a sum of $j$. Then we have the state transition equation:</p>
 <p>$$
-f[i][j] = \begin{cases} 1 &amp; \text{if there exists } x \in row[i] \text{ such that } f[i - 1][j - x] = 1 \ 0 &amp; \text{otherwise} \end{cases}
+f[i][j] = \begin{cases} 1 &amp; \textit{if there exists } x \in row[i] \textit{ such that } f[i - 1][j - x] = 1 \ 0 &amp; \textit{otherwise} \end{cases}
 $$</p>
 <p>where $row[i]$ represents the set of elements in the $i$-th row.</p>
 <p>Since $f[i][j]$ is only related to $f[i - 1][j]$, we can use a rolling array to optimize the space complexity.</p>

@@ -77558,10 +77558,10 @@
 
 <h3 id="solution-1-bit-manipulation">Solution 1: Bit Manipulation</h3>
 <p>According to the problem description, we can use XOR operation to implement the flipping operation, the steps are as follows:</p>
-<p>First, we find the highest bit of $1$ in the binary representation of $\text{num}$, and the position is denoted as $k$.</p>
+<p>First, we find the highest bit of $1$ in the binary representation of $\textit{num}$, and the position is denoted as $k$.</p>
 <p>Then, we construct a binary number, where the $k$-th bit is $0$ and the rest of the lower bits are $1$, which is $2^k - 1$;</p>
-<p>Finally, we perform XOR operation on $\text{num}$ and the constructed binary number to get the answer.</p>
-<p>The time complexity is $O(\log \text{num})$, where $\text{num}$ is the input integer. The space complexity is $O(1)$.</p>
+<p>Finally, we perform XOR operation on $\textit{num}$ and the constructed binary number to get the answer.</p>
+<p>The time complexity is $O(\log \textit{num})$, where $\textit{num}$ is the input integer. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

@@ -77570,25 +77570,25 @@
 <!-- solution:start -->
 
 <h3 id="solution-1-dfs">Solution 1: DFS</h3>
-<p>Let's assume the integers are $a_1, a_2, \cdots, a_n$, their depths are $d_1, d_2, \cdots, d_n$, the maximum depth is $\text{maxDepth}$, then the answer is:</p>
+<p>Let's assume the integers are $a_1, a_2, \cdots, a_n$, their depths are $d_1, d_2, \cdots, d_n$, the maximum depth is $\textit{maxDepth}$, then the answer is:</p>
 <p>$$
-a_1 \times \text{maxDepth} - a_1 \times d_1 + a_1 + a_2 \times \text{maxDepth} - a_2 \times d_2 + a_2 + \cdots + a_n \times \text{maxDepth} - a_n \times d_n + a_n
+a_1 \times \textit{maxDepth} - a_1 \times d_1 + a_1 + a_2 \times \textit{maxDepth} - a_2 \times d_2 + a_2 + \cdots + a_n \times \textit{maxDepth} - a_n \times d_n + a_n
 $$</p>
 <p>which is:</p>
 <p>$$
-(\text{maxDepth} + 1) \times (a_1 + a_2 + \cdots + a_n) - (a_1 \times d_1 + a_2 \times d_2 + \cdots + a_n \times d_n)
+(\textit{maxDepth} + 1) \times (a_1 + a_2 + \cdots + a_n) - (a_1 \times d_1 + a_2 \times d_2 + \cdots + a_n \times d_n)
 $$</p>
 <p>If we denote the sum of all integers as $s$, and the sum of each integer multiplied by its depth as $ws$, then the answer is:</p>
 <p>$$
-(\text{maxDepth} + 1) \times s - ws
+(\textit{maxDepth} + 1) \times s - ws
 $$</p>
 <p>Therefore, we design a function $dfs(x, d)$, which starts searching from $x$ with depth $d$. The execution process of $dfs(x, d)$ is as follows:</p>
 <ul>
-<li>We first update $\text{maxDepth} = \max(\text{maxDepth}, d)$;</li>
+<li>We first update $\textit{maxDepth} = \max(\textit{maxDepth}, d)$;</li>
 <li>If $x$ is an integer, then we update $s = s + x$, $ws = ws + x \times d$;</li>
 <li>Otherwise, we recursively traverse each element $y$ of $x$, and call $dfs(y, d + 1)$.</li>
 </ul>
-<p>We traverse the entire list, for each element $x$, we call $dfs(x, 1)$, and finally return $(\text{maxDepth} + 1) \times s - ws$.</p>
+<p>We traverse the entire list, for each element $x$, we call $dfs(x, 1)$, and finally return $(\textit{maxDepth} + 1) \times s - ws$.</p>
 <p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of integers.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">JavaScript</label></div>
 <div class="tabbed-content">

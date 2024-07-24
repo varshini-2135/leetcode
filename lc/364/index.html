@@ -82172,25 +82172,25 @@
 <!-- solution:start -->
 
 <h3 id="dfs">方法一：DFS</h3>
-<p>我们不妨假设整数分别为 $a_1, a_2, \cdots, a_n$，它们的深度分别为 $d_1, d_2, \cdots, d_n$，最大深度为 $\text{maxDepth}$，那么答案就是：</p>
+<p>我们不妨假设整数分别为 $a_1, a_2, \cdots, a_n$，它们的深度分别为 $d_1, d_2, \cdots, d_n$，最大深度为 $\textit{maxDepth}$，那么答案就是：</p>
 <p>$$
-a_1 \times \text{maxDepth} - a_1 \times d_1 + a_1 + a_2 \times \text{maxDepth} - a_2 \times d_2 + a_2 + \cdots + a_n \times \text{maxDepth} - a_n \times d_n + a_n
+a_1 \times \textit{maxDepth} - a_1 \times d_1 + a_1 + a_2 \times \textit{maxDepth} - a_2 \times d_2 + a_2 + \cdots + a_n \times \textit{maxDepth} - a_n \times d_n + a_n
 $$</p>
 <p>即：</p>
 <p>$$
-(\text{maxDepth} + 1) \times (a_1 + a_2 + \cdots + a_n) - (a_1 \times d_1 + a_2 \times d_2 + \cdots + a_n \times d_n)
+(\textit{maxDepth} + 1) \times (a_1 + a_2 + \cdots + a_n) - (a_1 \times d_1 + a_2 \times d_2 + \cdots + a_n \times d_n)
 $$</p>
 <p>如果我们记所有整数的和为 $s$，所有整数乘以深度的和为 $ws$，那么答案就是：</p>
 <p>$$
-(\text{maxDepth} + 1) \times s - ws
+(\textit{maxDepth} + 1) \times s - ws
 $$</p>
 <p>因此，我们设计一个函数 $dfs(x, d)$，表示从 $x$ 开始，深度为 $d$ 开始搜索，函数 $dfs(x, d)$ 的执行过程如下：</p>
 <ul>
-<li>我们先更新 $\text{maxDepth} = \max(\text{maxDepth}, d)$；</li>
+<li>我们先更新 $\textit{maxDepth} = \max(\textit{maxDepth}, d)$；</li>
 <li>如果 $x$ 是一个整数，那么我们更新 $s = s + x$, $ws = ws + x \times d$；</li>
 <li>否则，我们递归地遍历 $x$ 的每一个元素 $y$，调用 $dfs(y, d + 1)$。</li>
 </ul>
-<p>我们遍历整个列表，对于每一个元素 $x$，我们调用 $dfs(x, 1)$，最终返回 $(\text{maxDepth} + 1) \times s - ws$ 即可。</p>
+<p>我们遍历整个列表，对于每一个元素 $x$，我们调用 $dfs(x, 1)$，最终返回 $(\textit{maxDepth} + 1) \times s - ws$ 即可。</p>
 <p>时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为整数的个数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">JavaScript</label></div>
 <div class="tabbed-content">

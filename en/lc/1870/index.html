@@ -77586,7 +77586,7 @@
 <h3 id="solution-1-binary-search">Solution 1: Binary Search</h3>
 <p>We notice that if a speed value $v$ allows us to arrive within the stipulated time, then for any $v' &gt; v$, we can also definitely arrive within the stipulated time. This exhibits monotonicity, hence we can use binary search to find the smallest speed value that meets the condition.</p>
 <p>Before conducting the binary search, we need to first determine if it is possible to arrive within the stipulated time. If the number of trains is greater than the ceiling of the stipulated time, then it is definitely impossible to arrive within the stipulated time, and we should directly return $-1$.</p>
-<p>Next, we define the left and right boundaries for the binary search as $l = 1$, $r = 10^7 + 1$, and then we take the middle value $\text{mid} = \frac{l + r}{2}$ each time to check if it meets the condition. If it does, we move the right boundary to $\text{mid}$; otherwise, we move the left boundary to $\text{mid} + 1$.</p>
+<p>Next, we define the left and right boundaries for the binary search as $l = 1$, $r = 10^7 + 1$, and then we take the middle value $\textit{mid} = \frac{l + r}{2}$ each time to check if it meets the condition. If it does, we move the right boundary to $\textit{mid}$; otherwise, we move the left boundary to $\textit{mid} + 1$.</p>
 <p>The problem is transformed into determining whether a speed value $v$ can allow us to arrive within the stipulated time. We can traverse each train trip, calculate the running time of each trip $t = \frac{d}{v}$, if it is the last trip, we directly add $t$; otherwise, we round up and add $t$. Finally, we check if the total time is less than or equal to the stipulated time, if so, it means the condition is met.</p>
 <p>After the binary search ends, if the left boundary exceeds $10^7$, it means we cannot arrive within the stipulated time, and we return $-1$; otherwise, we return the left boundary.</p>
 <p>The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the number of train trips and the upper bound of the speed, respectively. The space complexity is $O(1)$.</p>
@@ -77999,14 +77999,14 @@
     
     <nav>
       
-        <a href="https://github.com/rain84" class="md-author" title="@rain84">
-          
-          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
-        </a>
-      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
+        </a>
+      
+        <a href="https://github.com/rain84" class="md-author" title="@rain84">
+          
+          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
         </a>
       
         <a href="https://github.com/maolonglong" class="md-author" title="@maolonglong">

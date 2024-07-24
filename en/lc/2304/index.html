@@ -77579,9 +77579,9 @@ So the total cost of this path is 5 + 1 = 6.
 <h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
 <p>We define $f[i][j]$ to represent the minimum path cost from the first row to the $i$th row and $j$th column. Since we can only move from a column in the previous row to a column in the current row, the value of $f[i][j]$ can be transferred from $f[i - 1][k]$, where the range of $k$ is $[0, n - 1]$. Therefore, the state transition equation is:</p>
 <p>$$
-f[i][j] = \min_{0 \leq k &lt; n} {f[i - 1][k] + \text{moveCost}[grid[i - 1][k]][j] + grid[i][j]}
+f[i][j] = \min_{0 \leq k &lt; n} {f[i - 1][k] + \textit{moveCost}[grid[i - 1][k]][j] + grid[i][j]}
 $$</p>
-<p>where $\text{moveCost}[grid[i - 1][k]][j]$ represents the cost of moving from the $k$th column of the $i - 1$th row to the $j$th column of the $i$th row.</p>
+<p>where $\textit{moveCost}[grid[i - 1][k]][j]$ represents the cost of moving from the $k$th column of the $i - 1$th row to the $j$th column of the $i$th row.</p>
 <p>The final answer is $\min_{0 \leq j &lt; n} {f[m - 1][j]}$.</p>
 <p>Since each transition only needs the state of the previous row, we can use a rolling array to optimize the space complexity to $O(n)$.</p>
 <p>The time complexity is $O(m \times n^2)$, and the space complexity is $O(n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.</p>

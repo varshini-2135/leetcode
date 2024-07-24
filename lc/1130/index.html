@@ -82213,15 +82213,15 @@
 <p>综上所述，我们可以得到：</p>
 <p>$$
 dfs(i, j) = \begin{cases}
-0, &amp; \text{if } i = j \
-\min_{i \leq k &lt; j} {dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} {arr[t]} \max_{k &lt; t \leq j} {arr[t]}}, &amp; \text{if } i &lt; j
+0, &amp; \textit{if } i = j \
+\min_{i \leq k &lt; j} {dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} {arr[t]} \max_{k &lt; t \leq j} {arr[t]}}, &amp; \textit{if } i &lt; j
 \end{cases}
 $$</p>
 <p>上述递归过程中，我们可以使用记忆化搜索的方法，避免重复计算。另外，我们还可以使用数组 $g$ 记录数组 $arr$ 中下标范围 $[i, j]$ 内的所有叶节点的最大值，那么 $dfs(i, j)$ 的计算过程可以优化为：</p>
 <p>$$
 dfs(i, j) = \begin{cases}
-0, &amp; \text{if } i = j \
-\min_{i \leq k &lt; j} {dfs(i, k) + dfs(k + 1, j) + g[i][k] \cdot g[k + 1][j]}, &amp; \text{if } i &lt; j
+0, &amp; \textit{if } i = j \
+\min_{i \leq k &lt; j} {dfs(i, k) + dfs(k + 1, j) + g[i][k] \cdot g[k + 1][j]}, &amp; \textit{if } i &lt; j
 \end{cases}
 $$</p>
 <p>最后，我们返回 $dfs(0, n - 1)$ 即可。</p>
@@ -82509,8 +82509,8 @@ $$</p>
 <p>定义 $f[i][j]$ 表示数组 $arr$ 中下标范围 $[i, j]$ 内的所有非叶节点的值的最小可能总和，而 $g[i][j]$ 表示数组 $arr$ 中下标范围 $[i, j]$ 内的所有叶节点的最大值，那么状态转移方程为：</p>
 <p>$$
 f[i][j] = \begin{cases}
-0, &amp; \text{if } i = j \
-\min_{i \leq k &lt; j} {f[i][k] + f[k + 1][j] + g[i][k] \cdot g[k + 1][j]}, &amp; \text{if } i &lt; j
+0, &amp; \textit{if } i = j \
+\min_{i \leq k &lt; j} {f[i][k] + f[k + 1][j] + g[i][k] \cdot g[k + 1][j]}, &amp; \textit{if } i &lt; j
 \end{cases}
 $$</p>
 <p>最后，我们返回 $f[0][n - 1]$ 即可。</p>

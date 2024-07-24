@@ -77608,10 +77608,10 @@
 <!-- solution:start -->
 
 <h3 id="solution-1-memoization-search">Solution 1: Memoization Search</h3>
-<p>We design a function $\text{dfs}(i)$, which represents the maximum score that can be obtained starting from index $i$. Therefore, the answer is $\text{dfs}(0)$.</p>
-<p>The execution process of the function $\text{dfs}(i)$ is as follows:</p>
-<p>We enumerate the next jump position $j$. Thus, the score that can be obtained starting from index $i$ is $(j - i) \times \text{nums}[j]$, plus the maximum score that can be obtained starting from index $j$, making the total score $(j - i) \times \text{nums}[j] + \text{dfs}(j)$. We enumerate all possible $j$ and take the maximum score.</p>
-<p>To avoid redundant calculations, we use memoization search. We save the calculated value of $\text{dfs}(i)$, so it can be directly returned next time.</p>
+<p>We design a function $\textit{dfs}(i)$, which represents the maximum score that can be obtained starting from index $i$. Therefore, the answer is $\textit{dfs}(0)$.</p>
+<p>The execution process of the function $\textit{dfs}(i)$ is as follows:</p>
+<p>We enumerate the next jump position $j$. Thus, the score that can be obtained starting from index $i$ is $(j - i) \times \textit{nums}[j]$, plus the maximum score that can be obtained starting from index $j$, making the total score $(j - i) \times \textit{nums}[j] + \textit{dfs}(j)$. We enumerate all possible $j$ and take the maximum score.</p>
+<p>To avoid redundant calculations, we use memoization search. We save the calculated value of $\textit{dfs}(i)$, so it can be directly returned next time.</p>
 <p>The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
@@ -77792,7 +77792,7 @@
 <p>Define $f[j]$ as the maximum score that can be obtained starting from index $0$ and ending at index $j$. Therefore, the answer is $f[n - 1]$.</p>
 <p>The state transition equation is:</p>
 <p>$$
-f[j] = \max_{0 \leq i &lt; j} { f[i] + (j - i) \times \text{nums}[j] }
+f[j] = \max_{0 \leq i &lt; j} { f[i] + (j - i) \times \textit{nums}[j] }
 $$</p>
 <p>The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
@@ -77921,9 +77921,9 @@ $$</p>
 
 <h3 id="solution-3-monotonic-stack">Solution 3: Monotonic Stack</h3>
 <p>We observe that for the current position $i$, we should jump to the next position $j$ with the maximum value to obtain the maximum score.</p>
-<p>Therefore, we traverse the array $\text{nums}$, maintaining a stack $\text{stk}$ that is monotonically decreasing from the bottom to the top of the stack. For the current position $i$ being traversed, if the value corresponding to the top element of the stack is less than or equal to $\text{nums}[i]$, we continuously pop the top element of the stack until the stack is empty or the value corresponding to the top element of the stack is greater than $\text{nums}[i]$, and then push $i$ into the stack.</p>
-<p>Next, we initialize the answer $\text{ans}$ and the current position $i = 0$, traverse the elements in the stack, each time taking out the top element $j$, updating the answer $\text{ans} += \text{nums}[j] \times (j - i)$, and then updating $i = j$.</p>
-<p>Finally, return the answer $\text{ans}$.</p>
+<p>Therefore, we traverse the array $\textit{nums}$, maintaining a stack $\textit{stk}$ that is monotonically decreasing from the bottom to the top of the stack. For the current position $i$ being traversed, if the value corresponding to the top element of the stack is less than or equal to $\textit{nums}[i]$, we continuously pop the top element of the stack until the stack is empty or the value corresponding to the top element of the stack is greater than $\textit{nums}[i]$, and then push $i$ into the stack.</p>
+<p>Next, we initialize the answer $\textit{ans}$ and the current position $i = 0$, traverse the elements in the stack, each time taking out the top element $j$, updating the answer $\textit{ans} += \textit{nums}[j] \times (j - i)$, and then updating $i = j$.</p>
+<p>Finally, return the answer $\textit{ans}$.</p>
 <p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python3</label><label for="__tabbed_3_2">Java</label><label for="__tabbed_3_3">C++</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">TypeScript</label></div>
 <div class="tabbed-content">

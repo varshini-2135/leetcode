@@ -77612,7 +77612,7 @@ We only want the closest k = 1 points from the origin, so the answer is just [[-
 
 <h3 id="solution-1-custom-sorting">Solution 1: Custom Sorting</h3>
 <p>We sort all points by their distance from the origin in ascending order, and then take the first $k$ points.</p>
-<p>The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\text{points}$.</p>
+<p>The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{points}$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -77715,7 +77715,7 @@ We only want the closest k = 1 points from the origin, so the answer is just [[-
 
 <h3 id="solution-2-priority-queue-max-heap">Solution 2: Priority Queue (Max Heap)</h3>
 <p>We can use a priority queue (max heap) to maintain the $k$ closest points to the origin.</p>
-<p>The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array $\text{points}$.</p>
+<p>The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array $\textit{points}$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -77912,7 +77912,7 @@ We only want the closest k = 1 points from the origin, so the answer is just [[-
 <p>We notice that as the distance increases, the number of points increases as well. There exists a critical value such that the number of points before this value is less than or equal to $k$, and the number of points after this value is greater than $k$.</p>
 <p>Therefore, we can use binary search to enumerate the distance. In each binary search iteration, we count the number of points whose distance is less than or equal to the current distance. If the count is greater than or equal to $k$, it indicates that the critical value is on the left side, so we set the right boundary equal to the current distance; otherwise, the critical value is on the right side, so we set the left boundary equal to the current distance plus one.</p>
 <p>After the binary search is finished, we just need to return the points whose distance is less than or equal to the left boundary.</p>
-<p>The time complexity is $O(n \times \log M)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\text{points}$, and $M$ is the maximum value of the distance.</p>
+<p>The time complexity is $O(n \times \log M)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{points}$, and $M$ is the maximum value of the distance.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python3</label><label for="__tabbed_3_2">Java</label><label for="__tabbed_3_3">C++</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -78212,14 +78212,14 @@ We only want the closest k = 1 points from the origin, so the answer is just [[-
     
     <nav>
       
-        <a href="https://github.com/rain84" class="md-author" title="@rain84">
-          
-          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
-        </a>
-      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
+        </a>
+      
+        <a href="https://github.com/rain84" class="md-author" title="@rain84">
+          
+          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
         </a>
       
         <a href="https://github.com/thinkasany" class="md-author" title="@thinkasany">

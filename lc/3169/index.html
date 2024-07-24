@@ -82183,9 +82183,9 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：排序</h3>
-<p>我们不妨将所有会议按照开始时间排序，用一个变量 $\text{last}$ 记录此前会议的最晚结束时间。</p>
-<p>然后我们遍历所有会议，对于每一个会议 $(\text{st}, \text{ed})$，如果 $\text{last} &lt; \text{st}$，说明 $\text{last}$ 到 $\text{st}$ 之间的时间段是员工可以工作且没有安排会议的时间，我们将这段时间加入答案。然后我们更新 $\text{last} = \max(\text{last}, \text{ed})$。</p>
-<p>最后，如果 $\text{last} &lt; \text{days}$，说明最后一次会议结束后还有时间段是员工可以工作且没有安排会议的时间，我们将这段时间加入答案。</p>
+<p>我们不妨将所有会议按照开始时间排序，用一个变量 $\textit{last}$ 记录此前会议的最晚结束时间。</p>
+<p>然后我们遍历所有会议，对于每一个会议 $(\textit{st}, \textit{ed})$，如果 $\textit{last} &lt; \textit{st}$，说明 $\textit{last}$ 到 $\textit{st}$ 之间的时间段是员工可以工作且没有安排会议的时间，我们将这段时间加入答案。然后我们更新 $\textit{last} = \max(\textit{last}, \textit{ed})$。</p>
+<p>最后，如果 $\textit{last} &lt; \textit{days}$，说明最后一次会议结束后还有时间段是员工可以工作且没有安排会议的时间，我们将这段时间加入答案。</p>
 <p>时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为会议的数量。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">

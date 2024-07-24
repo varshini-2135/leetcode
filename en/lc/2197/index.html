@@ -77594,7 +77594,7 @@ Note that there are other ways to obtain the same resultant array.
 <!-- solution:start -->
 
 <h3 id="solution-1-stack">Solution 1: Stack</h3>
-<p>If there exist three adjacent numbers $x$, $y$, $z$ that can be merged, then the result of first merging $x$ and $y$, then merging $z$, is the same as the result of first merging $y$ and $z$, then merging $x$. Both results are $\text{LCM}(x, y, z)$.</p>
+<p>If there exist three adjacent numbers $x$, $y$, $z$ that can be merged, then the result of first merging $x$ and $y$, then merging $z$, is the same as the result of first merging $y$ and $z$, then merging $x$. Both results are $\textit{LCM}(x, y, z)$.</p>
 <p>Therefore, we can always prefer to merge the adjacent numbers on the left, and then merge the result with the adjacent number on the right.</p>
 <p>We use a stack to simulate this process. We traverse the array, and for each number, we push it into the stack. Then we continuously check whether the top two numbers of the stack are coprime. If they are not coprime, we pop these two numbers out of the stack, and then push their least common multiple into the stack, until the top two numbers of the stack are coprime, or there are less than two elements in the stack.</p>
 <p>The final elements in the stack are the final result.</p>

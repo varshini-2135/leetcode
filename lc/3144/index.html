@@ -82181,11 +82181,11 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：记忆化搜索 + 哈希表</h3>
-<p>我们设计一个函数 $\text{dfs}(i)$，表示从字符串 $s[i]$ 开始分割的最少子字符串数量。那么答案就是 $\text{dfs}(0)$。</p>
-<p>函数 $\text{dfs}(i)$ 的计算过程如下：</p>
+<p>我们设计一个函数 $\textit{dfs}(i)$，表示从字符串 $s[i]$ 开始分割的最少子字符串数量。那么答案就是 $\textit{dfs}(0)$。</p>
+<p>函数 $\textit{dfs}(i)$ 的计算过程如下：</p>
 <p>如果 $i \geq n$，表示已经处理完了所有字符，返回 $0$。</p>
-<p>否则，我们维护一个哈希表 $\text{cnt}$，表示当前子字符串中每个字符出现的次数。另外，我们还维护一个哈希表 $\text{freq}$，表示每个字符出现的次数的频率。</p>
-<p>然后我们枚举 $j$ 从 $i$ 到 $n-1$，表示当前子字符串的结束位置。对于每个 $j$，我们更新 $\text{cnt}$ 和 $\text{freq}$，然后判断 $\text{freq}$ 的大小是否为 $1$，如果是的话，我们可以从 $j+1$ 开始分割，此时答案为 $1 + \text{dfs}(j+1)$，我们取所有 $j$ 中答案的最小值作为函数的返回值。</p>
+<p>否则，我们维护一个哈希表 $\textit{cnt}$，表示当前子字符串中每个字符出现的次数。另外，我们还维护一个哈希表 $\textit{freq}$，表示每个字符出现的次数的频率。</p>
+<p>然后我们枚举 $j$ 从 $i$ 到 $n-1$，表示当前子字符串的结束位置。对于每个 $j$，我们更新 $\textit{cnt}$ 和 $\textit{freq}$，然后判断 $\textit{freq}$ 的大小是否为 $1$，如果是的话，我们可以从 $j+1$ 开始分割，此时答案为 $1 + \textit{dfs}(j+1)$，我们取所有 $j$ 中答案的最小值作为函数的返回值。</p>
 <p>为了避免重复计算，我们使用记忆化搜索。</p>
 <p>时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>

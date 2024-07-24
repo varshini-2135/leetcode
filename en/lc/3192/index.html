@@ -77589,9 +77589,9 @@ We can do the following operation:</p>
 
 <h3 id="solution-1-bit-manipulation">Solution 1: Bit Manipulation</h3>
 <p>We notice that whenever we change an element at a certain position to 1, all the elements to its right are flipped. Therefore, we can use a variable $v$ to record whether the current position and all elements to its right have been flipped. If flipped, the value of $v$ is 1, otherwise, it is 0.</p>
-<p>We iterate through the array $\text{nums}$. For each element $x$, we perform an XOR operation between $x$ and $v$. If $x$ is 0, then we need to change $x$ to 1, which requires a flip operation. We increment the answer by one and flip the value of $v$.</p>
+<p>We iterate through the array $\textit{nums}$. For each element $x$, we perform an XOR operation between $x$ and $v$. If $x$ is 0, then we need to change $x$ to 1, which requires a flip operation. We increment the answer by one and flip the value of $v$.</p>
 <p>After the iteration, we can obtain the minimum number of operations.</p>
-<p>The time complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$. The space complexity is $O(1)$.</p>
+<p>The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

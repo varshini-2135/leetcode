@@ -77598,13 +77598,13 @@ It can be shown that we cannot achieve a better score.
 <p>To determine whether such a subarray exists, we can use prefix sum. We first define two pointers $i$ and $j$, initially $i = 0$, $j = i + mid$. Then all elements from $nums[i]$ to $nums[j - 1]$ are changed to $nums[(i + j) / 2]$, and the number of operations required is $left + right$, where:</p>
 <p>$$
 \begin{aligned}
-\text{left} &amp;= \sum_{k = i}^{(i + j) / 2 - 1} (nums[(i + j) / 2] - nums[k]) \
+\textit{left} &amp;= \sum_{k = i}^{(i + j) / 2 - 1} (nums[(i + j) / 2] - nums[k]) \
 &amp;= ((i + j) / 2 - i) \times nums[(i + j) / 2] - \sum_{k = i}^{(i + j) / 2 - 1} nums[k]
 \end{aligned}
 $$</p>
 <p>$$
 \begin{aligned}
-\text{right} &amp;= \sum_{k = (i + j) / 2 + 1}^{j} (nums[k] - nums[(i + j) / 2]) \
+\textit{right} &amp;= \sum_{k = (i + j) / 2 + 1}^{j} (nums[k] - nums[(i + j) / 2]) \
 &amp;= \sum_{k = (i + j) / 2 + 1}^{j} nums[k] - (j - (i + j) / 2) \times nums[(i + j) / 2]
 \end{aligned}
 $$</p>

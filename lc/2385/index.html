@@ -82190,8 +82190,8 @@
 <!-- solution:start -->
 
 <h3 id="dfs">方法一：两次 DFS</h3>
-<p>我们先通过一次 $\text{DFS}$ 建图，得到一个邻接表 $g$，其中 $g[node]$ 表示与节点 $node$ 相连的所有节点。</p>
-<p>然后，我们以 $start$ 作为起点，通过 $\text{DFS}$ 搜索整棵树，找到最远距离，即为答案。</p>
+<p>我们先通过一次 $\textit{DFS}$ 建图，得到一个邻接表 $g$，其中 $g[node]$ 表示与节点 $node$ 相连的所有节点。</p>
+<p>然后，我们以 $start$ 作为起点，通过 $\textit{DFS}$ 搜索整棵树，找到最远距离，即为答案。</p>
 <p>时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">

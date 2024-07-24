@@ -77804,8 +77804,8 @@
 <p>$$
 f[i]=
 \begin{cases}
-f[i-1]+heights[i],&amp;\text{if } heights[i]\geq heights[i-1]\
-heights[i]\times(i-j)+f[j],&amp;\text{if } heights[i]&lt;heights[i-1]
+f[i-1]+heights[i],&amp;\textit{if } heights[i]\geq heights[i-1]\
+heights[i]\times(i-j)+f[j],&amp;\textit{if } heights[i]&lt;heights[i-1]
 \end{cases}
 $$</p>
 <p>Where $j$ is the index of the first tower to the left of the last tower with a height less than or equal to $heights[i]$. We can use a monotonic stack to maintain this index.</p>

@@ -82226,7 +82226,7 @@
 <p>我们可以使用动态规划的方法解决这个问题。定义状态 $f[x][y]$ 表示最后一项对 $k$ 取模为 $x$，倒数第二项对 $k$ 取模为 $y$ 的最长有效子序列的长度。初始时 $f[x][y] = 0$。</p>
 <p>遍历数组 $nums$，对于每一个数 $x$，我们得到 $x = x \bmod k$。然后我们可以枚举序列连续两个数对 $j$ 取模结果相同，其中 $j \in [0, k)$。那么 $x$ 的前一个数对 $k$ 取模结果为 $y = (j - x + k) \bmod k$。此时 $f[x][y] = f[y][x] + 1$。</p>
 <p>答案为所有 $f[x][y]$ 中的最大值。</p>
-<p>时间复杂度 $O(n \times k)$，空间复杂度 $O(k^2)$。其中 $n$ 为数组 $\text{nums}$ 的长度，而 $k$ 为给定的正整数。</p>
+<p>时间复杂度 $O(n \times k)$，空间复杂度 $O(k^2)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $k$ 为给定的正整数。</p>
 <h4 id="python3">Python3</h4>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">maximumLength</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>

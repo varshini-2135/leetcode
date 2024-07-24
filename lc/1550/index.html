@@ -82158,10 +82158,10 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：遍历 + 计数</h3>
-<p>我们用一个变量 $\text{cnt}$ 记录当前连续奇数的个数。</p>
-<p>接下来，我们遍历数组，如果当前元素是奇数，则 $\text{cnt}$ 加一，如果 $\text{cnt}$ 等于 3，则返回 $\text{True}$。如果当前元素是偶数，则 $\text{cnt}$ 置零。</p>
-<p>遍历结束后，如果没有找到连续三个奇数，则返回 $\text{False}$。</p>
-<p>时间复杂度 $O(n)$，其中 $n$ 是数组 $\text{arr}$ 的长度。空间复杂度 $O(1)$。</p>
+<p>我们用一个变量 $\textit{cnt}$ 记录当前连续奇数的个数。</p>
+<p>接下来，我们遍历数组，如果当前元素是奇数，则 $\textit{cnt}$ 加一，如果 $\textit{cnt}$ 等于 3，则返回 $\textit{True}$。如果当前元素是偶数，则 $\textit{cnt}$ 置零。</p>
+<p>遍历结束后，如果没有找到连续三个奇数，则返回 $\textit{False}$。</p>
+<p>时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{arr}$ 的长度。空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -82320,8 +82320,8 @@
 
 <h3 id="_4">方法二：遍历 + 位运算</h3>
 <p>根据位运算的性质，两个数进行按位与运算是奇数，当且仅当两个数都是奇数。如果有连续三个数按位与运算的结果是奇数，那么这三个数都是奇数。</p>
-<p>因此，我们只需要遍历数组，判断是否存在连续三个数的按位与结果是否是奇数即可，如果存在则返回 $\text{True}$，否则返回 $\text{False}$。</p>
-<p>时间复杂度 $O(n)$，其中 $n$ 是数组 $\text{arr}$ 的长度。空间复杂度 $O(1)$。</p>
+<p>因此，我们只需要遍历数组，判断是否存在连续三个数的按位与结果是否是奇数即可，如果存在则返回 $\textit{True}$，否则返回 $\textit{False}$。</p>
+<p>时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{arr}$ 的长度。空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -82449,14 +82449,14 @@
     
     <nav>
       
-        <a href="https://github.com/rain84" class="md-author" title="@rain84">
-          
-          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
-        </a>
-      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
+        </a>
+      
+        <a href="https://github.com/rain84" class="md-author" title="@rain84">
+          
+          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
         </a>
       
       

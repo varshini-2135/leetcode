@@ -77575,7 +77575,7 @@ The XOR sum = 0 XOR 1 XOR 2 XOR 0 XOR 2 XOR 1 = 0.
 <p>Assume that the elements of array $arr1$ are $a_1, a_2, ..., a_n$, and the elements of array $arr2$ are $b_1, b_2, ..., b_m$. Then, the answer to the problem is:</p>
 <p>$$
 \begin{aligned}
-\text{ans} &amp;= (a_1 \wedge b_1) \oplus (a_1 \wedge b_2) ... (a_1 \wedge b_m) \
+\textit{ans} &amp;= (a_1 \wedge b_1) \oplus (a_1 \wedge b_2) ... (a_1 \wedge b_m) \
 &amp;\quad \oplus (a_2 \wedge b_1) \oplus (a_2 \wedge b_2) ... (a_2 \wedge b_m) \
 &amp;\quad \oplus \cdots \
 &amp;\quad \oplus (a_n \wedge b_1) \oplus (a_n \wedge b_2) ... (a_n \wedge b_m) \
@@ -77583,7 +77583,7 @@ The XOR sum = 0 XOR 1 XOR 2 XOR 0 XOR 2 XOR 1 = 0.
 $$</p>
 <p>Since in Boolean algebra, the XOR operation is addition without carry, and the AND operation is multiplication, the above formula can be simplified as:</p>
 <p>$$
-\text{ans} = (a_1 \oplus a_2 \oplus \cdots \oplus a_n) \wedge (b_1 \oplus b_2 \oplus \cdots \oplus b_m)
+\textit{ans} = (a_1 \oplus a_2 \oplus \cdots \oplus a_n) \wedge (b_1 \oplus b_2 \oplus \cdots \oplus b_m)
 $$</p>
 <p>That is, the bitwise AND of the XOR sum of array $arr1$ and the XOR sum of array $arr2$.</p>
 <p>The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of arrays $arr1$ and $arr2$, respectively. The space complexity is $O(1)$.</p>

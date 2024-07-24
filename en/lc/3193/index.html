@@ -77622,7 +77622,7 @@
 <p>$$
 f[i][j] = \sum_{k=0}^{\min(i, j)} f[i-1][j-k]
 $$</p>
-<p>Since the problem requires the number of inversions in $[0..\text{end}_i]$ to be $\text{cnt}_i$, when we calculate for $i = \text{end}_i$, we only need to compute $f[i][\text{cnt}_i]$. The rest of $f[i][..]$ will be $0$.</p>
+<p>Since the problem requires the number of inversions in $[0..\textit{end}_i]$ to be $\textit{cnt}_i$, when we calculate for $i = \textit{end}_i$, we only need to compute $f[i][\textit{cnt}_i]$. The rest of $f[i][..]$ will be $0$.</p>
 <p>The time complexity is $O(n \times m \times \min(n, m))$, and the space complexity is $O(n \times m)$. Here, $m$ is the maximum number of inversions, and in this problem, $m \le 400$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">

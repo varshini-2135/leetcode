@@ -82200,13 +82200,13 @@
 <p>为了判断是否存在这样的子数组，我们可以使用前缀和。我们首先定义两个指针 $i$ 和 $j$，初始时 $i = 0$, $j = i + mid$。那么 $nums[i]$ 到 $nums[j - 1]$ 这一段的元素都变成 $nums[(i + j) / 2]$，所需要的操作次数为 $left + right$，其中：</p>
 <p>$$
 \begin{aligned}
-\text{left} &amp;= \sum_{k = i}^{(i + j) / 2 - 1} (nums[(i + j) / 2] - nums[k]) \
+\textit{left} &amp;= \sum_{k = i}^{(i + j) / 2 - 1} (nums[(i + j) / 2] - nums[k]) \
 &amp;= ((i + j) / 2 - i) \times nums[(i + j) / 2] - \sum_{k = i}^{(i + j) / 2 - 1} nums[k]
 \end{aligned}
 $$</p>
 <p>$$
 \begin{aligned}
-\text{right} &amp;= \sum_{k = (i + j) / 2 + 1}^{j} (nums[k] - nums[(i + j) / 2]) \
+\textit{right} &amp;= \sum_{k = (i + j) / 2 + 1}^{j} (nums[k] - nums[(i + j) / 2]) \
 &amp;= \sum_{k = (i + j) / 2 + 1}^{j} nums[k] - (j - (i + j) / 2) \times nums[(i + j) / 2]
 \end{aligned}
 $$</p>

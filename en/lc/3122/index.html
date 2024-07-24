@@ -77603,9 +77603,9 @@
 <p>We notice that the values in the cells of the matrix only have 10 possibilities. The problem requires us to find the minimum number of operations for each column to have the same number, and the numbers in adjacent columns are different. Therefore, we only need to consider the case of modifying the number to 0 to 9.</p>
 <p>We define the state $f[i][j]$ to represent the minimum number of operations for the numbers in the first $[0,..i]$ columns, and the number in the $i$-th column is $j$. Then we can get the state transition equation:</p>
 <p>$$
-f[i][j] = \min_{k \neq j} (f[i-1][k] + m - \text{cnt}[j])
+f[i][j] = \min_{k \neq j} (f[i-1][k] + m - \textit{cnt}[j])
 $$</p>
-<p>Where $\text{cnt}[j]$ represents the number of cells in the $i$-th column that are $j$.</p>
+<p>Where $\textit{cnt}[j]$ represents the number of cells in the $i$-th column that are $j$.</p>
 <p>Finally, we only need to find the minimum value of $f[n-1][j]$.</p>
 <p>The time complexity is $O(n \times (m + C^2))$, and the space complexity is $O(n \times C)$. Where $m$ and $n$ represent the number of rows and columns in the matrix respectively; and $C$ represents the number of types of numbers, here $C = 10$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>

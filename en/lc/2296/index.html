@@ -77622,7 +77622,7 @@ textEditor.cursorRight(6); // return &quot;practi&quot;
 <h3 id="solution-1-left-and-right-stacks">Solution 1: Left and Right Stacks</h3>
 <p>We can use two stacks, <code>left</code> and <code>right</code>, where the <code>left</code> stack stores the characters to the left of the cursor, and the <code>right</code> stack stores the characters to the right of the cursor.</p>
 <ul>
-<li>When the <code>addText</code> method is called, we push the characters from <code>text</code> onto the <code>left</code> stack one by one. The time complexity is $O(|\text{text}|)$.</li>
+<li>When the <code>addText</code> method is called, we push the characters from <code>text</code> onto the <code>left</code> stack one by one. The time complexity is $O(|\textit{text}|)$.</li>
 <li>When the <code>deleteText</code> method is called, we pop characters from the <code>left</code> stack up to $k$ times. The time complexity is $O(k)$.</li>
 <li>When the <code>cursorLeft</code> method is called, we pop characters from the <code>left</code> stack up to $k$ times, then push the popped characters onto the <code>right</code> stack, and finally return up to $10$ characters from the <code>left</code> stack. The time complexity is $O(k)$.</li>
 <li>When the <code>cursorRight</code> method is called, we pop characters from the <code>right</code> stack up to $k$ times, then push the popped characters onto the <code>left</code> stack, and finally return up to $10$ characters from the <code>left</code> stack. The time complexity is $O(k)$.</li>

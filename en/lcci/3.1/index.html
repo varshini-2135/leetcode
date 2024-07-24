@@ -77551,12 +77551,12 @@
 <!-- solution:start -->
 
 <h3 id="solution-1-array-simulation">Solution 1: Array Simulation</h3>
-<p>We use a variable $cap$ to represent the size of each stack, and use an array $stk$ of length $3 \times \text{cap} + 3$ to simulate three stacks. The first $3 \times \text{cap}$ elements of the array are used to store the elements of the stack, and the last three elements are used to store the number of elements in each stack.</p>
+<p>We use a variable $cap$ to represent the size of each stack, and use an array $stk$ of length $3 \times \textit{cap} + 3$ to simulate three stacks. The first $3 \times \textit{cap}$ elements of the array are used to store the elements of the stack, and the last three elements are used to store the number of elements in each stack.</p>
 <p>For the <code>push</code> operation, we first check whether the stack is full. If it is not full, we push the element into the stack and update the number of elements in the stack.</p>
 <p>For the <code>pop</code> operation, we first check whether the stack is empty. If it is not empty, we update the number of elements in the stack and return the top element of the stack.</p>
 <p>For the <code>peek</code> operation, we first check whether the stack is empty. If it is not empty, we return the top element of the stack.</p>
-<p>For the <code>isEmpty</code> operation, we directly check whether the stack is empty. For stack $i$, we only need to check whether $stk[\text{cap} \times 3 + i]$ is $0$.</p>
-<p>In terms of time complexity, the time complexity of each operation is $O(1)$. The space complexity is $O(\text{cap})$, where $\text{cap}$ is the size of the stack.</p>
+<p>For the <code>isEmpty</code> operation, we directly check whether the stack is empty. For stack $i$, we only need to check whether $stk[\textit{cap} \times 3 + i]$ is $0$.</p>
+<p>In terms of time complexity, the time complexity of each operation is $O(1)$. The space complexity is $O(\textit{cap})$, where $\textit{cap}$ is the size of the stack.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Swift</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

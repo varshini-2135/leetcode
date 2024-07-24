@@ -82188,7 +82188,7 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：构造</h3>
-<p>根据题目描述，所有数字之和为 $(n + m) \times \text{mean}$，已知的数字之和为 $\sum_{i=0}^{m-1} \text{rolls}[i]$，那么缺失的数字之和为 $s = (n + m) \times \text{mean} - \sum_{i=0}^{m-1} \text{rolls}[i]$。</p>
+<p>根据题目描述，所有数字之和为 $(n + m) \times \textit{mean}$，已知的数字之和为 $\sum_{i=0}^{m-1} \textit{rolls}[i]$，那么缺失的数字之和为 $s = (n + m) \times \textit{mean} - \sum_{i=0}^{m-1} \textit{rolls}[i]$。</p>
 <p>如果 $s \gt n \times 6$ 或者 $s \lt n$，说明不存在满足条件的答案，返回空数组。</p>
 <p>否则，我们可以将 $s$ 平均分配到 $n$ 个数字上，即每个数字的值为 $s / n$，其中 $s \bmod n$ 个数字的值再加上 $1$。</p>
 <p>时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别为缺失的数字个数和已知的数字个数。忽略答案的空间消耗，空间复杂度 $O(1)$。</p>

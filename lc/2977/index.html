@@ -82233,7 +82233,7 @@
 dfs(i) = \begin{cases}
 0, &amp; i \geq |source| \
 dfs(i + 1), &amp; source[i] = target[i] \
-\min_{i \leq j &lt; |source|} { dfs(j + 1) + g[x][y] }, &amp; \text{otherwise}
+\min_{i \leq j &lt; |source|} { dfs(j + 1) + g[x][y] }, &amp; \textit{otherwise}
 \end{cases}
 $$</p>
 <p>其中 $x$ 和 $y$ 分别是 $source[i..j]$ 和 $target[i..j]$ 在字典树中对应的整数编号。</p>

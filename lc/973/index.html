@@ -82216,7 +82216,7 @@
 
 <h3 id="_3">方法一：自定义排序</h3>
 <p>我们将所有点按照与原点的距离从小到大排序，然后取前 $k$ 个点即可。</p>
-<p>时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\text{points}$ 的长度。</p>
+<p>时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{points}$ 的长度。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -82319,7 +82319,7 @@
 
 <h3 id="_4">方法二：优先队列（大根堆）</h3>
 <p>我们可以使用一个优先队列（大根堆）来维护距离原点最近的 $k$ 个点。</p>
-<p>时间复杂度 $O(n \times \log k)$，空间复杂度 $O(k)$。其中 $n$ 为数组 $\text{points}$ 的长度。</p>
+<p>时间复杂度 $O(n \times \log k)$，空间复杂度 $O(k)$。其中 $n$ 为数组 $\textit{points}$ 的长度。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -82516,7 +82516,7 @@
 <p>我们注意到，随着距离的增大，点的数量是递增的。这存在一个临界值，使得在这个值之前的点的数量小于等于 $k$，而在这个值之后的点的数量大于 $k$。</p>
 <p>因此，我们可以使用二分查找，枚举距离。每一次二分查找，我们统计出距离小于等于当前距离的点的数量，如果数量大于等于 $k$，则说明临界值在左侧，我们令右边界等于当前距离；否则，临界值在右侧，我们令左边界等于当前距禽加一。</p>
 <p>二分查找结束后，我们只需要返回距离小于等于左边界的点即可。</p>
-<p>时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\text{points}$ 的长度，而 $M$ 为距离的最大值。</p>
+<p>时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{points}$ 的长度，而 $M$ 为距离的最大值。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python3</label><label for="__tabbed_3_2">Java</label><label for="__tabbed_3_3">C++</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -82816,14 +82816,14 @@
     
     <nav>
       
-        <a href="https://github.com/rain84" class="md-author" title="@rain84">
-          
-          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
-        </a>
-      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
+        </a>
+      
+        <a href="https://github.com/rain84" class="md-author" title="@rain84">
+          
+          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
         </a>
       
         <a href="https://github.com/thinkasany" class="md-author" title="@thinkasany">

@@ -77587,7 +77587,7 @@ The root node evaluates to True, so we return true.</pre>
 <p>We can use recursion to solve this problem.</p>
 <p>For the current node $\textit{root}$:</p>
 <ul>
-<li>If its left child is null, it means the current node is a leaf node. If the value of the current node is $1$, then return $\text{true}$; otherwise, return $\text{false}$;</li>
+<li>If its left child is null, it means the current node is a leaf node. If the value of the current node is $1$, then return $\textit{true}$; otherwise, return $\textit{false}$;</li>
 <li>If the value of the current node is $2$, then return the logical OR of the recursion results of its left and right children; otherwise, return the logical AND of the recursion results of its left and right children.</li>
 </ul>
 <p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.</p>

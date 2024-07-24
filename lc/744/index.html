@@ -82167,10 +82167,10 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：二分查找</h3>
-<p>由于 $\text{letters}$ 是按照非递减顺序排序的，所以我们可以使用二分查找来找到大于 <code>target</code> 的最小字符。</p>
-<p>我们定义二分查找的左边界 $l = 0$，右边界 $r = n$。对于每一次二分查找，我们计算中间位置 $mid = (l + r) / 2$，如果 $letters[mid] &gt; \text{target}$，则说明我们需要在左半部分继续查找，即 $r = mid$；否则我们需要在右半部分继续查找，即 $l = mid + 1$。</p>
+<p>由于 $\textit{letters}$ 是按照非递减顺序排序的，所以我们可以使用二分查找来找到大于 <code>target</code> 的最小字符。</p>
+<p>我们定义二分查找的左边界 $l = 0$，右边界 $r = n$。对于每一次二分查找，我们计算中间位置 $mid = (l + r) / 2$，如果 $letters[mid] &gt; \textit{target}$，则说明我们需要在左半部分继续查找，即 $r = mid$；否则我们需要在右半部分继续查找，即 $l = mid + 1$。</p>
 <p>最后我们返回 $letters[l \mod n]$ 即可。</p>
-<p>时间复杂度 $O(\log n)$，其中 $n$ 是 $\text{letters}$ 的长度。空间复杂度 $O(1)$。</p>
+<p>时间复杂度 $O(\log n)$，其中 $n$ 是 $\textit{letters}$ 的长度。空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

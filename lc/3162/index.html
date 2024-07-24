@@ -82303,9 +82303,9 @@
 <!-- solution:start -->
 
 <h3 id="_4">方法二：哈希表 + 枚举倍数</h3>
-<p>我们用一个哈希表 $\text{cnt1}$ 记录数组 $\text{nums1}$ 中每个数除以 $k$ 的商的出现次数，用一个哈希表 $\text{cnt2}$ 记录数组 $\text{nums2}$ 中每个数的出现次数。</p>
-<p>接下来，我们枚举数组 $\text{nums2}$ 中的每个数 $x$，对于每个数 $x$，我们枚举 $x$ 的倍数 $y$，其中 $y$ 的范围是 $[x, \text{mx}]$，其中 $\text{mx}$ 是 $\text{cnt1}$ 中的最大键值，然后我们统计 $\text{cnt1}[y]$ 的和，记为 $s$，最后我们将 $s \times v$ 累加到答案中，其中 $v$ 是 $\text{cnt2}[x]$。</p>
-<p>时间复杂度 $O(n + m + (M / k) \times \log m)$，空间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是数组 $\text{nums1}$ 和 $\text{nums2}$ 的长度，而 $M$ 是数组 $\text{nums1}$ 中的最大值。</p>
+<p>我们用一个哈希表 $\textit{cnt1}$ 记录数组 $\textit{nums1}$ 中每个数除以 $k$ 的商的出现次数，用一个哈希表 $\textit{cnt2}$ 记录数组 $\textit{nums2}$ 中每个数的出现次数。</p>
+<p>接下来，我们枚举数组 $\textit{nums2}$ 中的每个数 $x$，对于每个数 $x$，我们枚举 $x$ 的倍数 $y$，其中 $y$ 的范围是 $[x, \textit{mx}]$，其中 $\textit{mx}$ 是 $\textit{cnt1}$ 中的最大键值，然后我们统计 $\textit{cnt1}[y]$ 的和，记为 $s$，最后我们将 $s \times v$ 累加到答案中，其中 $v$ 是 $\textit{cnt2}[x]$。</p>
+<p>时间复杂度 $O(n + m + (M / k) \times \log m)$，空间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度，而 $M$ 是数组 $\textit{nums1}$ 中的最大值。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

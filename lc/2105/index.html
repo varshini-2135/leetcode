@@ -82194,7 +82194,7 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：双指针 + 模拟</h3>
-<p>我们用两个变量 $a$ 和 $b$ 分别表示 Alice 和 Bob 的水量，初始时 $a = \text{capacityA}$, $b = \text{capacityB}$。然后用两个指针 $i$ 和 $j$ 分别指向植物数组的头尾，然后模拟 Alice 和 Bob 从两端向中间浇水的过程。</p>
+<p>我们用两个变量 $a$ 和 $b$ 分别表示 Alice 和 Bob 的水量，初始时 $a = \textit{capacityA}$, $b = \textit{capacityB}$。然后用两个指针 $i$ 和 $j$ 分别指向植物数组的头尾，然后模拟 Alice 和 Bob 从两端向中间浇水的过程。</p>
 <p>当 $i &lt; j$ 时，我们分别判断 Alice 和 Bob 的水量是否足够浇水，如果不够，我们就重新灌满水罐。然后更新 $a$ 和 $b$ 的水量，同时移动指针 $i$ 和 $j$。最后我们还需要判断 $i$ 和 $j$ 是否相等，如果相等，我们还需要判断 $\max(a, b)$ 是否小于植物的水量，如果小于，我们需要再次重新灌满水罐。</p>
 <p>时间复杂度 $O(n)$，其中 $n$ 是植物数组的长度。空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>

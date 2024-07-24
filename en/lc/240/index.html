@@ -77848,9 +77848,9 @@
 <h3 id="solution-2-search-from-the-bottom-left-or-top-right">Solution 2: Search from the Bottom Left or Top Right</h3>
 <p>Here, we start searching from the bottom left corner and move towards the top right direction, comparing the current element <code>matrix[i][j]</code> with <code>target</code>:</p>
 <ul>
-<li>If $\text{matrix}[i][j] = \text{target}$, it means the target value has been found, and we directly return <code>true</code>.</li>
-<li>If $\text{matrix}[i][j] &gt; \text{target}$, it means all elements in this column from the current position upwards are greater than <code>target</code>, so we should move the $i$ pointer upwards, i.e., $i \leftarrow i - 1$.</li>
-<li>If $\text{matrix}[i][j] &lt; \text{target}$, it means all elements in this row from the current position to the right are less than <code>target</code>, so we should move the $j$ pointer to the right, i.e., $j \leftarrow j + 1$.</li>
+<li>If $\textit{matrix}[i][j] = \textit{target}$, it means the target value has been found, and we directly return <code>true</code>.</li>
+<li>If $\textit{matrix}[i][j] &gt; \textit{target}$, it means all elements in this column from the current position upwards are greater than <code>target</code>, so we should move the $i$ pointer upwards, i.e., $i \leftarrow i - 1$.</li>
+<li>If $\textit{matrix}[i][j] &lt; \textit{target}$, it means all elements in this row from the current position to the right are less than <code>target</code>, so we should move the $j$ pointer to the right, i.e., $j \leftarrow j + 1$.</li>
 </ul>
 <p>If the search ends and the <code>target</code> is still not found, return <code>false</code>.</p>
 <p>The time complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively. The space complexity is $O(1)$.</p>

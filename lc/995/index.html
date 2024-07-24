@@ -82455,8 +82455,8 @@
 <!-- solution:start -->
 
 <h3 id="_4">方法二：滑动窗口</h3>
-<p>我们可以用一个变量 $\text{flipped}$ 来表示当前位置是否翻转，如果 $\text{flipped}$ 为 $1$，表示当前位置已经翻转，否则表示当前位置未翻转。对于翻转过的位置，我们可以将其值设置为 $-1$，这样我们就可以区分出哪些位置已经翻转过了。</p>
-<p>接下来我们从左到右遍历数组，对于每个位置 $i$，如果 $i \geq k$ 且 $i-k$ 位置的元素为 $-1$，那么当前位置的翻转状态应该与前一个位置的翻转状态相反。即 $\text{flipped} = \text{flipped} \oplus 1$。如果当前位置的元素与当前位置的翻转状态相同，那么我们需要翻转当前位置，此时我们判断一下 $i+k$ 是否超出了数组的长度，如果超出了数组的长度，那么就无法完成目标，返回 $-1$。否则我们将当前位置的翻转状态取反，同时将答案增加 $1$，并且将当前位置的元素设置为 $-1$。</p>
+<p>我们可以用一个变量 $\textit{flipped}$ 来表示当前位置是否翻转，如果 $\textit{flipped}$ 为 $1$，表示当前位置已经翻转，否则表示当前位置未翻转。对于翻转过的位置，我们可以将其值设置为 $-1$，这样我们就可以区分出哪些位置已经翻转过了。</p>
+<p>接下来我们从左到右遍历数组，对于每个位置 $i$，如果 $i \geq k$ 且 $i-k$ 位置的元素为 $-1$，那么当前位置的翻转状态应该与前一个位置的翻转状态相反。即 $\textit{flipped} = \textit{flipped} \oplus 1$。如果当前位置的元素与当前位置的翻转状态相同，那么我们需要翻转当前位置，此时我们判断一下 $i+k$ 是否超出了数组的长度，如果超出了数组的长度，那么就无法完成目标，返回 $-1$。否则我们将当前位置的翻转状态取反，同时将答案增加 $1$，并且将当前位置的元素设置为 $-1$。</p>
 <p>这样当我们处理完数组中的所有元素时，返回答案即可。</p>
 <p>时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">Rust</label></div>
@@ -82730,14 +82730,14 @@
     
     <nav>
       
-        <a href="https://github.com/rain84" class="md-author" title="@rain84">
-          
-          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
-        </a>
-      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
+        </a>
+      
+        <a href="https://github.com/rain84" class="md-author" title="@rain84">
+          
+          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
         </a>
       
       

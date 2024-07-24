@@ -82448,9 +82448,9 @@
 <p>$$
 \begin{aligned}
 f[i][j] &amp;= f[i-1][j] \
-f[i][j] &amp;= max(f[i][j], f[i-1][j-rods[i-1]]) &amp; \text{if } j \geq rods[i-1] \
-f[i][j] &amp;= max(f[i][j], f[i-1][j+rods[i-1]] + rods[i-1]) &amp; \text{if } j + rods[i-1] \leq s \
-f[i][j] &amp;= max(f[i][j], f[i-1][rods[i-1]-j] + rods[i-1]-j) &amp; \text{if } j \lt rods[i-1]
+f[i][j] &amp;= max(f[i][j], f[i-1][j-rods[i-1]]) &amp; \textit{if } j \geq rods[i-1] \
+f[i][j] &amp;= max(f[i][j], f[i-1][j+rods[i-1]] + rods[i-1]) &amp; \textit{if } j + rods[i-1] \leq s \
+f[i][j] &amp;= max(f[i][j], f[i-1][rods[i-1]-j] + rods[i-1]-j) &amp; \textit{if } j \lt rods[i-1]
 \end{aligned}
 $$</p>
 <p>最终答案即为 $f[n][0]$。</p>

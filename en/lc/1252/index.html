@@ -77595,9 +77595,9 @@ The final matrix is [[1,3,1],[1,3,1]], which contains 6 odd numbers.
 <!-- solution:start -->
 
 <h3 id="solution-1-simulation">Solution 1: Simulation</h3>
-<p>We create a matrix $g$ to store the result of operations. For each pair $(r_i, c_i)$ in $\text{indices}$, we add $1$ to all numbers in the $r_i$-th row of the matrix and add $1$ to all elements in the $c_i$-th column.</p>
+<p>We create a matrix $g$ to store the result of operations. For each pair $(r_i, c_i)$ in $\textit{indices}$, we add $1$ to all numbers in the $r_i$-th row of the matrix and add $1$ to all elements in the $c_i$-th column.</p>
 <p>After the simulation ends, we traverse the matrix and count the number of odd numbers.</p>
-<p>The time complexity is $O(k \times (m + n) + m \times n)$, and the space complexity is $O(m \times n)$. Here, $k$ is the length of $\text{indices}$.</p>
+<p>The time complexity is $O(k \times (m + n) + m \times n)$, and the space complexity is $O(m \times n)$. Here, $k$ is the length of $\textit{indices}$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -77763,9 +77763,9 @@ The final matrix is [[1,3,1],[1,3,1]], which contains 6 odd numbers.
 <!-- solution:start -->
 
 <h3 id="solution-2-space-optimization">Solution 2: Space Optimization</h3>
-<p>We can use a row array $\text{row}$ and a column array $\text{col}$ to record the number of times each row and column is incremented. For each pair $(r_i, c_i)$ in $\text{indices}$, we add $1$ to $\text{row}[r_i]$ and $\text{col}[c_i]$ respectively.</p>
-<p>After the operations are completed, the count at position $(i, j)$ can be calculated as $\text{row}[i] + \text{col}[j]$. We traverse the matrix and count the number of odd numbers.</p>
-<p>The time complexity is $O(k + m \times n)$, and the space complexity is $O(m + n)$. Here, $k$ is the length of $\text{indices}$.</p>
+<p>We can use a row array $\textit{row}$ and a column array $\textit{col}$ to record the number of times each row and column is incremented. For each pair $(r_i, c_i)$ in $\textit{indices}$, we add $1$ to $\textit{row}[r_i]$ and $\textit{col}[c_i]$ respectively.</p>
+<p>After the operations are completed, the count at position $(i, j)$ can be calculated as $\textit{row}[i] + \textit{col}[j]$. We traverse the matrix and count the number of odd numbers.</p>
+<p>The time complexity is $O(k + m \times n)$, and the space complexity is $O(m + n)$. Here, $k$ is the length of $\textit{indices}$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -77905,9 +77905,9 @@ The final matrix is [[1,3,1],[1,3,1]], which contains 6 odd numbers.
 <!-- solution:start -->
 
 <h3 id="solution-3-mathematical-optimization">Solution 3: Mathematical Optimization</h3>
-<p>We notice that a number at position $(i, j)$ in the matrix will be odd only when exactly one of $\text{row}[i]$ and $\text{col}[j]$ is odd and the other is even.</p>
-<p>We count the number of odd numbers in $\text{row}$, denoted as $\text{cnt1}$, and the number of odd numbers in $\text{col}$, denoted as $\text{cnt2}$. Therefore, the final count of odd numbers is $\text{cnt1} \times (n - \text{cnt2}) + \text{cnt2} \times (m - \text{cnt1})$.</p>
-<p>The time complexity is $O(k + m + n)$, and the space complexity is $O(m + n)$. Here, $k$ is the length of $\text{indices}$.</p>
+<p>We notice that a number at position $(i, j)$ in the matrix will be odd only when exactly one of $\textit{row}[i]$ and $\textit{col}[j]$ is odd and the other is even.</p>
+<p>We count the number of odd numbers in $\textit{row}$, denoted as $\textit{cnt1}$, and the number of odd numbers in $\textit{col}$, denoted as $\textit{cnt2}$. Therefore, the final count of odd numbers is $\textit{cnt1} \times (n - \textit{cnt2}) + \textit{cnt2} \times (m - \textit{cnt1})$.</p>
+<p>The time complexity is $O(k + m + n)$, and the space complexity is $O(m + n)$. Here, $k$ is the length of $\textit{indices}$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python3</label><label for="__tabbed_3_2">Java</label><label for="__tabbed_3_3">C++</label><label for="__tabbed_3_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

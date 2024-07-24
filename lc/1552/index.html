@@ -82171,7 +82171,7 @@
 
 <h3 id="_3">方法一：二分查找</h3>
 <p>我们注意到，任意两球间的最小磁力越大，能够放入的球的数量就越少，这存在着单调性。我们可以使用二分查找，找到最大的最小磁力，使得能够放入的球的数量不小于 $m$。</p>
-<p>我们首先对篮子的位置进行排序，然后使用二分查找的方法，定义二分查找的左边界 $l = 1$，右边界 $r = \text{position}[n - 1]$，其中 $n$ 为篮子的数量。在每次二分查找的过程中，我们计算取中值 $m = (l + r + 1) / 2$，然后判断是否存在一种放置球的方法，使得能够放入的球的数量不小于 $m$。</p>
+<p>我们首先对篮子的位置进行排序，然后使用二分查找的方法，定义二分查找的左边界 $l = 1$，右边界 $r = \textit{position}[n - 1]$，其中 $n$ 为篮子的数量。在每次二分查找的过程中，我们计算取中值 $m = (l + r + 1) / 2$，然后判断是否存在一种放置球的方法，使得能够放入的球的数量不小于 $m$。</p>
 <p>问题转换为判断一个给定的最小磁力 $f$ 是否能够放入 $m$ 个球。我们可以从左到右遍历篮子的位置，如果上一个球的位置与当前篮子的位置的距离大于等于 $f$，则说明可以在当前篮子放置一个球。最后判断放置的球的数量是否不小于 $m$ 即可。</p>
 <p>时间复杂度 $O(n \times \log n + n \times \log M)$，空间复杂度 $O(\log n)$。其中 $n$ 和 $M$ 分别为篮子的数量和篮子的位置的最大值。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">JavaScript</label></div>

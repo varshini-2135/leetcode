@@ -77599,9 +77599,9 @@
 <p>The calculation process of the function $dfs(i, j, k)$ is as follows:</p>
 <ul>
 <li>If $i &lt; 0$ or $j &lt; 0$, return $0$.</li>
-<li>If $i = 0$, return $1$ when $k = 1$ and $j \leq \text{limit}$, otherwise return $0$.</li>
-<li>If $j = 0$, return $1$ when $k = 0$ and $i \leq \text{limit}$, otherwise return $0$.</li>
-<li>If $k = 0$, we consider the case where the previous number is $0$, $dfs(i - 1, j, 0)$, and the case where the previous number is $1$, $dfs(i - 1, j, 1)$. If the previous number is $0$, it may cause more than $\text{limit}$ $0$s in the subarray, i.e., the situation where the $\text{limit} + 1$</li>
+<li>If $i = 0$, return $1$ when $k = 1$ and $j \leq \textit{limit}$, otherwise return $0$.</li>
+<li>If $j = 0$, return $1$ when $k = 0$ and $i \leq \textit{limit}$, otherwise return $0$.</li>
+<li>If $k = 0$, we consider the case where the previous number is $0$, $dfs(i - 1, j, 0)$, and the case where the previous number is $1$, $dfs(i - 1, j, 1)$. If the previous number is $0$, it may cause more than $\textit{limit}$ $0$s in the subarray, i.e., the situation where the $\textit{limit} + 1$</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
@@ -77890,11 +77890,11 @@
 <h3 id="solution-2-dynamic-programming">Solution 2: Dynamic Programming</h3>
 <p>We can also convert the memoization search of Solution 1 into dynamic programming.</p>
 <p>We define $f[i][j][k]$ as the number of stable binary arrays using $i$ $0$s and $j$ $1$s, and the last number is $k$. So the answer is $f[zero][one][0] + f[zero][one][1]$.</p>
-<p>Initially, we have $f[i][0][0] = 1$, where $1 \leq i \leq \min(\text{limit}, \text{zero})$; and $f[0][j][1] = 1$, where $1 \leq j \leq \min(\text{limit}, \text{one})$.</p>
+<p>Initially, we have $f[i][0][0] = 1$, where $1 \leq i \leq \min(\textit{limit}, \textit{zero})$; and $f[0][j][1] = 1$, where $1 \leq j \leq \min(\textit{limit}, \textit{one})$.</p>
 <p>The state transition equation is as follows:</p>
 <ul>
-<li>$f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \text{limit} - 1][j][1]$.</li>
-<li>$f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \text{limit} - 1][0]$.</li>
+<li>$f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \textit{limit} - 1][j][1]$.</li>
+<li>$f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \textit{limit} - 1][0]$.</li>
 </ul>
 <p>The time complexity is $O(zero \times one)$, and the space complexity is $O(zero \times one)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label></div>

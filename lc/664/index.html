@@ -82167,9 +82167,9 @@
 <p>$$
 f[i][j]=
 \begin{cases}
-1, &amp; \text{if } i=j \
-f[i][j-1], &amp; \text{if } s[i]=s[j] \
-\min_{i \leq k &lt; j} {f[i][k]+f[k+1][j]}, &amp; \text{otherwise}
+1, &amp; \textit{if } i=j \
+f[i][j-1], &amp; \textit{if } s[i]=s[j] \
+\min_{i \leq k &lt; j} {f[i][k]+f[k+1][j]}, &amp; \textit{otherwise}
 \end{cases}
 $$</p>
 <p>在枚举时，我们可以从大到小枚举 $i$，从小到大枚举 $j$，这样可以保证在计算 $f[i][j]$ 时，状态 $f[i][j-1]$ 和 $f[i][k]$ 以及 $f[k+1][j]$ 都已经被计算过。</p>
