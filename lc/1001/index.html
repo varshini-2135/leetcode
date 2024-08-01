@@ -82318,11 +82318,11 @@
 
 <h3 id="_3">方法一：哈希表</h3>
 <p>假设一盏灯的坐标为 $(x, y)$，那么它所在的行的数值为 $x$，列的数值为 $y$，正对角线的数值为 $x-y$，反对角线的数值为 $x+y$。确定某一直线的唯一数值标识后，我们就可以通过哈希表来记录某一直线所拥有的灯的数目。</p>
-<p>我们遍历数组 $lamps$，将当前遍历到的灯所在的行、列和正、反对角线拥有灯的数目分别加 $1$。</p>
-<p>注意，在处理 $lamps$ 时，需要进行去重，因为我们将重复的灯看作同一盏灯。</p>
+<p>我们遍历数组 $\textit{lamps}$，将当前遍历到的灯所在的行、列和正、反对角线拥有灯的数目分别加 $1$。</p>
+<p>注意，在处理 $\textit{lamps}$ 时，需要进行去重，因为我们将重复的灯看作同一盏灯。</p>
 <p>接下来，我们遍历 queries，判断当前查询点所在的行，列和正、反对角线是否有灯，如果有，则置 $1$，即该点在查询时是被照亮的。然后进行关闭操作，查找查询点所在的八近邻点及它本身是否有灯，如果有，将该点所在的行、列和正、反对角线的灯数目分别减 $1$，并且将灯从网格中去掉。</p>
 <p>最后，返回答案数组即可。</p>
-<p>时间复杂度 $O(m + q)$，其中 $m$ 和 $q$ 分别为数组 $lamps$ 和 $queries$ 的长度。</p>
+<p>时间复杂度 $O(m + q)$，其中 $m$ 和 $q$ 分别为数组 $\textit{lamps}$ 和 $\textit{queries}$ 的长度。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
