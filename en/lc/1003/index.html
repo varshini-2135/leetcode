@@ -77712,10 +77712,10 @@ Thus, &quot;abcabcababcc&quot; is valid.
 <!-- solution:start -->
 
 <h3 id="solution-1-stack">Solution 1: Stack</h3>
-<p>If the string is valid, it's length must be the multiple of $3$.</p>
-<p>We traverse the string and push every character into the stack $t$. If the size of stack $t$ is greater than or equal to $3$ and the top three elements of stack $t$ constitute the string <code>"abc"</code>, we pop the top three elements. Then we continue to traverse the next character of the string $s$.</p>
-<p>When the traversal is over, if the stack $t$ is empty, the string $s$ is valid, return <code>true</code>, otherwise return <code>false</code>.</p>
-<p>The time complexity is $O(n)$ and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.</p>
+<p>We observe the operations in the problem and find that each time a string $\textit{"abc"}$ is inserted at any position in the string. Therefore, after each insertion operation, the length of the string increases by $3$. If the string $s$ is valid, its length must be a multiple of $3$. Thus, we first check the length of the string $s$. If it is not a multiple of $3$, then $s$ must be invalid, and we can directly return $\textit{false}$.</p>
+<p>Next, we traverse each character $c$ in the string $s$. We first push the character $c$ onto the stack $t$. If the length of the stack $t$ is greater than or equal to $3$, and the top three elements of the stack form the string $\textit{"abc"}$, then we pop the top three elements from the stack. We then continue to traverse the next character in the string $s$.</p>
+<p>After the traversal, if the stack $t$ is empty, it means the string $s$ is valid, and we return $\textit{true}$; otherwise, we return $\textit{false}$.</p>
+<p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
