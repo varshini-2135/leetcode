@@ -82315,8 +82315,8 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：字符串分割</h3>
-<p>将 $sentence$ 按空格分割为 $words$，然后遍历 $words$，检查 $words[i]$ 是否是 $searchWord$ 的前缀，是则返回 $i+1$。若遍历结束，所有单词都不满足，返回 $-1$。</p>
-<p>时间复杂度 $O(mn)$。其中 $m$ 是 $sentence$ 的长度，而 $n$ 是 $searchWord$ 的长度。</p>
+<p>我们将 $\textit{sentence}$ 按空格分割为 $\textit{words}$，然后遍历 $\textit{words}$，检查 $\textit{words}[i]$ 是否是 $\textit{searchWord}$ 的前缀，是则返回 $i+1$。若遍历结束，所有单词都不满足，返回 $-1$。</p>
+<p>时间复杂度 $O(m \times n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是 $\textit{sentence}$ 和 $\textit{searchWord}$ 的长度。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -82472,9 +82472,9 @@
 <span class="x">     * @return Integer</span>
 <span class="x">     */</span>
 <span class="x">    function isPrefixOfWord($sentence, $searchWord) {</span>
-<span class="x">        $arr = explode(&#39; &#39;, $sentence);</span>
-<span class="x">        for ($i = 0; $i &lt; count($arr); $i++) {</span>
-<span class="x">            if (strpos($arr[$i], $searchWord) === 0) {</span>
+<span class="x">        $words = explode(&#39; &#39;, $sentence);</span>
+<span class="x">        for ($i = 0; $i &lt; count($words); ++$i) {</span>
+<span class="x">            if (strpos($words[$i], $searchWord) === 0) {</span>
 <span class="x">                return $i + 1;</span>
 <span class="x">            }</span>
 <span class="x">        }</span>

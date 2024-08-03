@@ -37536,9 +37536,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-using-window-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Using Window Functions
     </span>
   </a>
   
@@ -77696,7 +77696,7 @@ This table contains the account id of the user who logged in and the login date.
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<strong>Input:</strong>
 Accounts table:
 +----+----------+
 | id | name     |
@@ -77718,13 +77718,13 @@ Logins table:
 | 1  | 2020-06-07 |
 | 7  | 2020-06-10 |
 +----+------------+
-<strong>Output:</strong> 
+<strong>Output:</strong>
 +----+----------+
 | id | name     |
 +----+----------+
 | 7  | Jonathan |
 +----+----------+
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 User Winston with id = 1 logged in 2 times only in 2 different days, so, Winston is not an active user.
 User Jonathan with id = 7 logged in 7 times in 6 different days, five of them were consecutive days, so, Jonathan is an active user.
 </pre>
@@ -77737,7 +77737,10 @@ User Jonathan with id = 7 logged in 7 times in 6 different days, five of them we
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-using-window-functions">Solution 1: Using Window Functions</h3>
+<p>First, we join the <code>Logins</code> table and the <code>Accounts</code> table, and remove duplicates to get the temporary table <code>T</code>.</p>
+<p>Then, we use the window function <code>ROW_NUMBER()</code> to calculate the base login date <code>g</code> for each user <code>id</code>. If a user logs in for 5 consecutive days, their <code>g</code> values are the same.</p>
+<p>Finally, we group by <code>id</code> and <code>g</code> to count the number of logins for each user. If the number of logins is greater than or equal to 5, then the user is considered active.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -77753,19 +77756,43 @@ User Jonathan with id = 7 logged in 7 times in 6 different days, five of them we
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
-<span class="k">WITH</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">AS</span>
-<span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span>
-<span class="w">         </span><span class="k">SUM</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">id</span>
-<span class="w">    </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w">  </span><span class="n">login_date</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="nb">interval</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="k">day</span><span class="w"> </span><span class="n">preceding</span><span class="p">)</span><span class="o">/</span><span class="n">id</span><span class="w"> </span><span class="n">cnt</span>
-<span class="w">    </span><span class="k">FROM</span>
-<span class="w">        </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">*</span>
-<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">Accounts</span>
-<span class="w">        </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Logins</span><span class="w"> </span><span class="k">using</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">tt</span><span class="w"> </span><span class="p">)</span>
-<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
-<span class="w">         </span><span class="n">name</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">t</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">cnt</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
+<span class="k">WITH</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">*</span>
+<span class="w">        </span><span class="k">FROM</span>
+<span class="w">            </span><span class="n">Logins</span>
+<span class="w">            </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Accounts</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="n">P</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span>
+<span class="w">            </span><span class="o">*</span><span class="p">,</span>
+<span class="w">            </span><span class="n">DATE_SUB</span><span class="p">(</span>
+<span class="w">                </span><span class="n">login_date</span><span class="p">,</span>
+<span class="w">                </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span>
+<span class="w">                    </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span>
+<span class="w">                    </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">login_date</span>
+<span class="w">                </span><span class="p">)</span><span class="w"> </span><span class="k">DAY</span>
+<span class="w">            </span><span class="p">)</span><span class="w"> </span><span class="k">g</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">T</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">P</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="k">g</span>
+<span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">5</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
