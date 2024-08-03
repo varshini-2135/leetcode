@@ -77727,7 +77727,7 @@ There are multiple ways to convert arr to target, this is not the only way to do
 <p>If two arrays are equal after sorting, then they can be made equal by reversing sub-arrays.</p>
 <p>Therefore, we only need to sort the two arrays and then check if the sorted arrays are equal.</p>
 <p>The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $arr$.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">PHP</label><label for="__tabbed_1_8">C</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:9"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">JavaScript</label><label for="__tabbed_1_7">Rust</label><label for="__tabbed_1_8">PHP</label><label for="__tabbed_1_9">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -77789,9 +77789,21 @@ There are multiple ways to convert arr to target, this is not the only way to do
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">canBeEqual</span><span class="p">(</span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">arr</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">target</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span>
-<span class="w">    </span><span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">target</span><span class="p">.</span><span class="nx">join</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">arr</span><span class="p">.</span><span class="nx">join</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">target</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">target</span><span class="p">.</span><span class="nx">every</span><span class="p">((</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">canBeEqual</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="nx">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">target</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">target</span><span class="p">.</span><span class="nx">every</span><span class="p">((</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
@@ -77877,7 +77889,7 @@ There are multiple ways to convert arr to target, this is not the only way to do
 <p>We note that the range of the array elements given in the problem is $1 \sim 1000$. Therefore, we can use two arrays <code>cnt1</code> and <code>cnt2</code> of length $1001$ to record the number of times each element appears in the arrays <code>target</code> and <code>arr</code> respectively. Finally, we just need to check if the two arrays are equal.</p>
 <p>We can also use only one array <code>cnt</code>. We traverse the arrays <code>target</code> and <code>arr</code>. For <code>target[i]</code>, we increment <code>cnt[target[i]]</code>, and for <code>arr[i]</code>, we decrement <code>cnt[arr[i]]</code>. In the end, we check if all elements in the array <code>cnt</code> are $0$.</p>
 <p>The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array <code>arr</code>, and $M$ is the range of the array elements. In this problem, $M = 1001$.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">Rust</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:7"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">JavaScript</label><label for="__tabbed_2_7">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -77990,6 +78002,26 @@ There are multiple ways to convert arr to target, this is not the only way to do
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">canBeEqual</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="nx">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">target</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">1001</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">cnt</span><span class="p">[</span><span class="nx">target</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">cnt</span><span class="p">[</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span><span class="o">--</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">cnt</span><span class="p">.</span><span class="nx">every</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="nx">v</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -78045,6 +78077,11 @@ There are multiple ways to convert arr to target, this is not the only way to do
 
     
     <nav>
+      
+        <a href="https://github.com/rain84" class="md-author" title="@rain84">
+          
+          <img src="https://avatars.githubusercontent.com/u/1732547?v=4&size=72" alt="rain84">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
