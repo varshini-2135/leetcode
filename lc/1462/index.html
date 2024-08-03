@@ -82551,7 +82551,7 @@
 <p>然后，我们使用拓扑排序计算出所有节点对之间的可达性。</p>
 <p>定义一个队列 $q$，初始时将所有入度为 $0$ 的节点加入队列中。随后不断进行以下操作：取出队首节点 $i$，然后遍历 $g[i]$ 中的所有节点 $j$，将 $f[i][j]$ 设为 $true$。接下来，我们枚举节点 $h$，如果 $f[h][i]$ 为 $true$，那么我们也将 $f[h][j]$ 设为 $true$。在这之后，我们将 $j$ 的入度减少 $1$。如果此时 $j$ 的入度为 $0$，那么我们就将 $j$ 加入队列中。</p>
 <p>在计算完所有节点对之间的可达性之后，对于每一个查询 $[a, b]$，我们直接返回 $f[a][b]$ 即可。</p>
-<p>时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为节点数。</p>
+<p>时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为节点数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

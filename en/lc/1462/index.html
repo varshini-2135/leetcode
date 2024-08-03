@@ -37704,18 +37704,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-floyds-algorithm" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Floyd's Algorithm
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
+  <a href="#solution-2-topological-sorting" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2
+      Solution 2: Topological Sorting
     </span>
   </a>
   
@@ -77739,7 +77739,13 @@ Course 0 is not a prerequisite of course 1, but the opposite is true.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-floyds-algorithm">Solution 1: Floyd's Algorithm</h3>
+<p>We create a 2D array $f$, where $f[i][j]$ indicates whether node $i$ can reach node $j$.</p>
+<p>Next, we iterate through the prerequisites array $prerequisites$. For each item $[a, b]$ in it, we set $f[a][b]$ to $true$.</p>
+<p>Then, we use Floyd's algorithm to compute the reachability between all pairs of nodes.</p>
+<p>Specifically, we use three nested loops: first enumerating the intermediate node $k$, then the starting node $i$, and finally the ending node $j$. For each iteration, if node $i$ can reach node $k$ and node $k$ can reach node $j$, then node $i$ can also reach node $j$, and we set $f[i][j]$ to $true$.</p>
+<p>After computing the reachability between all pairs of nodes, for each query $[a, b]$, we can directly return $f[a][b]$.</p>
+<p>The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the number of nodes.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -77932,7 +77938,13 @@ Course 0 is not a prerequisite of course 1, but the opposite is true.
 
 <!-- solution:start -->
 
-<h3 id="solution-2">Solution 2</h3>
+<h3 id="solution-2-topological-sorting">Solution 2: Topological Sorting</h3>
+<p>Similar to Solution 1, we create a 2D array $f$, where $f[i][j]$ indicates whether node $i$ can reach node $j$. Additionally, we create an adjacency list $g$, where $g[i]$ represents all successor nodes of node $i$, and an array $indeg$, where $indeg[i]$ represents the in-degree of node $i$.</p>
+<p>Next, we iterate through the prerequisites array $prerequisites$. For each item $[a, b]$ in it, we update the adjacency list $g$ and the in-degree array $indeg$.</p>
+<p>Then, we use topological sorting to compute the reachability between all pairs of nodes.</p>
+<p>We define a queue $q$, initially adding all nodes with an in-degree of $0$ to the queue. Then, we continuously perform the following operations: remove the front node $i$ from the queue, then iterate through all nodes $j$ in $g[i]$, setting $f[i][j]$ to $true$. Next, we enumerate node $h$, and if $f[h][i]$ is $true$, we also set $f[h][j]$ to $true$. After this, we decrease the in-degree of $j$ by $1$. If the in-degree of $j$ becomes $0$, we add $j$ to the queue.</p>
+<p>After computing the reachability between all pairs of nodes, for each query $[a, b]$, we can directly return $f[a][b]$.</p>
+<p>The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the number of nodes.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
