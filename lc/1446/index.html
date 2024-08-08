@@ -75284,7 +75284,7 @@
         
   
   <span class="md-ellipsis">
-    3247. Number of Subsequences with Odd Sum 🔒
+    3247. 奇数和子序列的数量 🔒
   </span>
   
 
@@ -82544,9 +82544,9 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：遍历计数</h3>
-<p>我们定义一个变量 $t$，表示当前连续字符的长度，初始时 $t=1$。</p>
-<p>接下来，我们从字符串 $s$ 的第二个字符开始遍历，如果当前字符与上一个字符相同，那么 $t = t + 1$，然后更新答案 $ans = \max(ans, t)$；否则，$t = 1$。</p>
-<p>最后返回答案 $ans$ 即可。</p>
+<p>我们定义一个变量 $\textit{t}$，表示当前连续字符的长度，初始时 $\textit{t}=1$。</p>
+<p>接下来，我们从字符串 $s$ 的第二个字符开始遍历，如果当前字符与上一个字符相同，那么 $\textit{t} = \textit{t} + 1$，然后更新答案 $\textit{ans} = \max(\textit{ans}, \textit{t})$；否则 $\textit{t} = 1$。</p>
+<p>最后返回答案 $\textit{ans}$ 即可。</p>
 <p>时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
