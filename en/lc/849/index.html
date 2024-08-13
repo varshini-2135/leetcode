@@ -24863,9 +24863,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-single-traversal" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Single Traversal
     </span>
   </a>
   
@@ -78074,7 +78074,11 @@ This is the maximum distance possible, so the answer is 3.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-single-traversal">Solution 1: Single Traversal</h3>
+<p>We define two variables $\textit{first}$ and $\textit{last}$ to represent the positions of the first and last person, respectively. We use the variable $d$ to represent the maximum distance between two people.</p>
+<p>Then, we traverse the array $\textit{seats}$. If the current position is occupied, and if $\textit{last}$ has been updated before, it means there was someone before, so we update $d = \max(d, i - \textit{last})$. If $\textit{first}$ has not been updated before, it means there was no one before, so we update $\textit{first} = i$. Next, we update $\textit{last} = i$.</p>
+<p>Finally, we return $\max(\textit{first}, n - \textit{last} - 1, d / 2)$.</p>
+<p>The time complexity is $O(n)$, where $n$ is the length of the array $\textit{seats}$. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

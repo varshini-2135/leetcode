@@ -82640,7 +82640,7 @@
 <strong>解释：
 </strong>如果亚历克斯坐在第二个空位（seats[2]）上，他到离他最近的人的距离为 2 。
 如果亚历克斯坐在其它任何一个空位上，他到离他最近的人的距离为 1 。
-因此，他到离他最近的人的最大距离是 2 。 
+因此，他到离他最近的人的最大距离是 2 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -82677,10 +82677,10 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：一次遍历</h3>
-<p>我们定义两个变量 $first$ 和 $last$ 分别表示第一个人和最后一个人的位置，用变量 $d$ 表示两个人之间的最大距离。</p>
-<p>然后遍历数组 $seats$，如果当前位置有人，如果此前 $last$ 更新过，说明此前有人，此时更新 $d = \max(d, i - last)$；如果此前 $first$ 没有更新过，说明此前没有人，此时更新 $first = i$。接下来更新 $last = i$。</p>
-<p>最后返回 $\max(first, n - last - 1, d / 2)$ 即可。</p>
-<p>时间复杂度 $O(n)$，其中 $n$ 为数组 $seats$ 的长度。空间复杂度 $O(1)$。</p>
+<p>我们定义两个变量 $\textit{first}$ 和 $\textit{last}$ 分别表示第一个人和最后一个人的位置，用变量 $d$ 表示两个人之间的最大距离。</p>
+<p>然后遍历数组 $\textit{seats}$，如果当前位置有人，如果此前 $\textit{last}$ 更新过，说明此前有人，此时更新 $d = \max(d, i - \textit{last})$；如果此前 $\textit{first}$ 没有更新过，说明此前没有人，此时更新 $\textit{first} = i$。接下来更新 $\textit{last} = i$。</p>
+<p>最后返回 $\max(\textit{first}, n - \textit{last} - 1, d / 2)$ 即可。</p>
+<p>时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{seats}$ 的长度。空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
