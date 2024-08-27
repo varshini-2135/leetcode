@@ -36653,18 +36653,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-simulation" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Simulation
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
+  <a href="#solution-2-binary-indexed-tree" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2
+      Solution 2: Binary Indexed Tree
     </span>
   </a>
   
@@ -78402,13 +78402,13 @@
 
 <pre>
 <strong>Input:</strong> queries = [3,1,2,1], m = 5
-<strong>Output:</strong> [2,1,2,1] 
-<strong>Explanation:</strong> The queries are processed as follow: 
-For i=0: queries[i]=3, P=[1,2,3,4,5], position of 3 in P is <strong>2</strong>, then we move 3 to the beginning of P resulting in P=[3,1,2,4,5]. 
-For i=1: queries[i]=1, P=[3,1,2,4,5], position of 1 in P is <strong>1</strong>, then we move 1 to the beginning of P resulting in P=[1,3,2,4,5]. 
-For i=2: queries[i]=2, P=[1,3,2,4,5], position of 2 in P is <strong>2</strong>, then we move 2 to the beginning of P resulting in P=[2,1,3,4,5]. 
-For i=3: queries[i]=1, P=[2,1,3,4,5], position of 1 in P is <strong>1</strong>, then we move 1 to the beginning of P resulting in P=[1,2,3,4,5]. 
-Therefore, the array containing the result is [2,1,2,1].  
+<strong>Output:</strong> [2,1,2,1]
+<strong>Explanation:</strong> The queries are processed as follow:
+For i=0: queries[i]=3, P=[1,2,3,4,5], position of 3 in P is <strong>2</strong>, then we move 3 to the beginning of P resulting in P=[3,1,2,4,5].
+For i=1: queries[i]=1, P=[3,1,2,4,5], position of 1 in P is <strong>1</strong>, then we move 1 to the beginning of P resulting in P=[1,3,2,4,5].
+For i=2: queries[i]=2, P=[1,3,2,4,5], position of 2 in P is <strong>2</strong>, then we move 2 to the beginning of P resulting in P=[2,1,3,4,5].
+For i=3: queries[i]=1, P=[2,1,3,4,5], position of 1 in P is <strong>1</strong>, then we move 1 to the beginning of P resulting in P=[1,2,3,4,5].
+Therefore, the array containing the result is [2,1,2,1].
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -78439,7 +78439,8 @@ Therefore, the array containing the result is [2,1,2,1].
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-simulation">Solution 1: Simulation</h3>
+<p>The problem's data scale is not large, so we can directly simulate it.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -78592,7 +78593,16 @@ Therefore, the array containing the result is [2,1,2,1].
 
 <!-- solution:start -->
 
-<h3 id="solution-2">Solution 2</h3>
+<h3 id="solution-2-binary-indexed-tree">Solution 2: Binary Indexed Tree</h3>
+<p>The Binary Indexed Tree (BIT), also known as the Fenwick Tree, efficiently supports the following two operations:</p>
+<ol>
+<li><strong>Point Update</strong> <code>update(x, delta)</code>: Adds a value <code>delta</code> to the element at position <code>x</code> in the sequence.</li>
+<li><strong>Prefix Sum Query</strong> <code>query(x)</code>: Queries the sum of the sequence over the interval <code>[1,...,x]</code>, i.e., the prefix sum at position <code>x</code>.</li>
+</ol>
+<p>Both operations have a time complexity of $O(\log n)$.</p>
+<p>The fundamental functionality of the Binary Indexed Tree is to count the number of elements smaller than a given element <code>x</code>. This comparison is abstract and can refer to size, coordinate, mass, etc.</p>
+<p>For example, given the array <code>a[5] = {2, 5, 3, 4, 1}</code>, the task is to compute <code>b[i] = the number of elements to the left of position i that are less than or equal to a[i]</code>. For this example, <code>b[5] = {0, 1, 1, 2, 0}</code>.</p>
+<p>The solution is to traverse the array, first calculating <code>query(a[i])</code> for each position, and then updating the Binary Indexed Tree with <code>update(a[i], 1)</code>. When the range of numbers is large, discretization is necessary, which involves removing duplicates, sorting, and then assigning an index to each number.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

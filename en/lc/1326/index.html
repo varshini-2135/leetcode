@@ -34910,9 +34910,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-greedy" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Greedy
     </span>
   </a>
   
@@ -78424,7 +78424,28 @@ Opening Only the second tap will water the whole garden [0,5]
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-greedy">Solution 1: Greedy</h3>
+<p>We note that for all taps that can cover a certain left endpoint, choosing the tap that can cover the farthest right endpoint is optimal.</p>
+<p>Therefore, we can preprocess the array $ranges$. For the $i$-th tap, it can cover the left endpoint $l = \max(0, i - ranges[i])$ and the right endpoint $r = i + ranges[i]$. We calculate the position of the tap that can cover the left endpoint $l$ with the farthest right endpoint and record it in the array $last[i]$.</p>
+<p>Then we define the following three variables:</p>
+<ul>
+<li>Variable $ans$ represents the final answer, i.e., the minimum number of taps;</li>
+<li>Variable $mx$ represents the farthest right endpoint that can currently be covered;</li>
+<li>Variable $pre$ represents the farthest right endpoint covered by the previous tap.</li>
+</ul>
+<p>We traverse all positions in the range $[0, \ldots, n-1]$. For the current position $i$, we use $last[i]$ to update $mx$, i.e., $mx = \max(mx, last[i])$.</p>
+<ul>
+<li>If $mx \leq i$, it means the next position cannot be covered, so we return $-1$.</li>
+<li>If $pre = i$, it means a new subinterval needs to be used, so we increment $ans$ by $1$ and update $pre = mx$.</li>
+</ul>
+<p>After the traversal, we return $ans$.</p>
+<p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the garden.</p>
+<p>Similar problems:</p>
+<ul>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0045.Jump%20Game%20II/README.md">45. Jump Game II</a></li>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0055.Jump%20Game/README.md">55. Jump Game</a></li>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1024.Video%20Stitching/README.md">1024. Video Stitching</a></li>
+</ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
