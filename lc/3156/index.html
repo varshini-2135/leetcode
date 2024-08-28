@@ -7017,6 +7017,8 @@
       
         
       
+        
+      
     
     
       
@@ -73382,7 +73384,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：合并 + 连接
     </span>
   </a>
   
@@ -75745,6 +75747,27 @@
   
   <span class="md-ellipsis">
     3267. 统计近似相等数对 II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3268/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3268. Find Overlapping Shifts II 🔒
   </span>
   
 
@@ -83059,7 +83082,12 @@
 <h2 id="_2">解法</h2>
 <!-- solution:start -->
 
-<h3 id="_3">方法一</h3>
+<h3 id="_3">方法一：合并 + 连接</h3>
+<p>我们首先将 <code>employee_id</code> 的 <code>start_time</code> 和 <code>end_time</code> 合并到一个新的表 <code>T</code> 中，然后使用 <code>LEAD</code> 函数计算出每个员工的下一个任务的开始时间，接着我们将 <code>T</code> 表和 <code>Tasks</code> 表连接起来，计算出每个员工的并发任务数，最后按照 <code>employee_id</code> 分组，计算出每个员工的总任务时间和最大并发任务数。</p>
+<p>相似题目：</p>
+<ul>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README.md">3268. Find Overlapping Shifts II 🔒</a></li>
+</ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

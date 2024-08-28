@@ -6977,6 +6977,8 @@
       
         
       
+        
+      
     
     
       
@@ -73340,9 +73342,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-merge-join" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Merge + Join
     </span>
   </a>
   
@@ -75705,6 +75707,27 @@
   
   <span class="md-ellipsis">
     3267. Count Almost Equal Pairs II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3268/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3268. Find Overlapping Shifts II 🔒
   </span>
   
 
@@ -78458,7 +78481,12 @@ Each row in this table contains the task identifier, the employee identifier, an
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-merge-join">Solution 1: Merge + Join</h3>
+<p>First, we merge the <code>start_time</code> and <code>end_time</code> for each <code>employee_id</code> into a new table <code>T</code>. Then, using the <code>LEAD</code> function, we calculate the start time of the next task for each employee. Next, we join table <code>T</code> with the <code>Tasks</code> table to compute the concurrent task count for each employee. Finally, we group by <code>employee_id</code> to calculate the total task duration and the maximum concurrent tasks for each employee.</p>
+<p>Similar Problem:</p>
+<ul>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README_EN.md">3268. Find Overlapping Shifts II 🔒</a></li>
+</ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
