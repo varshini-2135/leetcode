@@ -26,7 +26,7 @@
     
     
       
-        <title>3109. Find the Index of Permutation 🔒 - LeetCode Wiki</title>
+        <title>3109. 查找排列的下标 🔒 - LeetCode Wiki</title>
       
     
     
@@ -91,7 +91,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#3109-find-the-index-of-permutation" class="md-skip">
+        <a href="#3109" class="md-skip">
           跳转至
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3109. Find the Index of Permutation 🔒
+              3109. 查找排列的下标 🔒
             
           </span>
         </div>
@@ -480,6 +480,8 @@
   
     
     
+      
+        
       
         
       
@@ -72229,7 +72231,7 @@
         
   
   <span class="md-ellipsis">
-    3104. Find Longest Self-Contained Substring 🔒
+    3104. 查找最长的自包含子串 🔒
   </span>
   
 
@@ -72343,7 +72345,7 @@
           
   
   <span class="md-ellipsis">
-    3109. Find the Index of Permutation 🔒
+    3109. 查找排列的下标 🔒
   </span>
   
 
@@ -72354,7 +72356,7 @@
         
   
   <span class="md-ellipsis">
-    3109. Find the Index of Permutation 🔒
+    3109. 查找排列的下标 🔒
   </span>
   
 
@@ -72596,7 +72598,7 @@
         
   
   <span class="md-ellipsis">
-    3118. Friday Purchase III 🔒
+    3118. 发生在周五的交易 III 🔒
   </span>
   
 
@@ -75767,7 +75769,28 @@
         
   
   <span class="md-ellipsis">
-    3268. Find Overlapping Shifts II 🔒
+    3268. 查找重叠的班次 II 🔒
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3269/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3269. Constructing Two Increasing Arrays 🔒
   </span>
   
 
@@ -83020,55 +83043,57 @@
 
 <!-- problem:start -->
 
-<h1 id="3109-find-the-index-of-permutation"><a href="https://leetcode.cn/problems/find-the-index-of-permutation">3109. Find the Index of Permutation 🔒</a></h1>
+<h1 id="3109"><a href="https://leetcode.cn/problems/find-the-index-of-permutation">3109. 查找排列的下标 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
 <!-- description:start -->
 
-<p>Given an array <code>perm</code> of length <code>n</code> which is a permutation of <code>[1, 2, ..., n]</code>, return the index of <code>perm</code> in the <span data-keyword="lexicographically-sorted-array">lexicographically sorted</span> array of all of the permutations of <code>[1, 2, ..., n]</code>.</p>
+<p>给定一个长度为&nbsp;<code>n</code>&nbsp;的数组&nbsp;<code>perm</code>，它是&nbsp;<code>[1, 2, ..., n]</code>&nbsp;的一个排列，返回 <code>[1, 2, ..., n]</code>&nbsp;的所有排列的字典序数组中&nbsp;<code>perm</code>&nbsp;的下标。</p>
 
-<p>Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup>&nbsp;+ 7</code>.</p>
+<p>由于答案可能非常大，返回值对&nbsp;<code>10<sup>9</sup>&nbsp;+ 7</code>&nbsp;<strong>取模</strong>。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">perm = [1,2]</span></p>
+<p><span class="example-io"><b>输入：</b>perm = [1,2]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">0</span></p>
+<p><span class="example-io"><b>输出：</b>0</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>There are only two permutations in the following order:</p>
+<p>按以下顺序只有 2 种排列：</p>
 
 <p><code>[1,2]</code>, <code>[2,1]</code><br />
 <br />
-And <code>[1,2]</code> is at index 0.</p>
+并且&nbsp;<code>[1,2]</code>&nbsp;在下标 0。</p>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">perm = [3,1,2]</span></p>
+<p><span class="example-io"><b>输入：</b>perm = [3,1,2]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">4</span></p>
+<p><span class="example-io"><b>输出：</b>4</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>There are only six permutations in the following order:</p>
+<p>按以下顺序只有 6 种排列：</p>
 
 <p><code>[1,2,3]</code>, <code>[1,3,2]</code>, <code>[2,1,3]</code>, <code>[2,3,1]</code>, <code>[3,1,2]</code>, <code>[3,2,1]</code><br />
 <br />
-And <code>[3,1,2]</code> is at index 4.</p>
+并且&nbsp;<code>[3,1,2]</code>&nbsp;在下标 4。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
     <li><code>1 &lt;= n == perm.length &lt;= 10<sup>5</sup></code></li>
-    <li><code>perm</code> is a permutation of <code>[1, 2, ..., n]</code>.</li>
+    <li><code>perm</code>&nbsp;是&nbsp;<code>[1, 2, ..., n]</code>&nbsp;的一个排列。</li>
 </ul>
 
 <!-- description:end -->
